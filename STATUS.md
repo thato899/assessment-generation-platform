@@ -23,7 +23,7 @@ Issue #6 - versioned assessment generation API contract is in review.
 
 ## In progress
 
-- Pull request for Issue #6 is ready for CI review.
+- Pull request #20 for Issue #6 is open for review; CI is passing.
 
 ## Blocked
 
@@ -39,7 +39,7 @@ Issue #6 - versioned assessment generation API contract is in review.
 
 ## Test/CI status
 
-- Issue #6 local suite: 69 tests passed; 95% coverage; Ruff, mypy, and build passed. PR CI is pending.
+- Issue #6 local suite: 69 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #20 CI quality and dependency-audit checks passed.
 - Issues #1-#5 and #16 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -53,7 +53,7 @@ Issue #6 - versioned assessment generation API contract is in review.
 - PR #17 merged at `ab895c6c6e9006ede0fe81100797c8398749416f`.
 - PR #18 merged at `6df9aae2e442b52df8d08319fef180628ac829f2`.
 - PR #19 merged at `309ed99b25a14573c02263fa9411195aa6e3b99f`.
-- Issue #6 pull request pending CI.
+- Issue #6 pull request #20 is open with CI passing.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
