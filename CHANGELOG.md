@@ -7,3 +7,4 @@
 - Added an immutable vertical projectile scenario model with explicit SI units, sign conventions, assumptions, and validation tests.
 - Added deterministic vertical projectile position/velocity calculations, event detection, root selection, and solution validation.
 - Added canonical question-part response specifications, expected answers, marking schemes, learner responses, marking results, and ID-derived memorandum entries.
+- Added a safe deterministic SVG renderer for one-dimensional vertical projectile diagrams.
