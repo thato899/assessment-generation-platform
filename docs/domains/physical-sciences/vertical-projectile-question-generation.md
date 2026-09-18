@@ -51,6 +51,12 @@ pedagogical coverage does not vary accidentally. The supplied seed is retained
 in `GenerationProvenance` together with the generator version and selected
 template IDs. No global random state, timestamp, or random UUID is used.
 
+Property-based testing was not added for this first focused generator. The
+supported scenario families and event combinations are finite and explicit;
+deterministic unit cases provide clearer diagnostics for template applicability,
+solver-derived values, marks, IDs, and prompt safety. A later scenario factory
+with broader valid-input variation can justify targeted property strategies.
+
 ## Visual integration and boundaries
 
 When visuals are requested, the generator calls `ProjectileSvgRenderer` with
