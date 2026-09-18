@@ -23,7 +23,7 @@ Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator i
 
 ## In progress
 
-- Issue #21 generator implementation is complete locally and is awaiting commit and PR review.
+- Pull request #22 for Issue #21 is open for review; CI is pending.
 
 ## Blocked
 
@@ -39,7 +39,7 @@ Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator i
 
 ## Test/CI status
 
-- Issue #21 local suite: 81 tests passed; 95% coverage; Ruff, mypy, and build passed. PR not yet opened.
+- Issue #21 local suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI is pending.
 - Issues #1-#6 and #16 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -54,7 +54,7 @@ Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator i
 - PR #18 merged at `6df9aae2e442b52df8d08319fef180628ac829f2`.
 - PR #19 merged at `309ed99b25a14573c02263fa9411195aa6e3b99f`.
 - PR #20 merged at `52150816851cbc006e5513eea3ce5c493170083f`.
-- Issue #21 is open and marked `status:in-progress`.
+- Issue #21 is open and marked `status:in-review`; PR #22 is open.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
