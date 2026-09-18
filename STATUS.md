@@ -17,7 +17,7 @@ Foundation implementation.
 - GitHub repository governance and initial backlog.
 
 ## Blocked
-- None known locally. GitHub project/branch protection depend on account permissions.
+- GitHub Project and branch protection were not configured in this bootstrap because the available CLI token does not expose project administration; no claim is made that they exist.
 
 ## Next tasks
 - Implement core assessment models and CAPS references, then the deterministic vertical-projectile scenario.
@@ -26,7 +26,15 @@ Foundation implementation.
 - Generation endpoint intentionally returns 501 until M1/M2.
 
 ## Test/CI status
-Local quality suite pending dependency installation. CI workflow configured.
+Local: 2 tests passed; Ruff passed; mypy passed; wheel build passed. GitHub Actions workflow is pushed and awaiting its first run.
+
+## GitHub state
+- Repository: https://github.com/thato899/assessment-generation-platform
+- Default branch: `main`
+- Milestones: M0, M1, M2, M6
+- Open backlog issues: #1–#6, all labelled `status:backlog`
+- Pull request: none; bootstrap was pushed to the initial `main` branch.
+- Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
 - Python/FastAPI/Pydantic; deterministic domain engines remain framework-independent.
