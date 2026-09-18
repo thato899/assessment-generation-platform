@@ -12,30 +12,29 @@ M1 Assessment Core — Issue #1 implementation in review.
 - Repository scaffold, Python packaging, FastAPI app, versioned health endpoint, request schema.
 - Initial test, lint, type-check, CI, security, issue-template, and documentation structure.
 - Architecture and deterministic-correctness decisions documented.
-- Issue #1 core value objects and framework-independent assessment models implemented on a feature branch.
+- Issue #1 core value objects and framework-independent assessment models merged via PR #13.
 
 ## In progress
-- Pull request for Issue #1 is ready for CI review.
+- Issue #2: CAPS Grade 12 Physical Sciences curriculum constraints.
 
 ## Blocked
 - GitHub Project and branch protection were not configured in this bootstrap because the available CLI token does not expose project administration; no claim is made that they exist.
 
 ## Next tasks
-- After Issue #1 is merged, start Issue #2: represent CAPS Grade 12 Physical Sciences curriculum constraints.
+- Complete Issue #2, then begin Issue #3: deterministic vertical projectile scenario model.
 
 ## Known problems
 - Generation endpoint intentionally returns 501 until M1/M2.
 
 ## Test/CI status
-Local Issue #1 suite: 18 tests passed; 96% total coverage; Ruff passed; mypy passed; wheel build passed. PR CI pending.
+Issue #1 PR #13 merged with CI quality and dependency-audit checks passing. Local suite: 18 tests passed; 96% coverage; Ruff, mypy, and build passed.
 
 ## GitHub state
 - Repository: https://github.com/thato899/assessment-generation-platform
 - Default branch: `main`
 - Milestones: M0, M1, M2, M6
 - Open backlog issues: #1–#6, all labelled `status:backlog`
-- Feature branch: `feature/issue-1-assessment-core-models`
-- Pull request: https://github.com/thato899/assessment-generation-platform/pull/13 (open; CI pending).
+- Pull request #13 merged at `405cb1927fa0d68fa11ca55d432e1382f6ba59a1`.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
