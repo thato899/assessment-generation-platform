@@ -124,6 +124,48 @@ class QuestionPartId:
 
 
 @dataclass(frozen=True, slots=True)
+class VisualReference:
+    """A renderer-neutral visual payload attached to authored content."""
+
+    identifier: str
+    media_type: str
+    content: str
+    width: int
+    height: int
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "identifier", _required_text(self.identifier, "visual ID"))
+        object.__setattr__(self, "media_type", _required_text(self.media_type, "media type"))
+        object.__setattr__(self, "content", _required_text(self.content, "visual content"))
+        if isinstance(self.width, bool) or not isinstance(self.width, int) or self.width < 1:
+            raise ValueError("visual width must be a positive integer")
+        if isinstance(self.height, bool) or not isinstance(self.height, int) or self.height < 1:
+            raise ValueError("visual height must be a positive integer")
+
+
+@dataclass(frozen=True, slots=True)
+class GenerationProvenance:
+    """Minimal reproducibility metadata for generated authored content."""
+
+    generator_id: str
+    generator_version: str
+    seed: GenerationSeed | None = None
+    template_ids: tuple[str, ...] = ()
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "generator_id", _required_text(self.generator_id, "generator ID"))
+        object.__setattr__(
+            self, "generator_version", _required_text(self.generator_version, "generator version")
+        )
+        if self.seed is not None and not isinstance(self.seed, GenerationSeed):
+            raise ValueError("generation provenance seed must be a GenerationSeed")
+        templates = tuple(_required_text(item, "template ID") for item in self.template_ids)
+        if len(templates) != len(set(templates)):
+            raise ValueError("template IDs must be unique")
+        object.__setattr__(self, "template_ids", templates)
+
+
+@dataclass(frozen=True, slots=True)
 class ResponseSpecification:
     kind: ResponseKind
     suggested_line_count: int = 0
@@ -362,6 +404,8 @@ class Question:
     scenario: Scenario | None = None
     solution: Solution | None = None
     rubric: MarkingRubric | None = None
+    visuals: tuple[VisualReference, ...] = ()
+    provenance: GenerationProvenance | None = None
 
     def __post_init__(self) -> None:
         object.__setattr__(
@@ -370,6 +414,11 @@ class Question:
         object.__setattr__(self, "prompt", _required_text(self.prompt, "prompt"))
         if not self.parts:
             raise ValueError("question must contain at least one part")
+        visuals = tuple(self.visuals)
+        object.__setattr__(self, "visuals", visuals)
+        visual_ids = tuple(visual.identifier for visual in visuals)
+        if len(visual_ids) != len(set(visual_ids)):
+            raise ValueError("question visual IDs must be unique")
 
 
 @dataclass(frozen=True, slots=True)

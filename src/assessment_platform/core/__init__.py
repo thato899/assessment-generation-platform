@@ -10,6 +10,7 @@ from assessment_platform.core.models import (
     Difficulty,
     ExpectedAnswer,
     ExpectedAnswerKind,
+    GenerationProvenance,
     GenerationSeed,
     Grade,
     LearnerResponse,
@@ -30,6 +31,7 @@ from assessment_platform.core.models import (
     Subject,
     Topic,
     ValidationResult,
+    VisualReference,
 )
 
 __all__ = [
@@ -43,6 +45,7 @@ __all__ = [
     "ExpectedAnswer",
     "ExpectedAnswerKind",
     "GenerationSeed",
+    "GenerationProvenance",
     "Grade",
     "LearnerResponse",
     "LearnerSubmission",
@@ -62,4 +65,5 @@ __all__ = [
     "Subject",
     "Topic",
     "ValidationResult",
+    "VisualReference",
 ]
