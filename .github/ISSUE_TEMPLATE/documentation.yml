@@ -1,0 +1,5 @@
+name: Documentation
+description: Improve project documentation
+body:
+  - {type: textarea, id: gap, attributes: {label: Documentation gap, required: true}}
+  - {type: textarea, id: outcome, attributes: {label: Desired outcome, required: true}}

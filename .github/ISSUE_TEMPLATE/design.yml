@@ -1,0 +1,6 @@
+name: Architecture / Design proposal
+description: Propose an architectural decision
+body:
+  - {type: textarea, id: problem, attributes: {label: Problem, required: true}}
+  - {type: textarea, id: options, attributes: {label: Options and trade-offs, required: true}}
+  - {type: textarea, id: decision, attributes: {label: Proposed decision, required: true}}

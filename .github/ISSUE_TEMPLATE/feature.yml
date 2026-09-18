@@ -1,0 +1,7 @@
+name: Feature
+description: Propose scoped platform work
+body:
+  - {type: textarea, id: context, attributes: {label: Context and objective, required: true}}
+  - {type: textarea, id: scope, attributes: {label: Scope and out of scope, required: true}}
+  - {type: textarea, id: acceptance, attributes: {label: Acceptance criteria, required: true}}
+  - {type: textarea, id: testing, attributes: {label: Testing and documentation requirements, required: true}}
