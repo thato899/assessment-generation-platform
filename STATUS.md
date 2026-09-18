@@ -6,7 +6,7 @@ Last updated: 2026-09-18
 M2 — Physical Sciences: Vertical Projectile Motion complete
 
 ## Current phase
-Issue #16 assessment response/marking model is implemented and its pull request is in review.
+M2 Physical Sciences: Vertical Projectile Motion — Issue #5 SVG renderer is in review.
 
 ## Completed
 - Repository scaffold, Python packaging, FastAPI app, versioned health endpoint, request validation, CI, security, and governance documentation.
@@ -15,21 +15,23 @@ Issue #16 assessment response/marking model is implemented and its pull request 
 - Issue #3 vertical projectile scenario model merged via PR #15.
 - Issue #4 deterministic projectile solver and solution validation merged via PR #17.
 - Issue #16 canonical assessment response, memorandum, and marking model implemented on a feature branch.
+- Issue #16 canonical assessment model merged via PR #18.
+- Issue #5 deterministic vertical projectile SVG renderer implemented on a feature branch.
 
 ## In progress
-- Pull request for Issue #16 is ready for CI review.
+- Pull request for Issue #5 is ready for CI review.
 
 ## Blocked
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 
 ## Next tasks
-- Complete Issue #16 before beginning question-generation or automatic-marking work.
+- Complete Issue #5, then continue the planned vertical projectile question-generation work after the canonical assessment prerequisite.
 
 ## Known problems
 - Generation endpoint intentionally returns 501 until later milestones.
 
 ## Test/CI status
-Issues #1–#4 merged with CI quality and dependency-audit checks passing. Issue #16 local suite: pending final report.
+Issues #1–#4 and #16 merged with CI quality and dependency-audit checks passing. Issue #5 local suite: 61 tests passed; 94% coverage; Ruff, mypy, and build passed. PR CI pending.
 
 ## GitHub state
 - Repository: https://github.com/thato899/assessment-generation-platform
@@ -39,7 +41,8 @@ Issues #1–#4 merged with CI quality and dependency-audit checks passing. Issue
 - PR #14 merged at `ad815850d9b9458978b4c92c153abbaace7d96d7`.
 - PR #15 merged at `15236ce0abb902689c96e4b3fe01f7a85a09b0d5`.
 - PR #17 merged at `ab895c6c6e9006ede0fe81100797c8398749416f`.
-- Issue #16 pull request pending CI.
+- PR #18 merged at `6df9aae2e442b52df8d08319fef180628ac829f2`.
+- Issue #5 pull request pending CI.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
