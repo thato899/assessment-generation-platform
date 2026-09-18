@@ -10,14 +10,17 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12', cache: pip}
       - run: pip install -e ".[dev]"
+      - run: pip install "setuptools>=75"
       - run: ruff check .
       - run: mypy
       - run: pytest --cov=assessment_platform --cov-report=term-missing
       - run: python -m build --wheel --no-isolation
-  dependency-review:
-    if: github.event_name == 'pull_request'
+  dependency-audit:
     runs-on: ubuntu-latest
-    permissions: {contents: read, pull-requests: write}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/dependency-review-action@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: pip}
+      - run: pip install -e .
+      - run: pip install "pip-audit>=2.7,<3"
+      - run: pip-audit --local
