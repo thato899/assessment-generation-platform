@@ -12,4 +12,6 @@ Stable concepts will include AssessmentRequest, Assessment, Question, Scenario, 
 
 The Physical Sciences vertical-projectile scenario is a framework-independent domain model. It owns explicit SI value objects and coordinate sign conventions; it contains no trajectory calculations. Future solvers, validators, renderers, and generators must consume the same scenario instance.
 
+Canonical assessments keep authoring data separate from submissions and marking results. Every assessable `QuestionPart` owns a stable identifier, response specification, expected answer, and marking scheme. Memorandum entries are derived from those parts by `QuestionPartId`; learner responses and marking results carry the same explicit identifier. No relationship depends on display order or renderer geometry.
+
 See ADRs 0001–0004 in `docs/adr/`.

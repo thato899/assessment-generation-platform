@@ -6,11 +6,17 @@ from assessment_platform.core import (
     AssessmentType,
     CurriculumReference,
     Difficulty,
+    ExpectedAnswer,
+    ExpectedAnswerKind,
     GenerationSeed,
     Grade,
+    MarkingCriterion,
     MarkingRubric,
+    MarkingScheme,
     Question,
     QuestionPart,
+    ResponseKind,
+    ResponseSpecification,
     Scenario,
     Solution,
     Subject,
@@ -67,7 +73,12 @@ def test_assessment_requires_questions_and_question_requires_parts() -> None:
 
 
 def test_nested_models_and_validation_result() -> None:
-    part = QuestionPart("a", "Calculate", 2)
+    part = QuestionPart(
+        "a", "Calculate", 2,
+        ResponseSpecification(ResponseKind.NUMERIC),
+        ExpectedAnswer(ExpectedAnswerKind.NUMERIC, 4.0, "m/s"),
+        MarkingScheme(2, (MarkingCriterion("method", "Use the method", 2),)),
+    )
     question = Question(
         "q", "A question", (part,), Scenario("s"), Solution(4, "Substitute values"),
         MarkingRubric(("method",)),
