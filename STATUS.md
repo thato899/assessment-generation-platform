@@ -35,7 +35,7 @@ Local Issue #1 suite: 18 tests passed; 96% total coverage; Ruff passed; mypy pas
 - Milestones: M0, M1, M2, M6
 - Open backlog issues: #1–#6, all labelled `status:backlog`
 - Feature branch: `feature/issue-1-assessment-core-models`
-- Pull request: pending creation for Issue #1.
+- Pull request: https://github.com/thato899/assessment-generation-platform/pull/13 (open; CI pending).
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
