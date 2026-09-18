@@ -6,34 +6,36 @@ Last updated: 2026-09-18
 M0 — Repository & Architecture Bootstrap
 
 ## Current phase
-Foundation implementation.
+M1 Assessment Core — Issue #1 implementation in review.
 
 ## Completed
 - Repository scaffold, Python packaging, FastAPI app, versioned health endpoint, request schema.
 - Initial test, lint, type-check, CI, security, issue-template, and documentation structure.
 - Architecture and deterministic-correctness decisions documented.
+- Issue #1 core value objects and framework-independent assessment models implemented on a feature branch.
 
 ## In progress
-- GitHub repository governance and initial backlog.
+- Pull request for Issue #1 is ready for CI review.
 
 ## Blocked
 - GitHub Project and branch protection were not configured in this bootstrap because the available CLI token does not expose project administration; no claim is made that they exist.
 
 ## Next tasks
-- Implement core assessment models and CAPS references, then the deterministic vertical-projectile scenario.
+- After Issue #1 is merged, start Issue #2: represent CAPS Grade 12 Physical Sciences curriculum constraints.
 
 ## Known problems
 - Generation endpoint intentionally returns 501 until M1/M2.
 
 ## Test/CI status
-Local: 2 tests passed; Ruff passed; mypy passed; wheel build passed. GitHub Actions workflow is pushed and awaiting its first run.
+Local Issue #1 suite: 18 tests passed; 96% total coverage; Ruff passed; mypy passed; wheel build passed. PR CI pending.
 
 ## GitHub state
 - Repository: https://github.com/thato899/assessment-generation-platform
 - Default branch: `main`
 - Milestones: M0, M1, M2, M6
 - Open backlog issues: #1–#6, all labelled `status:backlog`
-- Pull request: none; bootstrap was pushed to the initial `main` branch.
+- Feature branch: `feature/issue-1-assessment-core-models`
+- Pull request: pending creation for Issue #1.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
