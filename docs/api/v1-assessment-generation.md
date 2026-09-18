@@ -1,9 +1,12 @@
 # Assessment generation API v1
 
 The versioned boundary is `POST /api/v1/assessments/generate`. It defines the
-request and response contract without implementing generation. The current
-implementation returns `503 generation_engine_unavailable` until a later issue
-provides an application service and generator.
+request and response contract without claiming that every request is
+generatable. The current implementation returns `503
+generation_engine_unavailable` until the application layer has both a
+generation service and a deterministic scenario-creation capability. The
+vertical-projectile question generator itself exists but requires a validated
+scenario input.
 
 ## Request
 

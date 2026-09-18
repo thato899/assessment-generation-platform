@@ -8,6 +8,15 @@ Supported initial configurations are upward projection, downward projection, and
 
 The CAPS assumptions currently represented are near-Earth motion, no air friction, and one-dimensional vertical motion. Calculations such as maximum height, time of flight, impact velocity, and graph coordinates are intentionally deferred to the solver and renderers.
 
+## Application-generation prerequisite
+
+This model is currently an input to the solver and question generator; the
+repository does not yet define a deterministic factory that maps API
+curriculum/seed/difficulty parameters to physical scenario values. The API
+must not hide a fixed scenario or invent unconstrained values in its adapter.
+Issue #24 tracks the explicit CAPS-compatible scenario-generation policy and
+factory required before Issue #23 can return successful generated assessments.
+
 ## Solver boundary
 
 The solver consumes this scenario and uses `position(t) = position₀ + velocity₀t + ½acceleration·t²` and `velocity(t) = velocity₀ + acceleration·t` without rounding intermediate values. It reports structured launch, maximum-height, return-to-launch-position, and ground-impact events when physically meaningful. Positive roots are selected only when they are later than the launch-time tolerance; the launch root at `t = 0` is not treated as a later impact.
