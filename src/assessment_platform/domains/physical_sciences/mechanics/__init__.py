@@ -1,0 +1,1 @@
+"""Mechanics domain models."""
