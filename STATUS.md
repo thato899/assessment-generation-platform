@@ -31,7 +31,8 @@ Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator i
 
 ## Next tasks
 
-- Complete Issue #21 through PR review and CI; keep API orchestration/wiring deferred.
+- Complete Issue #21 through PR review and CI.
+- Issue #23 will then cover application orchestration and API wiring; it has not been started.
 
 ## Known problems
 
@@ -55,6 +56,7 @@ Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator i
 - PR #19 merged at `309ed99b25a14573c02263fa9411195aa6e3b99f`.
 - PR #20 merged at `52150816851cbc006e5513eea3ce5c493170083f`.
 - Issue #21 is open and marked `status:in-review`; PR #22 is open.
+- Issue #23 is open and marked `status:backlog` for deferred application/API orchestration.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
