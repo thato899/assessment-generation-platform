@@ -8,7 +8,9 @@ api/v1 -> application -> domain engines + curriculum
                          +-> validation +-> rendering
 ```
 
-Stable concepts will include AssessmentRequest, Assessment, Question, Scenario, Diagram, Solution, MarkingRubric, CurriculumReference, Difficulty, and GenerationSeed. The initial endpoint is `POST /api/v1/assessments/generate`; it is schema-validated but deliberately unimplemented in M0.
+Stable concepts will include AssessmentRequest, Assessment, Question, Scenario, Diagram, Solution, MarkingRubric, CurriculumReference, Difficulty, and GenerationSeed. The versioned endpoint `POST /api/v1/assessments/generate` is defined by explicit boundary DTOs and is deliberately unavailable until a generation application service exists. DTOs map to framework-independent core value objects; FastAPI and Pydantic do not cross into the domain layer.
+
+The learner response projection excludes expected answers, marking schemes, memorandum entries, and worked solutions. Teacher-side memorandum data has a separate boundary DTO and must not be nested into learner responses. The contract uses stable identifiers, explicit seed semantics, safe error codes, and a new API version for breaking changes. See API documentation and ADR 0008.
 
 The Physical Sciences vertical-projectile scenario is a framework-independent domain model. It owns explicit SI value objects and coordinate sign conventions; it contains no trajectory calculations. Future solvers, validators, renderers, and generators must consume the same scenario instance.
 
