@@ -5,3 +5,4 @@
 - Added framework-independent core assessment value objects and models with validation tests.
 - Added CAPS Grade 12 Physical Sciences Mechanics curriculum metadata and deterministic lookup tests.
 - Added an immutable vertical projectile scenario model with explicit SI units, sign conventions, assumptions, and validation tests.
+- Added deterministic vertical projectile position/velocity calculations, event detection, root selection, and solution validation.
