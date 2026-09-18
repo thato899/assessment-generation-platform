@@ -14,6 +14,8 @@ The learner response projection excludes expected answers, marking schemes, memo
 
 The Physical Sciences vertical-projectile scenario is a framework-independent domain model. It owns explicit SI value objects and coordinate sign conventions; it contains no trajectory calculations. Future solvers, validators, renderers, and generators must consume the same scenario instance.
 
+The vertical-projectile question generator consumes a validated scenario, its authoritative solver solution, CAPS topic metadata, and an optional seed. It selects only physically available typed templates, constructs canonical `QuestionPart` objects, and delegates visual production to the existing SVG renderer. It does not calculate projectile physics, wire the API, or perform marking. Generated questions use the core's renderer-neutral `VisualReference` and minimal `GenerationProvenance` values so the domain remains independent of FastAPI, Pydantic, and renderer implementations.
+
 Canonical assessments keep authoring data separate from submissions and marking results. Every assessable `QuestionPart` owns a stable identifier, response specification, expected answer, and marking scheme. Memorandum entries are derived from those parts by `QuestionPartId`; learner responses and marking results carry the same explicit identifier. No relationship depends on display order or renderer geometry.
 
 Technical SVG renderers consume validated scenario and solver objects and may only transform values into display coordinates. The projectile renderer is separate from the solver, uses physical screen orientation independently of mathematical sign convention, and emits safe deterministic SVG without raster, script, remote, or renderer-specific assessment dependencies.

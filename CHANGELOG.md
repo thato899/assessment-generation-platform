@@ -9,3 +9,4 @@
 - Added canonical question-part response specifications, expected answers, marking schemes, learner responses, marking results, and ID-derived memorandum entries.
 - Added a safe deterministic SVG renderer for one-dimensional vertical projectile diagrams.
 - Defined the versioned v1 assessment-generation API contract with explicit boundary DTOs, deterministic seed semantics, safe validation errors, and learner-safe response projections. Generation remains unavailable until its application service is implemented.
+- Added deterministic CAPS vertical-projectile question generation with solver-derived canonical question parts, structured answers, marking schemes, optional SVG references, and provenance metadata.

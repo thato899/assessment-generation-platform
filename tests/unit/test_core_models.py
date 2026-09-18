@@ -8,6 +8,7 @@ from assessment_platform.core import (
     Difficulty,
     ExpectedAnswer,
     ExpectedAnswerKind,
+    GenerationProvenance,
     GenerationSeed,
     Grade,
     MarkingCriterion,
@@ -22,6 +23,7 @@ from assessment_platform.core import (
     Subject,
     Topic,
     ValidationResult,
+    VisualReference,
 )
 
 
@@ -89,6 +91,30 @@ def test_nested_models_and_validation_result() -> None:
     assert assessment.questions[0].parts[0].marks == 2
     assert ValidationResult(True).errors == ()
     assert ValidationResult(False, ("invalid scenario",)).valid is False
+
+
+def test_visual_references_and_provenance_are_immutable_and_validated() -> None:
+    visual = VisualReference("diagram", "image/svg+xml", "<svg />", 640, 480)
+    provenance = GenerationProvenance("generator", "1", GenerationSeed(7), ("template-a",))
+    question_part = QuestionPart(
+        "p",
+        "State the answer",
+        1,
+        ResponseSpecification(ResponseKind.SHORT_TEXT),
+        ExpectedAnswer(ExpectedAnswerKind.TEXT, "downward"),
+        MarkingScheme(1, (MarkingCriterion("answer", "States the answer", 1),)),
+    )
+    question = Question(
+        "q", "A question", (question_part,), visuals=[visual], provenance=provenance
+    )
+    assert question.visuals == (visual,)
+    assert question.provenance == provenance
+    with pytest.raises(ValueError, match="positive integer"):
+        VisualReference("diagram", "image/svg+xml", "<svg />", 0, 480)
+    with pytest.raises(ValueError, match="unique"):
+        GenerationProvenance("generator", "1", template_ids=("a", "a"))
+    with pytest.raises(ValueError, match="visual IDs"):
+        Question("q", "A question", (question_part,), visuals=(visual, visual))
 
 
 def test_validation_result_requires_consistent_errors() -> None:

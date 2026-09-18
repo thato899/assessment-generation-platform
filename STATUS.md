@@ -4,11 +4,11 @@ Last updated: 2026-09-18
 
 ## Current milestone
 
-M2 - Physical Sciences: Vertical Projectile Motion complete
+M2 - Physical Sciences: Vertical Projectile Motion - deterministic question generation
 
 ## Current phase
 
-Issue #6 - versioned assessment generation API contract is in review.
+Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator is in progress.
 
 ## Completed
 
@@ -19,11 +19,11 @@ Issue #6 - versioned assessment generation API contract is in review.
 - Issue #4 deterministic projectile solver and solution validation merged via PR #17.
 - Issue #16 canonical assessment response, memorandum, and marking model merged via PR #18.
 - Issue #5 deterministic vertical projectile SVG renderer merged via PR #19.
-- Issue #6 versioned assessment generation API contract implemented on a feature branch.
+- Issue #6 versioned assessment generation API contract merged via PR #20.
 
 ## In progress
 
-- Pull request #20 for Issue #6 is open for review; CI is passing.
+- Pull request #22 for Issue #21 is open for review; CI is passing.
 
 ## Blocked
 
@@ -31,7 +31,8 @@ Issue #6 - versioned assessment generation API contract is in review.
 
 ## Next tasks
 
-- Complete Issue #6 through review and CI, then begin the next planned question-generation issue.
+- Complete Issue #21 through PR review and CI.
+- Issue #23 will then cover application orchestration and API wiring; it has not been started.
 
 ## Known problems
 
@@ -39,8 +40,8 @@ Issue #6 - versioned assessment generation API contract is in review.
 
 ## Test/CI status
 
-- Issue #6 local suite: 69 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #20 CI quality and dependency-audit checks passed.
-- Issues #1-#5 and #16 merged with CI quality and dependency-audit checks passing.
+- Issue #21 local suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
+- Issues #1-#6 and #16 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
 
@@ -53,13 +54,16 @@ Issue #6 - versioned assessment generation API contract is in review.
 - PR #17 merged at `ab895c6c6e9006ede0fe81100797c8398749416f`.
 - PR #18 merged at `6df9aae2e442b52df8d08319fef180628ac829f2`.
 - PR #19 merged at `309ed99b25a14573c02263fa9411195aa6e3b99f`.
-- Issue #6 pull request #20 is open with CI passing.
+- PR #20 merged at `52150816851cbc006e5513eea3ce5c493170083f`.
+- Issue #21 is open and marked `status:in-review`; PR #22 is open.
+- Issue #23 is open and marked `status:backlog` for deferred application/API orchestration.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
 
 - Python/FastAPI/Pydantic; deterministic domain engines remain framework-independent.
 - API v1 uses explicit boundary DTOs, stable error codes, deterministic seed semantics, and learner-safe projections.
+- Vertical-projectile generation consumes validated solver results, uses deterministic typed templates, and keeps visuals/provenance renderer-neutral in the core.
 - Scenario models use explicit SI value objects and an explicit coordinate sign convention.
 - Canonical assessment relationships use stable QuestionPartId values, not display order.
 - Apache-2.0 planned.
