@@ -1,6 +1,6 @@
 # Status
 
-Last updated: 2026-09-18
+Last updated: 2026-09-19
 
 ## Current milestone
 
@@ -8,7 +8,7 @@ M2 - Physical Sciences: Vertical Projectile Motion - application generation prer
 
 ## Current phase
 
-Issue #23 - application/API orchestration is blocked pending deterministic scenario generation.
+Issue #23 - application/API orchestration is in progress after the deterministic scenario-generation prerequisite was merged.
 
 ## Completed
 
@@ -20,21 +20,20 @@ Issue #23 - application/API orchestration is blocked pending deterministic scena
 - Issue #16 canonical assessment response, memorandum, and marking model merged via PR #18.
 - Issue #5 deterministic vertical projectile SVG renderer merged via PR #19.
 - Issue #6 versioned assessment generation API contract merged via PR #20.
-- Issue #21 deterministic Grade 12 CAPS vertical-projectile question generator merged via PR #22.
+- Issue #21 deterministic Grade 12 CAPS vertical-projectile question generator merged via PR #22 at `ed61df29cb1688c5f308ead5315081be4390ab11`.
+- Issue #24 deterministic vertical-projectile scenario generation inputs and factory merged via PR #25 at `f709c77465044e5663c4bfac63c49e641be28783`.
 
 ## In progress
 
-- Issue #23 is in progress but blocked pending the prerequisite scenario-generation policy/factory in Issue #24.
+- Issue #23 application service and API integration are in progress on the feature branch.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
-- Issue #23 cannot provide successful API generation because no deterministic bridge exists from v1 request parameters to a valid VerticalProjectileScenario. The endpoint remains an explicit HTTP 503.
-
 ## Next tasks
 
-- Define and implement the deterministic scenario-generation policy/factory in Issue #24.
-- Resume Issue #23 application orchestration/API wiring only after Issue #24 is complete.
+- Complete Issue #23 through application/API tests, review, and CI.
+- Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
 
@@ -43,7 +42,8 @@ Issue #23 - application/API orchestration is blocked pending deterministic scena
 ## Test/CI status
 
 - Issue #21 final suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
-- Issues #1-#6, #16, and #21 merged with CI quality and dependency-audit checks passing.
+- Issue #24 full local suite: 201 tests passed; 95% total coverage; Ruff, mypy, and build passed.
+- Issues #1-#6, #16, #21, and #24 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
 
@@ -58,8 +58,10 @@ Issue #23 - application/API orchestration is blocked pending deterministic scena
 - PR #19 merged at `309ed99b25a14573c02263fa9411195aa6e3b99f`.
 - PR #20 merged at `52150816851cbc006e5513eea3ce5c493170083f`.
 - PR #22 merged at `ed61df29cb1688c5f308ead5315081be4390ab11`.
-- Issue #23 is open and marked `status:in-progress`, blocked on Issue #24.
-- Issue #24 is open and marked `status:backlog` for deterministic scenario generation.
+- Issue #21 is closed; PR #22 is merged.
+- PR #25 merged at `f709c77465044e5663c4bfac63c49e641be28783`.
+- Issue #23 is open and marked `status:in-progress` for application/API orchestration.
+- Issue #24 is closed after its deterministic scenario-generation prerequisite was merged.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
@@ -67,7 +69,7 @@ Issue #23 - application/API orchestration is blocked pending deterministic scena
 - Python/FastAPI/Pydantic; deterministic domain engines remain framework-independent.
 - API v1 uses explicit boundary DTOs, stable error codes, deterministic seed semantics, and learner-safe projections.
 - Vertical-projectile generation consumes validated solver results, uses deterministic typed templates, and keeps visuals/provenance renderer-neutral in the core.
-- API orchestration must not fabricate a scenario; deterministic scenario creation is a separate prerequisite tracked by Issue #24.
+- API orchestration delegates scenario creation to the deterministic Issue #24 factory and does not fabricate scenarios.
 - Scenario models use explicit SI value objects and an explicit coordinate sign convention.
 - Canonical assessment relationships use stable QuestionPartId values, not display order.
 - Apache-2.0 planned.

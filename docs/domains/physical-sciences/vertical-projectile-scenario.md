@@ -8,14 +8,15 @@ Supported initial configurations are upward projection, downward projection, and
 
 The CAPS assumptions currently represented are near-Earth motion, no air friction, and one-dimensional vertical motion. Calculations such as maximum height, time of flight, impact velocity, and graph coordinates are intentionally deferred to the solver and renderers.
 
-## Application-generation prerequisite
+## Factory boundary
 
-This model is currently an input to the solver and question generator; the
-repository does not yet define a deterministic factory that maps API
-curriculum/seed/difficulty parameters to physical scenario values. The API
-must not hide a fixed scenario or invent unconstrained values in its adapter.
-Issue #24 tracks the explicit CAPS-compatible scenario-generation policy and
-factory required before Issue #23 can return successful generated assessments.
+`VerticalProjectileScenarioFactory` can create this model from an immutable,
+seeded generation input and a versioned platform policy. The factory supports
+four explicit initial-condition families and records generation provenance;
+its discrete numeric pools are platform policy rather than CAPS metadata. It
+does not solve the trajectory or generate assessment questions. See
+`vertical-projectile-scenario-generation.md` for the policy, reproducibility,
+and coordinate-direction boundary.
 
 ## Solver boundary
 
