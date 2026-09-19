@@ -67,7 +67,7 @@ implementation issue and Issues #39-#43 are planned backlog items.
 - Issue #37 full suite: 386 tests passed; 92% total coverage; Ruff, mypy, and build passed locally. Momentum and projectile regressions passed explicitly. PR #47 CI quality and dependency-audit checks passed.
 - Issue #38 local validation: 580 tests passed; 91% total coverage; Momentum
   regression 344 passed; projectile regression 204 passed; Ruff, mypy, and
-  build passed. PR CI is pending.
+  build passed. PR #48 quality and dependency-audit checks passed.
 - Issues #1-#6, #16, #21, #23, #24, #28, #30, and #32 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -101,7 +101,8 @@ implementation issue and Issues #39-#43 are planned backlog items.
 - Milestone `M3 - Momentum & Impulse` exists with Issue #38 in progress and
   Issues #39-#43 planned backlog.
 - PR #47 merged at `159ee9f6b9ca03bffc354f3bdc46f87eba969d24`; Issue #37 is
-  closed. Issue #38's PR is pending creation and must remain unmerged.
+  closed. PR #48 is open and unmerged; Issue #38 is in review and PR quality
+  and dependency-audit checks passed.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
