@@ -63,7 +63,7 @@ implementation issue and Issues #38-#43 are planned backlog items.
 - Issue #32 final suite: 308 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum solver and projectile regression tests passed explicitly. PR #33 CI quality and dependency-audit checks passed.
 - Issue #35 branch suite: 332 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum domain/solver/factory tests and projectile regressions passed explicitly.
 - Issue #36 full suite: 349 tests passed; 93% total coverage; Ruff, mypy, and build passed locally. Constrained solver, legacy Momentum, and projectile regression tests passed explicitly. PR #46 CI quality and dependency-audit checks passed.
-- Issue #37 full suite: 386 tests passed; 92% total coverage; Ruff, mypy, and build passed locally. Momentum and projectile regressions passed explicitly.
+- Issue #37 full suite: 386 tests passed; 92% total coverage; Ruff, mypy, and build passed locally. Momentum and projectile regressions passed explicitly. PR #47 CI quality and dependency-audit checks passed.
 - Issues #1-#6, #16, #21, #23, #24, #28, #30, and #32 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -96,6 +96,8 @@ implementation issue and Issues #38-#43 are planned backlog items.
   closed.
 - Milestone `M3 - Momentum & Impulse` exists with Issue #37 in progress and
   Issues #38-#43 planned backlog.
+- PR #47 is open and unmerged; Issue #37 is in review and CI quality and
+  dependency-audit checks passed.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
