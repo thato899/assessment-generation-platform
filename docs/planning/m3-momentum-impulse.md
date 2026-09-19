@@ -9,8 +9,9 @@ The M3 foundation is complete:
 - Issue #30 provides the authoritative aggregate Momentum & Impulse solver.
 - Issue #32 provides deterministic bounded initial-condition generation.
 
-Issues #35 and #36 are complete. Issue #37 is the active implementation issue;
-Issues #38-#43 remain `status:backlog` until their dependencies are complete.
+Issues #35, #36, and #37 are complete. Issue #38 is the active implementation
+issue; Issues #39-#43 remain `status:backlog` until their dependencies are
+complete.
 No downstream production implementation is selected by this plan.
 
 The authoritative curriculum reference is the repository's DBE CAPS Physical
@@ -37,8 +38,8 @@ interaction constraints and a constrained solver path.
 | --- | --- | --- | --- | --- |
 | 1 | #35 | Solvable one-dimensional interaction/final-state domain model | #28, #30, #32 | complete |
 | 2 | #36 | Constrained one-dimensional collision solver and validation | #35 | complete |
-| 3 | #37 | Impulse, force, contact-time, and momentum-change solver | #35, #36 | in-progress |
-| 4 | #38 | Extended deterministic generation policy for solvable interactions | #35, #36, #37 | backlog |
+| 3 | #37 | Impulse, force, contact-time, and momentum-change solver | #35, #36 | complete |
+| 4 | #38 | Extended deterministic generation policy for solvable interactions | #35, #36, #37 | in-progress |
 | 5 | #39 | Deterministic Momentum & Impulse technical SVG renderer | #35, #36, #37, #38 | backlog |
 | 6 | #40 | Deterministic calculation question generator | #35, #36, #37, #38, #39 | backlog |
 | 7 | #41 | CAPS conceptual question templates and rubrics | #2, #16, #40 | backlog |
@@ -66,10 +67,10 @@ M3 Foundations [DONE]
   #36 constrained collision solver + validation
           |
           v
-  #37 impulse/force/time solver
+  #37 impulse/force/time solver [DONE]
           |
           v
-  #38 extended deterministic scenario policy
+  #38 extended deterministic problem policy
           |
           v
   #39 technical Momentum SVG renderer
@@ -116,8 +117,8 @@ be explicitly deferred with its reason and destination.
 | Complete supplied final state | Not represented | #35 |
 | Constrained final-state solving and validation | Not available | #36 |
 | Elastic/inelastic comparison from complete state | Not available | #36 |
-| Momentum change, force, and contact time | `MomentumImpulseRelationshipSolver` | In progress: #37 |
-| Solvable interaction generation | Not available | #38 |
+| Momentum change, force, and contact time | `MomentumImpulseRelationshipSolver` | Done: #37 |
+| Solvable interaction generation | `MomentumProblemFactory` | In progress: #38 |
 | Technical Momentum visual | Not available | #39 |
 | Canonical numerical questions | Not available | #40 |
 | Canonical conceptual questions/rubrics | Not available | #41 |

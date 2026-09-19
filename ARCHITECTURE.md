@@ -27,6 +27,16 @@ objects while keeping MomentumChange, Impulse, Newtons, and Seconds distinct.
 It is independent of the collision solver and is authoritative for these
 relationships; downstream generation and API layers do not duplicate them.
 
+Issue #38 adds a focused typed `MomentumProblemFactory` companion to the
+existing scenario factory. It composes versioned initial-condition policy with
+bounded momentum-change, force/time, and constrained-collision input policy.
+Typed generated variants keep authored relationship inputs and interaction
+constraints separate from solver-derived answers. Complete-state candidates
+are accepted only through the constrained solver, so generation does not
+duplicate conservation or classification equations. The original scenario
+factory remains backward compatible and the companion remains framework,
+question, renderer, and API independent.
+
 The M3 scenario factory is the next boundary after the domain and solver prerequisites. It creates only bounded, deterministic initial conditions from a versioned platform policy and `GenerationSeed`; it does not call the solver or generate final states. Policy values remain separate from CAPS metadata, and explicit axis/family provenance preserves replayability.
 
 Canonical assessments keep authoring data separate from submissions and marking results. Every assessable `QuestionPart` owns a stable identifier, response specification, expected answer, and marking scheme. Memorandum entries are derived from those parts by `QuestionPartId`; learner responses and marking results carry the same explicit identifier. No relationship depends on display order or renderer geometry.
