@@ -8,8 +8,10 @@ from assessment_platform.application.assessment_generation import (
     GenerationApplicationError,
 )
 from assessment_platform.core import (
+    Assessment,
     AssessmentRequest,
     AssessmentType,
+    CurriculumReference,
     Difficulty,
     GenerationSeed,
     Grade,
@@ -184,6 +186,76 @@ def test_solution_validation_failure_stops_before_question_generation() -> None:
 
     assert error.value.code == "generation_failed"
     assert generator.calls == []
+
+
+def test_factory_failure_is_mapped_to_safe_unsupported_configuration() -> None:
+    class BrokenFactory:
+        def generate(self, _generation_input):
+            raise ValueError("private factory detail")
+
+    with pytest.raises(GenerationApplicationError) as error:
+        AssessmentGenerationService(scenario_factory=BrokenFactory()).generate(request())
+
+    assert error.value.code == "unsupported_configuration"
+
+
+def test_question_generator_failure_is_mapped_to_safe_generation_error() -> None:
+    class BrokenGenerator:
+        def generate(self, *_args, **_kwargs):
+            raise ValueError("private generator detail")
+
+    with pytest.raises(GenerationApplicationError) as error:
+        AssessmentGenerationService(question_generator=BrokenGenerator()).generate(request())
+
+    assert error.value.code == "generation_failed"
+
+
+def test_invalid_question_from_generator_is_rejected() -> None:
+    class InvalidGenerator:
+        def generate(self, *_args, **_kwargs):
+            return object()
+
+    with pytest.raises(GenerationApplicationError, match="invalid assessment question"):
+        AssessmentGenerationService(question_generator=InvalidGenerator()).generate(request())
+
+
+def test_missing_curriculum_topic_is_a_safe_application_failure() -> None:
+    class EmptyCurriculum:
+        def topic(self, _identifier: str):
+            raise KeyError("missing topic")
+
+    with pytest.raises(GenerationApplicationError, match="does not provide"):
+        AssessmentGenerationService(curriculum=EmptyCurriculum()).generate(request())
+
+
+def test_non_assessment_command_is_rejected() -> None:
+    with pytest.raises(GenerationApplicationError, match="command is invalid"):
+        AssessmentGenerationService().generate(object())  # type: ignore[arg-type]
+
+
+def test_unsupported_difficulty_is_not_silently_fallback() -> None:
+    with pytest.raises(GenerationApplicationError) as error:
+        AssessmentGenerationService().generate(request(difficulty="impossible"))  # type: ignore[arg-type]
+
+    assert error.value.code == "unsupported_difficulty"
+
+
+def test_memorandum_requires_a_canonical_assessment() -> None:
+    with pytest.raises(ValueError, match="must be an Assessment"):
+        AssessmentGenerationService.memorandum_for(object())  # type: ignore[arg-type]
+
+
+def test_canonical_assessment_without_seed_is_not_a_valid_api_result() -> None:
+    service = AssessmentGenerationService()
+    generated = service.generate(request(seed=42))
+    unseeded = Assessment(
+        generated.identifier,
+        AssessmentType.QUESTION,
+        CurriculumReference("CAPS"),
+        generated.questions,
+    )
+
+    assert unseeded.seed is None
 
 
 @pytest.mark.parametrize(
