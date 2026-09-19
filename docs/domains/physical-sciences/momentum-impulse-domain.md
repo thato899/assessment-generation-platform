@@ -17,6 +17,10 @@ generator, renderer, and API remain separate boundaries.
   compatible dimensions do not make them interchangeable: momentum is measured
   in kg·m/s and impulse in N·s.
 - `MomentumBody` identifies one body's mass and initial velocity.
+- `MomentumChange` is a distinct finite signed value object for final momentum
+  minus initial momentum.
+- `Newtons` is a finite signed resultant-force value object.
+- `Seconds` represents a strictly positive elapsed interaction interval.
 - `SystemBoundary` states whether the modeled system is isolated. A
   non-isolated system must declare its external impulse; an isolated system
   cannot declare one.
@@ -41,5 +45,7 @@ underdetermined. See `momentum-interaction-constraints.md`.
 The module imports only framework-independent domain/core types. It does not
 depend on FastAPI, Pydantic, HTTP, persistence, rendering, LLMs, solver
 implementations, or LMS integrations. Issue #35 performs no calculations;
-constrained solving belongs to Issue #36. No Momentum API support is added,
+constrained solving belongs to Issue #36. Issue #37 provides the separate
+deterministic relationship solver for momentum change, impulse,
+average/resultant force, and contact time. No Momentum API support is added,
 and the existing vertical-projectile pipeline remains separate.

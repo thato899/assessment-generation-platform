@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add deterministic, framework-independent Momentum & Impulse relationships
+  for signed momentum change, impulse, average force, and contact time.
 - Add deterministic constrained two-body Momentum collision solving for known
   final velocity, common final velocity, and complete authored final states,
   including typed validation results and isolated-state classification.

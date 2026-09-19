@@ -78,3 +78,33 @@ An interaction-less scenario remains underdetermined: the constrained solver
 rejects it and never supplies zero or arbitrary final velocities. Force/time
 impulse solving, scenario generation, question generation, rendering, and API
 integration remain deferred to later M3 issues.
+
+## Momentum-change and force-time relationships
+
+Issue #37 uses the separate `MomentumImpulseRelationshipSolver` for generic
+one-dimensional interactions that need not be collisions. It accepts typed
+inputs and returns immutable result models for:
+
+- signed momentum change from mass, initial velocity, and final velocity;
+- impulse from momentum change;
+- impulse from signed force and positive contact time;
+- average/resultant force from impulse or momentum change and contact time; and
+- positive contact time from impulse or momentum change and a compatible
+  signed force.
+
+The authoritative equation is `change = final momentum - initial momentum`.
+Impulse has the same numeric signed value as momentum change but remains a
+distinct `Impulse` semantic type. Newton's second law is represented at the
+CAPS-level average as `force = change in momentum / elapsed time`; no
+instantaneous or time-varying force model is introduced.
+
+`Seconds` is strictly positive for the modeled interaction interval. Contact
+time solving rejects opposite impulse/force signs, non-zero impulse with zero
+force, and the underdetermined zero-impulse/zero-force case. No absolute-value
+substitution, intermediate rounding, or arbitrary fallback is used. The
+explicit positive-axis metadata is preserved while signed velocity, momentum
+change, impulse, and force reverse consistently under axis reversal.
+
+The relationship solver is independent of the constrained collision solver.
+Generation expansion (#38), rendering (#39), calculation and conceptual
+question generation (#40/#41), and API integration (#42) remain deferred.

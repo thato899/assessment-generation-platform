@@ -20,6 +20,13 @@ M3 begins with a separate one-dimensional Momentum & Impulse domain boundary. It
 
 The M3 solver consumes that initial state and returns only typed, directly derivable body and aggregate momentum results. It interprets an external impulse over the modeled interaction interval, validates signed totals and system-boundary behavior, and does not fabricate individual final velocities for underdetermined collisions. Issue #35 adds a separate MomentumInteraction boundary for authored known-final-velocity, explicit sticking/common-final-velocity, and complete-final-state constraints. Issue #36 adds a separate constrained solver/result boundary that delegates aggregate authority, derives only supported two-body outcomes, and independently validates authored complete states. Scenario generation, question generation, rendering, and API wiring remain separate downstream decisions.
 
+Issue #37 adds a separate MomentumImpulseRelationshipSolver for generic
+one-dimensional signed momentum change, impulse, average/resultant force, and
+positive contact-time relationships. It reuses the existing semantic value
+objects while keeping MomentumChange, Impulse, Newtons, and Seconds distinct.
+It is independent of the collision solver and is authoritative for these
+relationships; downstream generation and API layers do not duplicate them.
+
 The M3 scenario factory is the next boundary after the domain and solver prerequisites. It creates only bounded, deterministic initial conditions from a versioned platform policy and `GenerationSeed`; it does not call the solver or generate final states. Policy values remain separate from CAPS metadata, and explicit axis/family provenance preserves replayability.
 
 Canonical assessments keep authoring data separate from submissions and marking results. Every assessable `QuestionPart` owns a stable identifier, response specification, expected answer, and marking scheme. Memorandum entries are derived from those parts by `QuestionPartId`; learner responses and marking results carry the same explicit identifier. No relationship depends on display order or renderer geometry.
