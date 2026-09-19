@@ -8,12 +8,12 @@ M3 - Momentum & Impulse
 
 ## Current phase
 
-Issues #28, #30, and #32 are complete. Issue #35 is in progress on its
-dedicated feature branch. PR #33 merged the deterministic
+Issues #28, #30, #32, and #35 are complete. Issue #36 is in review in PR #46
+on its dedicated feature branch. PR #33 merged the deterministic
 Momentum & Impulse scenario generation policy and factory at
 `86079a764c9143a778444ed3bdb4e60584726637`. M3 dependency planning is now
-recorded in `docs/planning/m3-momentum-impulse.md`; Issue #35 is the active
-implementation issue and Issues #36-#43 are planned backlog items.
+recorded in `docs/planning/m3-momentum-impulse.md`; Issue #36 is the active
+implementation issue and Issues #37-#43 are planned backlog items.
 
 ## Completed
 
@@ -30,10 +30,12 @@ implementation issue and Issues #36-#43 are planned backlog items.
 - Issue #23 vertical-projectile application/API orchestration merged via PR #26 at `d7f709c4cdaefe1c994e6e9d37f63576d117b60b`.
 - Issue #28 Momentum & Impulse domain scenario models merged via PR #29 at `bdd2f5bc1a322d2fbd5924505fe5d1bc0b07e7d3`.
 - Issue #30 deterministic Momentum & Impulse solver and validation merged via PR #31 at `6972075738cc0b876368f12dc9a6578e352d60e0`.
+- Issue #35 authored Momentum interaction constraints merged via PR #45 at `027028c679e4fed2777fa10f459d364239f38819`.
 
 ## In progress
 
-- Issue #35 is in progress. Issues #36-#43 are backlog. Question generation,
+- Issue #36 is in review in PR #46 on its dedicated feature branch. Issues #37-#43
+  are backlog. Question generation,
   rendering, application, and API remain deferred behind their documented
   dependencies.
 
@@ -42,8 +44,8 @@ implementation issue and Issues #36-#43 are planned backlog items.
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete and review Issue #35 without starting downstream M3 issues before
-  their documented dependencies are complete.
+- Complete and review Issue #36 without starting Issue #37 or downstream M3
+  issues before their documented dependencies are complete.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -59,6 +61,7 @@ implementation issue and Issues #36-#43 are planned backlog items.
 - Issue #30 full suite: 269 tests passed; 94% total coverage; Ruff, mypy, and build passed. PR #31 CI passed.
 - Issue #32 final suite: 308 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum solver and projectile regression tests passed explicitly. PR #33 CI quality and dependency-audit checks passed.
 - Issue #35 branch suite: 332 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum domain/solver/factory tests and projectile regressions passed explicitly.
+- Issue #36 full suite: 349 tests passed; 93% total coverage; Ruff, mypy, and build passed locally. Constrained solver, legacy Momentum, and projectile regression tests passed explicitly. PR #46 CI quality and dependency-audit checks passed.
 - Issues #1-#6, #16, #21, #23, #24, #28, #30, and #32 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -85,8 +88,11 @@ implementation issue and Issues #36-#43 are planned backlog items.
 - Issue #30 is closed; PR #31 is merged.
 - PR #33 merged at `86079a764c9143a778444ed3bdb4e60584726637`.
 - Issue #32 is closed; PR #33 is merged.
-- Milestone `M3 - Momentum & Impulse` exists with Issue #35 in progress and
-  Issues #36-#43 planned backlog.
+- PR #45 merged at `027028c679e4fed2777fa10f459d364239f38819`; Issue #35 is
+  closed.
+- Milestone `M3 - Momentum & Impulse` exists with Issue #36 in progress and
+  Issues #37-#43 planned backlog.
+- PR #46 is open and unmerged; CI quality and dependency-audit checks passed.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
@@ -107,3 +113,6 @@ implementation issue and Issues #36-#43 are planned backlog items.
   fabricated.
 - M3 Issue #32 generates only bounded deterministic initial conditions from a
   versioned platform policy and never calls or duplicates solver calculations.
+- M3 Issue #36 keeps authored interaction constraints separate from derived
+  collision results, delegates aggregate authority to Issue #30, and rejects
+  underdetermined or unsupported constrained outcomes.

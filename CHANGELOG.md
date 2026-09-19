@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Add deterministic constrained two-body Momentum collision solving for known
+  final velocity, common final velocity, and complete authored final states,
+  including typed validation results and isolated-state classification.
 - Add framework-independent Momentum interaction constraint models for
   authored final-state information without collision calculations.
 - Add ADR 0011 documenting the separation of authored Momentum interaction
