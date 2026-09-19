@@ -8,8 +8,10 @@ M3 - Momentum & Impulse
 
 ## Current phase
 
-Issues #28 and #30 are complete. Issue #32 - deterministic Momentum & Impulse
-scenario generation policy and factory is in review via PR #33.
+Issues #28, #30, and #32 are complete. PR #33 merged the deterministic
+Momentum & Impulse scenario generation policy and factory at
+`86079a764c9143a778444ed3bdb4e60584726637`. No next M3 implementation issue
+has been selected; the roadmap decision gate is recorded in PLANNING.md.
 
 ## Completed
 
@@ -29,16 +31,18 @@ scenario generation policy and factory is in review via PR #33.
 
 ## In progress
 
-- PR #33 for Issue #32 is open with CI passing. Question generation,
-  rendering, application, API, and follow-up M3 issues remain deferred.
+- No M3 implementation is in progress. Question generation, rendering,
+  application, API, and follow-up M3 work remain deferred pending the roadmap
+  decision gate in PLANNING.md.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Review and merge PR #33 only after its acceptance criteria remain satisfied;
-  then plan the next M3 capability without starting it in this execution.
+- Resolve the M3 next-stage decision gate and create an implementation issue
+  only after its prerequisites and authoritative answer/source-of-truth
+  requirements are explicit.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -52,14 +56,14 @@ scenario generation policy and factory is in review via PR #33.
 - Issue #23 full local suite: 236 tests passed; 95% total coverage; Ruff, mypy, and build passed. PR #26 and post-merge main CI quality and dependency-audit checks passed.
 - Issue #28 branch suite: 257 tests passed; 95% total coverage; Ruff, mypy, and build passed locally. PR #29 quality and dependency-audit checks passed.
 - Issue #30 full suite: 269 tests passed; 94% total coverage; Ruff, mypy, and build passed. PR #31 CI passed.
-- Issue #32 branch full suite: 308 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum solver and projectile regression tests passed explicitly.
-- Issues #1-#6, #16, #21, #23, #24, #28, and #30 merged with CI quality and dependency-audit checks passing.
+- Issue #32 final suite: 308 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum solver and projectile regression tests passed explicitly. PR #33 CI quality and dependency-audit checks passed.
+- Issues #1-#6, #16, #21, #23, #24, #28, #30, and #32 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
 
 - Repository: https://github.com/thato899/assessment-generation-platform
 - Default branch: `main`
-- Milestones: M0, M1, M2, M6
+- Milestones: M0, M1, M2, M3, M6
 - PR #13 merged at `405cb1927fa0d68fa11ca55d432e1382f6ba59a1`.
 - PR #14 merged at `ad815850d9b9458978b4c92c153abbaace7d96d7`.
 - PR #15 merged at `15236ce0abb902689c96e4b3fe01f7a85a09b0d5`.
@@ -77,8 +81,9 @@ scenario generation policy and factory is in review via PR #33.
 - Issue #28 is closed; PR #29 is merged.
 - PR #31 merged at `6972075738cc0b876368f12dc9a6578e352d60e0`.
 - Issue #30 is closed; PR #31 is merged.
-- Milestone `M3 - Momentum & Impulse` exists; Issue #32 is open and marked
-  `status:in-review`; PR #33 is open.
+- PR #33 merged at `86079a764c9143a778444ed3bdb4e60584726637`.
+- Issue #32 is closed; PR #33 is merged.
+- Milestone `M3 - Momentum & Impulse` exists with no open issues.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
