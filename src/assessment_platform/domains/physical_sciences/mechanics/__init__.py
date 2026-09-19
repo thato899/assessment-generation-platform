@@ -1,8 +1,15 @@
 """Mechanics domain models and deterministic scenario factories."""
 
+from .momentum_constrained_solver import (
+    CollisionClassification,
+    ConstrainedCollisionSolution,
+    ConstrainedMomentumSolver,
+    DerivedFinalBodyState,
+)
 from .momentum_impulse import (
     Impulse,
     Kilograms,
+    KineticEnergy,
     MetresPerSecond,
     Momentum,
     MomentumBody,
@@ -44,6 +51,7 @@ from .vertical_projectile_scenario_factory import (
 
 __all__ = [
     "Impulse",
+    "KineticEnergy",
     "BodyMomentumResult",
     "Kilograms",
     "MetresPerSecond",
@@ -52,6 +60,10 @@ __all__ = [
     "MomentumScenario",
     "MomentumImpulseSolution",
     "MomentumImpulseSolver",
+    "CollisionClassification",
+    "ConstrainedCollisionSolution",
+    "ConstrainedMomentumSolver",
+    "DerivedFinalBodyState",
     "CommonFinalVelocityConstraint",
     "CompleteFinalStateConstraint",
     "FinalBodyState",

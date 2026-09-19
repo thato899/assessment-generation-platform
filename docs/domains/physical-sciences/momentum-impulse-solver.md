@@ -55,7 +55,26 @@ momentum (`p = m v`), signed totals, finite values, impulse change, and the
 isolated-system conservation rule. It rejects tampered or inconsistent
 solutions.
 
-Force/time impulse calculations, collision constraints, elastic or inelastic
-classification, kinetic energy, final body velocities, scenario generation,
-question generation, rendering, and API integration are intentionally deferred
-to later M3 issues.
+## Constrained collision solving
+
+ConstrainedMomentumSolver is the Issue #36 extension for an explicit
+MomentumInteraction. It first delegates aggregate momentum and impulse to
+MomentumImpulseSolver, then derives final body velocities only when the
+authored constraint justifies them. It supports exactly two bodies for
+KnownFinalVelocityConstraint and CommonFinalVelocityConstraint; a
+CompleteFinalStateConstraint validates the authored final velocities without
+changing them. Body IDs, rather than tuple position, determine all lookups.
+
+The result is an immutable ConstrainedCollisionSolution containing derived
+final velocity and momentum per body, aggregate values, kinetic energy, the
+constraint kind, seed metadata, and an optional CollisionClassification.
+External impulse is consumed exactly once by the aggregate solver and an
+externally impulsed interaction is not collision-classified. Isolated common
+velocity is explicitly perfectly-inelastic; other validated isolated states
+are classified by kinetic-energy comparison as elastic or inelastic. The
+absolute validation tolerance is 1e-9, shared with the aggregate solver.
+
+An interaction-less scenario remains underdetermined: the constrained solver
+rejects it and never supplies zero or arbitrary final velocities. Force/time
+impulse solving, scenario generation, question generation, rendering, and API
+integration remain deferred to later M3 issues.

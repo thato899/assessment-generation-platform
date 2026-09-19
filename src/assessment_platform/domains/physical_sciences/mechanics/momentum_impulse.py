@@ -97,6 +97,19 @@ class Impulse:
 
 
 @dataclass(frozen=True, slots=True)
+class KineticEnergy:
+    """A finite, non-negative kinetic-energy value measured in joules."""
+
+    value: float
+
+    def __post_init__(self) -> None:
+        value = _finite(self.value, "kinetic energy")
+        if value < 0:
+            raise ValueError("kinetic energy must be non-negative joules")
+        object.__setattr__(self, "value", value)
+
+
+@dataclass(frozen=True, slots=True)
 class MomentumBody:
     """One uniquely identified body's initial mass and velocity."""
 

@@ -1,9 +1,9 @@
 # Momentum interaction constraints
 
 Issue #35 adds framework-independent authored constraints for one-dimensional
-Momentum & Impulse interactions. It represents additional post-interaction
-information without calculating momentum, impulse, final velocities, kinetic
-energy, or collision classifications.
+Momentum & Impulse interactions. Issue #36 consumes those constraints through
+the separate ConstrainedMomentumSolver and returns derived result models; the
+authored models themselves still never calculate or mutate results.
 
 ## Why the constraint boundary exists
 
@@ -22,9 +22,10 @@ MomentumInteraction
   +-- InteractionConstraint # authored post-interaction information
 ```
 
-This preserves valid underdetermined scenarios while giving a future solver an
-explicit input boundary. Issue #36 will consume these constraints for solving
-and validation; it is intentionally not part of this model.
+This preserves valid underdetermined scenarios while giving the constrained
+solver an explicit input boundary. The aggregate solver remains authoritative
+for initial and final total momentum; the constrained solver adds only the
+individual final states justified by this wrapper.
 
 ## Constraint families
 
@@ -38,9 +39,9 @@ infer which other body is unknown and does not calculate that body's result.
 
 `CommonFinalVelocityConstraint` references exactly two distinct body IDs. It
 represents the explicit physical statement that those bodies stick together,
-which is a perfectly inelastic condition. It stores no final velocity; a
-future solver may derive the common value. Generic inelastic behavior is not
-treated as sticking.
+which is a perfectly inelastic condition. It stores no final velocity; Issue
+#36 derives the common value from the aggregate final momentum. Generic
+inelastic behavior is not treated as sticking.
 
 ### Complete final state
 
@@ -71,7 +72,8 @@ Final velocities retain their signed scalar values under
 `PositiveAxis.RIGHT` or `PositiveAxis.LEFT`; physical direction is not stored
 as a replacement for the mathematical sign. Existing `SystemBoundary` and
 external-impulse ownership remain on `MomentumScenario`; the interaction does
-not duplicate or reinterpret them.
+not duplicate or reinterpret them. See
+momentum-constrained-collisions.md for the solver and validation contract.
 
 The existing scenario factory, aggregate solver, projectile pipeline, API, and
 generation policy remain unchanged. The new model imports no FastAPI,
