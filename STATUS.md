@@ -4,12 +4,12 @@ Last updated: 2026-09-19
 
 ## Current milestone
 
-M2 - Physical Sciences: Vertical Projectile Motion - application generation
+M3 - Momentum & Impulse
 
 ## Current phase
 
-Issue #23 is complete. M3 Momentum & Impulse is in planning only; implementation
-has not started.
+Issue #28 - framework-independent Momentum & Impulse domain scenario models is
+in implementation on `feature/issue-28-momentum-impulse-domain`.
 
 ## Completed
 
@@ -27,14 +27,15 @@ has not started.
 
 ## In progress
 
-- M3 Momentum & Impulse discovery and scope planning only; no implementation is in progress.
+- Issue #28 domain model implementation is in progress. Solver, generator,
+  renderer, application, API, and follow-up M3 issues remain deferred.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete M3 Momentum & Impulse domain and API-scope planning before opening implementation work.
+- Complete review of Issue #28 before starting the deterministic Momentum & Impulse solver issue.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -46,6 +47,7 @@ has not started.
 - Issue #21 final suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
 - Issue #24 full local suite: 201 tests passed; 95% total coverage; Ruff, mypy, and build passed.
 - Issue #23 full local suite: 236 tests passed; 95% total coverage; Ruff, mypy, and build passed. PR #26 and post-merge main CI quality and dependency-audit checks passed.
+- Issue #28 branch suite: 257 tests passed; 95% total coverage; Ruff, mypy, and build passed locally.
 - Issues #1-#6, #16, #21, #23, and #24 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -66,6 +68,8 @@ has not started.
 - PR #26 merged at `d7f709c4cdaefe1c994e6e9d37f63576d117b60b`.
 - Issue #23 is closed; PR #26 is merged.
 - Issue #24 is closed after its deterministic scenario-generation prerequisite was merged.
+- Milestone `M3 - Momentum & Impulse` exists; Issue #28 is open and in progress.
+- No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
@@ -77,3 +81,6 @@ has not started.
 - Scenario models use explicit SI value objects and an explicit coordinate sign convention.
 - Canonical assessment relationships use stable QuestionPartId values, not display order.
 - Apache-2.0 planned.
+- M3 Issue #28 models one-dimensional initial states with explicit signed
+  velocities, positive-axis conventions, body identity, and system boundaries;
+  derived momentum and final states remain solver responsibilities.
