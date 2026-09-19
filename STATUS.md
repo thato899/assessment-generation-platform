@@ -8,8 +8,8 @@ M3 - Momentum & Impulse
 
 ## Current phase
 
-Issue #28 - framework-independent Momentum & Impulse domain scenario models is
-in review via PR #29.
+Issue #28 is complete. Issue #30 - deterministic Momentum & Impulse solver and
+validation is in review via PR #31.
 
 ## Completed
 
@@ -24,10 +24,11 @@ in review via PR #29.
 - Issue #21 deterministic Grade 12 CAPS vertical-projectile question generator merged via PR #22 at `ed61df29cb1688c5f308ead5315081be4390ab11`.
 - Issue #24 deterministic vertical-projectile scenario generation inputs and factory merged via PR #25 at `f709c77465044e5663c4bfac63c49e641be28783`.
 - Issue #23 vertical-projectile application/API orchestration merged via PR #26 at `d7f709c4cdaefe1c994e6e9d37f63576d117b60b`.
+- Issue #28 Momentum & Impulse domain scenario models merged via PR #29 at `bdd2f5bc1a322d2fbd5924505fe5d1bc0b07e7d3`.
 
 ## In progress
 
-- PR #29 for Issue #28 is open with CI passing. Solver, generator, renderer,
+- PR #31 for Issue #30 is open with CI passing. Generator, renderer,
   application, API, and follow-up M3 issues remain deferred.
 
 ## Blocked
@@ -35,8 +36,8 @@ in review via PR #29.
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Review and merge PR #29 only after its acceptance criteria remain satisfied;
-  then plan the deterministic Momentum & Impulse solver issue.
+- Review and merge PR #31 only after its acceptance criteria remain satisfied;
+  then plan the next M3 capability without starting it in this execution.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -49,7 +50,8 @@ in review via PR #29.
 - Issue #24 full local suite: 201 tests passed; 95% total coverage; Ruff, mypy, and build passed.
 - Issue #23 full local suite: 236 tests passed; 95% total coverage; Ruff, mypy, and build passed. PR #26 and post-merge main CI quality and dependency-audit checks passed.
 - Issue #28 branch suite: 257 tests passed; 95% total coverage; Ruff, mypy, and build passed locally. PR #29 quality and dependency-audit checks passed.
-- Issues #1-#6, #16, #21, #23, and #24 merged with CI quality and dependency-audit checks passing.
+- Issue #30 focused solver suite: 33 tests passed; full-suite verification is in progress.
+- Issues #1-#6, #16, #21, #23, #24, and #28 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
 
@@ -69,7 +71,10 @@ in review via PR #29.
 - PR #26 merged at `d7f709c4cdaefe1c994e6e9d37f63576d117b60b`.
 - Issue #23 is closed; PR #26 is merged.
 - Issue #24 is closed after its deterministic scenario-generation prerequisite was merged.
-- Milestone `M3 - Momentum & Impulse` exists; Issue #28 is open and marked `status:in-review`; PR #29 is open.
+- PR #29 merged at `bdd2f5bc1a322d2fbd5924505fe5d1bc0b07e7d3`.
+- Issue #28 is closed; PR #29 is merged.
+- Milestone `M3 - Momentum & Impulse` exists; Issue #30 is open and marked
+  `status:in-review`; PR #31 is open.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
@@ -85,3 +90,6 @@ in review via PR #29.
 - M3 Issue #28 models one-dimensional initial states with explicit signed
   velocities, positive-axis conventions, body identity, and system boundaries;
   derived momentum and final states remain solver responsibilities.
+- M3 Issue #30 derives only typed, directly computable body and aggregate
+  momentum results; underdetermined individual final velocities are not
+  fabricated.

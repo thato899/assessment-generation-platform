@@ -12,7 +12,8 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 
 ## M3 preparation: Momentum & Impulse
 
-Status: planning only; implementation has not started.
+Status: implementation underway. Issue #28 established the domain foundation;
+Issue #30 is implementing the deterministic solver and validation boundary.
 
 The first planning slice will:
 
@@ -25,8 +26,8 @@ The first planning slice will:
 - record explicit non-goals for marking, printable output, LMS integration,
   and unrelated subject logic.
 
-No M3 API, subject engine, solver, question templates, or tests are being
-implemented as part of this planning update.
+M3 API, question generation, rendering, and scenario-generation policy remain
+deferred until their prerequisites are complete.
 
 ## Canonical assessment architecture prerequisite
 
