@@ -12,8 +12,9 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 
 ## M3 preparation: Momentum & Impulse
 
-Status: implementation underway. Issue #28 established the domain foundation;
-Issue #30 is implementing the deterministic solver and validation boundary.
+Status: implementation underway. Issues #28 and #30 established the domain and
+solver foundations; Issue #32 is implementing the deterministic scenario
+generation boundary.
 
 The first planning slice will:
 
