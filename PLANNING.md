@@ -27,8 +27,8 @@ The first planning slice will:
 - record explicit non-goals for marking, printable output, LMS integration,
   and unrelated subject logic.
 
-M3 API, question generation, rendering, and scenario-generation policy remain
-deferred until their prerequisites are complete.
+M3 question generation, rendering, application, and API remain deferred until
+the scenario-generation prerequisites are complete.
 
 ## Canonical assessment architecture prerequisite
 
