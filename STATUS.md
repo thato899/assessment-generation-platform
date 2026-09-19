@@ -9,8 +9,7 @@ M3 - Momentum & Impulse
 ## Current phase
 
 Issues #28 and #30 are complete. Issue #32 - deterministic Momentum & Impulse
-scenario generation policy and factory is in implementation on
-`feature/issue-32-momentum-impulse-factory`.
+scenario generation policy and factory is in review via PR #33.
 
 ## Completed
 
@@ -30,17 +29,16 @@ scenario generation policy and factory is in implementation on
 
 ## In progress
 
-- Issue #32 deterministic Momentum & Impulse scenario-generation policy and
-  factory is in implementation. Question generation, rendering, application,
-  API, and follow-up M3 issues remain deferred.
+- PR #33 for Issue #32 is open with CI passing. Question generation,
+  rendering, application, API, and follow-up M3 issues remain deferred.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete Issue #32, review its PR, then plan the next M3 capability without
-  starting it in this execution.
+- Review and merge PR #33 only after its acceptance criteria remain satisfied;
+  then plan the next M3 capability without starting it in this execution.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -79,7 +77,8 @@ scenario generation policy and factory is in implementation on
 - Issue #28 is closed; PR #29 is merged.
 - PR #31 merged at `6972075738cc0b876368f12dc9a6578e352d60e0`.
 - Issue #30 is closed; PR #31 is merged.
-- Milestone `M3 - Momentum & Impulse` exists; Issue #32 is open and in progress.
+- Milestone `M3 - Momentum & Impulse` exists; Issue #32 is open and marked
+  `status:in-review`; PR #33 is open.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
