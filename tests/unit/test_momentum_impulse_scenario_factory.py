@@ -8,6 +8,7 @@ from assessment_platform.domains.physical_sciences.mechanics import (
     DEFAULT_MOMENTUM_GENERATION_POLICY,
     MomentumDifficultyProfile,
     MomentumGenerationPolicy,
+    MomentumImpulseSolver,
     MomentumScenarioFactory,
     MomentumScenarioFamily,
     MomentumScenarioGenerationInput,
@@ -52,6 +53,27 @@ def test_each_family_and_difficulty_produces_valid_scenario(
     else:
         assert scenario.system.isolated
         assert scenario.system.external_impulse is None
+
+
+@pytest.mark.parametrize("family", list(MomentumScenarioFamily))
+@pytest.mark.parametrize("difficulty", list(Difficulty))
+@pytest.mark.parametrize("positive_axis", list(PositiveAxis))
+def test_generated_scenarios_pass_authoritative_solver_validation(
+    family: MomentumScenarioFamily,
+    difficulty: Difficulty,
+    positive_axis: PositiveAxis,
+) -> None:
+    scenario = FACTORY.generate(
+        request(
+            family=family,
+            difficulty=difficulty,
+            positive_axis=positive_axis,
+        )
+    )
+    solver = MomentumImpulseSolver(scenario)
+    solution = solver.solve()
+
+    assert solver.validate(solution).valid
 
 
 def test_explicit_family_and_axis_are_honoured() -> None:

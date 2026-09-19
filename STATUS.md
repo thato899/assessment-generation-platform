@@ -52,7 +52,7 @@ scenario generation policy and factory is in review via PR #33.
 - Issue #23 full local suite: 236 tests passed; 95% total coverage; Ruff, mypy, and build passed. PR #26 and post-merge main CI quality and dependency-audit checks passed.
 - Issue #28 branch suite: 257 tests passed; 95% total coverage; Ruff, mypy, and build passed locally. PR #29 quality and dependency-audit checks passed.
 - Issue #30 full suite: 269 tests passed; 94% total coverage; Ruff, mypy, and build passed. PR #31 CI passed.
-- Issue #32 branch full suite: 290 tests passed; 94% total coverage; Ruff, mypy, and build passed locally.
+- Issue #32 branch full suite: 308 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum solver and projectile regression tests passed explicitly.
 - Issues #1-#6, #16, #21, #23, #24, #28, and #30 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
