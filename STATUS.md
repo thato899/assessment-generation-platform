@@ -8,7 +8,8 @@ M2 - Physical Sciences: Vertical Projectile Motion - application generation
 
 ## Current phase
 
-Issue #23 - application/API orchestration is in review via PR #26.
+Issue #23 is complete. M3 Momentum & Impulse is in planning only; implementation
+has not started.
 
 ## Completed
 
@@ -22,18 +23,18 @@ Issue #23 - application/API orchestration is in review via PR #26.
 - Issue #6 versioned assessment generation API contract merged via PR #20.
 - Issue #21 deterministic Grade 12 CAPS vertical-projectile question generator merged via PR #22 at `ed61df29cb1688c5f308ead5315081be4390ab11`.
 - Issue #24 deterministic vertical-projectile scenario generation inputs and factory merged via PR #25 at `f709c77465044e5663c4bfac63c49e641be28783`.
+- Issue #23 vertical-projectile application/API orchestration merged via PR #26 at `d7f709c4cdaefe1c994e6e9d37f63576d117b60b`.
 
 ## In progress
 
-- Pull request #26 for Issue #23 is open for review; CI is passing.
+- M3 Momentum & Impulse discovery and scope planning only; no implementation is in progress.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Review and merge PR #26 after CI passes.
-- Select the next planned M2 work only after Issue #23 is complete.
+- Complete M3 Momentum & Impulse domain and API-scope planning before opening implementation work.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -44,8 +45,8 @@ Issue #23 - application/API orchestration is in review via PR #26.
 
 - Issue #21 final suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
 - Issue #24 full local suite: 201 tests passed; 95% total coverage; Ruff, mypy, and build passed.
-- Issue #23 full local suite: 236 tests passed; 95% total coverage; Ruff, mypy, and build passed. PR #26 CI quality and dependency-audit checks passed.
-- Issues #1-#6, #16, #21, and #24 merged with CI quality and dependency-audit checks passing.
+- Issue #23 full local suite: 236 tests passed; 95% total coverage; Ruff, mypy, and build passed. PR #26 and post-merge main CI quality and dependency-audit checks passed.
+- Issues #1-#6, #16, #21, #23, and #24 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
 
@@ -62,7 +63,8 @@ Issue #23 - application/API orchestration is in review via PR #26.
 - PR #22 merged at `ed61df29cb1688c5f308ead5315081be4390ab11`.
 - Issue #21 is closed; PR #22 is merged.
 - PR #25 merged at `f709c77465044e5663c4bfac63c49e641be28783`.
-- Issue #23 is open and marked `status:in-review`; PR #26 is open.
+- PR #26 merged at `d7f709c4cdaefe1c994e6e9d37f63576d117b60b`.
+- Issue #23 is closed; PR #26 is merged.
 - Issue #24 is closed after its deterministic scenario-generation prerequisite was merged.
 - Project board: blocked/not created; verify permissions before creating one.
 

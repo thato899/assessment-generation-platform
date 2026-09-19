@@ -10,6 +10,24 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 - **M3** Momentum & Impulse; **M4** Newton's Laws; **M5** Work, Energy & Power.
 - **M6** Mathematics Foundation; **M7** Mathematics: Functions.
 
+## M3 preparation: Momentum & Impulse
+
+Status: planning only; implementation has not started.
+
+The first planning slice will:
+
+- inspect the CAPS Grade 12 momentum and impulse requirements and define the
+  framework-independent domain boundary;
+- identify the required scenario/value objects and authoritative deterministic
+  solver inputs, including SI units, sign conventions, and seed semantics;
+- separate domain, curriculum, application, API, and learner-safe projection
+  responsibilities before selecting an implementation issue; and
+- record explicit non-goals for marking, printable output, LMS integration,
+  and unrelated subject logic.
+
+No M3 API, subject engine, solver, question templates, or tests are being
+implemented as part of this planning update.
+
 ## Canonical assessment architecture prerequisite
 
 Before question-generation, answer-sheet, or automatic-marking work, Issue #16 must define the framework-independent question-part response, memorandum, and marking domain model. It will connect stable `QuestionPartId` values to response specifications, machine-readable expected answers, memo entries, marking schemes, learner responses, and marks. Learner and memorandum views must derive from one canonical assessment representation; display order and LMS-specific integrations are not valid relationship keys.
