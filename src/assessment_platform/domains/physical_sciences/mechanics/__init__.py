@@ -11,6 +11,11 @@ from .momentum_impulse import (
     PositiveAxis,
     SystemBoundary,
 )
+from .momentum_impulse_solver import (
+    BodyMomentumResult,
+    MomentumImpulseSolution,
+    MomentumImpulseSolver,
+)
 from .vertical_projectile_scenario_factory import (
     DEFAULT_GENERATION_POLICY,
     DifficultyProfile,
@@ -22,11 +27,14 @@ from .vertical_projectile_scenario_factory import (
 
 __all__ = [
     "Impulse",
+    "BodyMomentumResult",
     "Kilograms",
     "MetresPerSecond",
     "Momentum",
     "MomentumBody",
     "MomentumScenario",
+    "MomentumImpulseSolution",
+    "MomentumImpulseSolver",
     "PhysicalDirection",
     "PositiveAxis",
     "SystemBoundary",
