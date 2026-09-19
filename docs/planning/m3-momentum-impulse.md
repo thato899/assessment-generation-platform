@@ -9,9 +9,9 @@ The M3 foundation is complete:
 - Issue #30 provides the authoritative aggregate Momentum & Impulse solver.
 - Issue #32 provides deterministic bounded initial-condition generation.
 
-No production implementation is selected by this document. Issue #35 is the
-only planned issue marked `status:ready`; Issues #36-#43 remain
-`status:backlog` until their dependencies are complete.
+Issue #35 is the active implementation issue; Issues #36-#43 remain
+`status:backlog` until their dependencies are complete. No downstream
+production implementation is selected by this plan.
 
 The authoritative curriculum reference is the repository's DBE CAPS Physical
 Sciences representation. Numeric generation pools remain platform policy and
@@ -35,7 +35,7 @@ interaction constraints and a constrained solver path.
 
 | Order | Issue | Responsibility | Dependencies | Status |
 | --- | --- | --- | --- | --- |
-| 1 | #35 | Solvable one-dimensional interaction/final-state domain model | #28, #30, #32 | ready |
+| 1 | #35 | Solvable one-dimensional interaction/final-state domain model | #28, #30, #32 | in-progress |
 | 2 | #36 | Constrained one-dimensional collision solver and validation | #35 | backlog |
 | 3 | #37 | Impulse, force, contact-time, and momentum-change solver | #35, #36 | backlog |
 | 4 | #38 | Extended deterministic generation policy for solvable interactions | #35, #36, #37 | backlog |

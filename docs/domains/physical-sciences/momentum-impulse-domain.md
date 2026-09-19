@@ -1,9 +1,10 @@
 # Momentum & Impulse domain foundation
 
 Issue #28 establishes the first M3 domain boundary for one-dimensional
-Momentum & Impulse scenarios. It is intentionally an initial-state model;
-the deterministic solver, scenario factory, question generator, renderer, and
-API are later issues.
+Momentum & Impulse scenarios. Issue #35 adds a separate authored interaction
+constraint boundary; it does not turn the initial-state model into a mutable
+before/after object. The deterministic solver, scenario factory, question
+generator, renderer, and API remain separate boundaries.
 
 ## Domain objects
 
@@ -28,9 +29,17 @@ authoritative solver must calculate and validate those results. The model
 does not assume that right is always positive and does not encode collision
 type, conservation-law outcomes, or kinetic-energy behavior.
 
+`MomentumInteraction` wraps a `MomentumScenario` with one explicit authored
+constraint: a known final velocity for one body, a two-body common-final-
+velocity/sticking condition, or a complete authored final state. It validates
+body identity and structural completeness without claiming mathematical
+solvability. A valid scenario may omit an interaction constraint and remain
+underdetermined. See `momentum-interaction-constraints.md`.
+
 ## Boundaries
 
-The module imports only framework-independent core seed/provenance types. It
-does not depend on FastAPI, Pydantic, HTTP, persistence, rendering, LLMs, or
-LMS integrations. No Momentum API support is added by Issue #28, and the
-existing vertical-projectile pipeline remains separate.
+The module imports only framework-independent domain/core types. It does not
+depend on FastAPI, Pydantic, HTTP, persistence, rendering, LLMs, solver
+implementations, or LMS integrations. Issue #35 performs no calculations;
+constrained solving belongs to Issue #36. No Momentum API support is added,
+and the existing vertical-projectile pipeline remains separate.

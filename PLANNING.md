@@ -29,9 +29,9 @@ The first planning slice will:
   and unrelated subject logic.
 
 M3 question generation, rendering, application, and API remain deferred until
-their planned dependencies are complete. The next ready issue is #35, which
-models explicit solvable interaction/final-state constraints. Issues #36-#43
-are planned in dependency order and remain backlog items. See the dedicated
+their planned dependencies are complete. Issue #35 is the active
+implementation issue for explicit solvable interaction/final-state
+constraints. Issues #36-#43 remain backlog items. See the dedicated
 [M3 plan](docs/planning/m3-momentum-impulse.md) for the dependency graph,
 CAPS coverage target, question-family matrix, and exit criteria.
 

@@ -1,6 +1,11 @@
 # Changelog
 
 ## Unreleased
+
+- Add framework-independent Momentum interaction constraint models for
+  authored final-state information without collision calculations.
+- Add ADR 0011 documenting the separation of authored Momentum interaction
+  constraints from solver-derived results.
 - Added a deterministic Momentum & Impulse scenario factory with versioned platform policy, supported initial-condition families, explicit axis selection, stable provenance, and seed replay. It does not generate solver outputs or final collision states.
 - Added the deterministic Momentum & Impulse solver boundary for signed body momentum, aggregate system totals, external impulse effects, validation, and explicit underdetermined-collision handling. No Momentum API or question generation is included.
 - Added the first framework-independent Momentum & Impulse domain models: explicit masses, signed velocities, axis conventions, body identities, system boundaries, and distinct momentum/impulse values. No solver or API support is included yet.

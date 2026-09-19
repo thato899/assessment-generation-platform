@@ -18,7 +18,7 @@ The application generation service selects supported curriculum metadata, maps t
 
 M3 begins with a separate one-dimensional Momentum & Impulse domain boundary. Its immutable initial-state models represent explicitly identified bodies, positive-axis conventions, signed velocities, and isolated or externally impulsed system assumptions. Momentum and impulse remain semantically distinct value objects. Issue #28 deliberately does not calculate derived momentum, model final states, classify collisions, or expose an API; a future deterministic solver must remain authoritative for those results.
 
-The M3 solver consumes that initial state and returns only typed, directly derivable body and aggregate momentum results. It interprets an external impulse over the modeled interaction interval, validates signed totals and system-boundary behavior, and does not fabricate individual final velocities for underdetermined collisions. Scenario generation, collision constraints, question generation, rendering, and API wiring remain separate downstream decisions.
+The M3 solver consumes that initial state and returns only typed, directly derivable body and aggregate momentum results. It interprets an external impulse over the modeled interaction interval, validates signed totals and system-boundary behavior, and does not fabricate individual final velocities for underdetermined collisions. Issue #35 adds a separate `MomentumInteraction` boundary for authored known-final-velocity, explicit sticking/common-final-velocity, and complete-final-state constraints. It performs structural identity/completeness validation only; Issue #36 will consume it for constrained solving. Scenario generation, question generation, rendering, and API wiring remain separate downstream decisions.
 
 The M3 scenario factory is the next boundary after the domain and solver prerequisites. It creates only bounded, deterministic initial conditions from a versioned platform policy and `GenerationSeed`; it does not call the solver or generate final states. Policy values remain separate from CAPS metadata, and explicit axis/family provenance preserves replayability.
 
@@ -26,4 +26,4 @@ Canonical assessments keep authoring data separate from submissions and marking 
 
 Technical SVG renderers consume validated scenario and solver objects and may only transform values into display coordinates. The projectile renderer is separate from the solver, uses physical screen orientation independently of mathematical sign convention, and emits safe deterministic SVG without raster, script, remote, or renderer-specific assessment dependencies.
 
-See ADRs 0001–0004 in `docs/adr/`.
+See ADRs 0001–0011 in `docs/adr/`.
