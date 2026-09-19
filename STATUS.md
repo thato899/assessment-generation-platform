@@ -9,7 +9,7 @@ M3 - Momentum & Impulse
 ## Current phase
 
 Issue #28 - framework-independent Momentum & Impulse domain scenario models is
-in implementation on `feature/issue-28-momentum-impulse-domain`.
+in review via PR #29.
 
 ## Completed
 
@@ -27,15 +27,16 @@ in implementation on `feature/issue-28-momentum-impulse-domain`.
 
 ## In progress
 
-- Issue #28 domain model implementation is in progress. Solver, generator,
-  renderer, application, API, and follow-up M3 issues remain deferred.
+- PR #29 for Issue #28 is open with CI passing. Solver, generator, renderer,
+  application, API, and follow-up M3 issues remain deferred.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete review of Issue #28 before starting the deterministic Momentum & Impulse solver issue.
+- Review and merge PR #29 only after its acceptance criteria remain satisfied;
+  then plan the deterministic Momentum & Impulse solver issue.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -47,7 +48,7 @@ in implementation on `feature/issue-28-momentum-impulse-domain`.
 - Issue #21 final suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
 - Issue #24 full local suite: 201 tests passed; 95% total coverage; Ruff, mypy, and build passed.
 - Issue #23 full local suite: 236 tests passed; 95% total coverage; Ruff, mypy, and build passed. PR #26 and post-merge main CI quality and dependency-audit checks passed.
-- Issue #28 branch suite: 257 tests passed; 95% total coverage; Ruff, mypy, and build passed locally.
+- Issue #28 branch suite: 257 tests passed; 95% total coverage; Ruff, mypy, and build passed locally. PR #29 quality and dependency-audit checks passed.
 - Issues #1-#6, #16, #21, #23, and #24 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -68,7 +69,7 @@ in implementation on `feature/issue-28-momentum-impulse-domain`.
 - PR #26 merged at `d7f709c4cdaefe1c994e6e9d37f63576d117b60b`.
 - Issue #23 is closed; PR #26 is merged.
 - Issue #24 is closed after its deterministic scenario-generation prerequisite was merged.
-- Milestone `M3 - Momentum & Impulse` exists; Issue #28 is open and in progress.
+- Milestone `M3 - Momentum & Impulse` exists; Issue #28 is open and marked `status:in-review`; PR #29 is open.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
