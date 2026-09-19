@@ -11,6 +11,14 @@ from .momentum_impulse import (
     PositiveAxis,
     SystemBoundary,
 )
+from .momentum_impulse_scenario_factory import (
+    DEFAULT_MOMENTUM_GENERATION_POLICY,
+    MomentumDifficultyProfile,
+    MomentumGenerationPolicy,
+    MomentumScenarioFactory,
+    MomentumScenarioFamily,
+    MomentumScenarioGenerationInput,
+)
 from .momentum_impulse_solver import (
     BodyMomentumResult,
     MomentumImpulseSolution,
@@ -35,6 +43,12 @@ __all__ = [
     "MomentumScenario",
     "MomentumImpulseSolution",
     "MomentumImpulseSolver",
+    "DEFAULT_MOMENTUM_GENERATION_POLICY",
+    "MomentumDifficultyProfile",
+    "MomentumGenerationPolicy",
+    "MomentumScenarioFactory",
+    "MomentumScenarioFamily",
+    "MomentumScenarioGenerationInput",
     "PhysicalDirection",
     "PositiveAxis",
     "SystemBoundary",
