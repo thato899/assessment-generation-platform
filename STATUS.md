@@ -8,8 +8,8 @@ M3 - Momentum & Impulse
 
 ## Current phase
 
-Issues #28, #30, #32, and #35 are complete. Issue #36 is in progress on its
-dedicated feature branch. PR #33 merged the deterministic
+Issues #28, #30, #32, and #35 are complete. Issue #36 is in review in PR #46
+on its dedicated feature branch. PR #33 merged the deterministic
 Momentum & Impulse scenario generation policy and factory at
 `86079a764c9143a778444ed3bdb4e60584726637`. M3 dependency planning is now
 recorded in `docs/planning/m3-momentum-impulse.md`; Issue #36 is the active
@@ -34,7 +34,7 @@ implementation issue and Issues #37-#43 are planned backlog items.
 
 ## In progress
 
-- Issue #36 is in progress on its dedicated feature branch. Issues #37-#43
+- Issue #36 is in review in PR #46 on its dedicated feature branch. Issues #37-#43
   are backlog. Question generation,
   rendering, application, and API remain deferred behind their documented
   dependencies.
@@ -61,7 +61,7 @@ implementation issue and Issues #37-#43 are planned backlog items.
 - Issue #30 full suite: 269 tests passed; 94% total coverage; Ruff, mypy, and build passed. PR #31 CI passed.
 - Issue #32 final suite: 308 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum solver and projectile regression tests passed explicitly. PR #33 CI quality and dependency-audit checks passed.
 - Issue #35 branch suite: 332 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum domain/solver/factory tests and projectile regressions passed explicitly.
-- Issue #36 focused suite: 17 tests passed; constrained solver and legacy Momentum regression tests passed explicitly before full-suite verification.
+- Issue #36 full suite: 349 tests passed; 93% total coverage; Ruff, mypy, and build passed locally. Constrained solver, legacy Momentum, and projectile regression tests passed explicitly. PR #46 CI quality and dependency-audit checks passed.
 - Issues #1-#6, #16, #21, #23, #24, #28, #30, and #32 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -92,7 +92,7 @@ implementation issue and Issues #37-#43 are planned backlog items.
   closed.
 - Milestone `M3 - Momentum & Impulse` exists with Issue #36 in progress and
   Issues #37-#43 planned backlog.
-- The Issue #36 pull request remains unmerged until CI and review are complete.
+- PR #46 is open and unmerged; CI quality and dependency-audit checks passed.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
