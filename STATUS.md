@@ -9,7 +9,7 @@ M3 - Momentum & Impulse
 ## Current phase
 
 Issue #28 is complete. Issue #30 - deterministic Momentum & Impulse solver and
-validation is in implementation on `feature/issue-30-momentum-impulse-solver`.
+validation is in review via PR #31.
 
 ## Completed
 
@@ -28,17 +28,16 @@ validation is in implementation on `feature/issue-30-momentum-impulse-solver`.
 
 ## In progress
 
-- Issue #30 deterministic Momentum & Impulse solver and validation is in
-  implementation. Generator, renderer, application, API, and follow-up M3
-  issues remain deferred.
+- PR #31 for Issue #30 is open with CI passing. Generator, renderer,
+  application, API, and follow-up M3 issues remain deferred.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete Issue #30, review its PR, then plan the next M3 capability without
-  starting it in this execution.
+- Review and merge PR #31 only after its acceptance criteria remain satisfied;
+  then plan the next M3 capability without starting it in this execution.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -74,7 +73,8 @@ validation is in implementation on `feature/issue-30-momentum-impulse-solver`.
 - Issue #24 is closed after its deterministic scenario-generation prerequisite was merged.
 - PR #29 merged at `bdd2f5bc1a322d2fbd5924505fe5d1bc0b07e7d3`.
 - Issue #28 is closed; PR #29 is merged.
-- Milestone `M3 - Momentum & Impulse` exists; Issue #30 is open and in progress.
+- Milestone `M3 - Momentum & Impulse` exists; Issue #30 is open and marked
+  `status:in-review`; PR #31 is open.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
