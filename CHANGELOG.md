@@ -4,6 +4,11 @@
 
 - Add deterministic, framework-independent Momentum & Impulse relationships
   for signed momentum change, impulse, average force, and contact time.
+- Add the versioned Issue #38 Momentum & Impulse problem-generation companion
+  with bounded difficulty pools, typed relationship/collision outputs,
+  deterministic provenance, both positive-axis conventions, and solver-backed
+  constrained final-state validation. The Issue #32 scenario factory remains
+  backward compatible.
 - Add deterministic constrained two-body Momentum collision solving for known
   final velocity, common final velocity, and complete authored final states,
   including typed validation results and isolated-state classification.
