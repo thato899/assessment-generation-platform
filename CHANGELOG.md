@@ -8,6 +8,7 @@
 - Added deterministic vertical projectile position/velocity calculations, event detection, root selection, and solution validation.
 - Added canonical question-part response specifications, expected answers, marking schemes, learner responses, marking results, and ID-derived memorandum entries.
 - Added a safe deterministic SVG renderer for one-dimensional vertical projectile diagrams.
-- Defined the versioned v1 assessment-generation API contract with explicit boundary DTOs, deterministic seed semantics, safe validation errors, and learner-safe response projections. Generation remains unavailable until its application service is implemented.
+- Defined the versioned v1 assessment-generation API contract with explicit boundary DTOs, deterministic seed semantics, safe validation errors, and learner-safe response projections.
 - Added deterministic CAPS vertical-projectile question generation with solver-derived canonical question parts, structured answers, marking schemes, optional SVG references, and provenance metadata.
 - Added a deterministic, policy-driven vertical-projectile scenario factory with typed generation inputs, four supported scenario families, seed replay, and provenance metadata.
+- Added the first application/API generation path for one deterministic CAPS Grade 12 Physical Sciences vertical-projectile question with solver validation, canonical assessment composition, learner-safe projection, stable unsupported-configuration errors, and visual controls.

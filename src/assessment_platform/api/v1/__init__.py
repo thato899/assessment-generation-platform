@@ -4,6 +4,10 @@ from typing import Annotated, Literal
 from fastapi import APIRouter
 from pydantic import BaseModel, ConfigDict, Field
 
+from assessment_platform.application import (
+    AssessmentGenerationService,
+    GenerationApplicationError,
+)
 from assessment_platform.core import (
     AssessmentRequest as DomainAssessmentRequest,
 )
@@ -18,14 +22,10 @@ from assessment_platform.core import (
 
 router = APIRouter(prefix="/api/v1")
 
-CurriculumId = Literal["CAPS"]
-SubjectId = Literal["physical-sciences"]
-GradeId = Literal[12]
-TopicId = Literal[
-    "momentum-and-impulse",
-    "vertical-projectile-motion-1d",
-    "work-energy-and-power",
-]
+CurriculumId = str
+SubjectId = str
+GradeId = int
+TopicId = str
 
 
 class DifficultyId(StrEnum):
@@ -50,9 +50,13 @@ class AssessmentGenerationRequest(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
-    curriculum: CurriculumId = Field(description="Supported curriculum identifier.")
-    subject: SubjectId = Field(description="Supported subject identifier.")
-    grade: GradeId = Field(description="Currently supported grade.")
+    curriculum: CurriculumId = Field(
+        description="Curriculum identifier; the first engine supports CAPS."
+    )
+    subject: SubjectId = Field(
+        description="Subject identifier; the first engine supports physical-sciences."
+    )
+    grade: GradeId = Field(ge=1, le=12, description="Grade identifier.")
     topic: TopicId = Field(description="Stable CAPS topic identifier.")
     assessment_type: AssessmentTypeId = Field(description="Requested assessment form.")
     question_count: Annotated[int, Field(ge=1, le=100)]
@@ -105,7 +109,7 @@ class VisualAssetDto(BaseModel):
 
 
 class AssessmentGenerationResponse(BaseModel):
-    """Future successful response; the generation engine is not available yet."""
+    """Learner-safe response for the supported v1 generation path."""
 
     api_version: Literal["v1"] = "v1"
     assessment_id: str
@@ -146,6 +150,9 @@ class GenerationUnavailableResponse(ErrorResponse):
     pass
 
 
+generation_service = AssessmentGenerationService()
+
+
 @router.get("/health", tags=["service"])
 def health() -> dict[str, str]:
     return {"status": "ok", "version": "0.1.0"}
@@ -153,20 +160,67 @@ def health() -> dict[str, str]:
 
 @router.post(
     "/assessments/generate",
-    status_code=503,
-    response_model=GenerationUnavailableResponse,
+    status_code=200,
+    response_model=AssessmentGenerationResponse,
     responses={
         200: {"model": AssessmentGenerationResponse},
         422: {"model": ErrorResponse},
-        503: {"model": GenerationUnavailableResponse},
+        500: {"model": ErrorResponse},
     },
     tags=["assessments"],
     summary="Request an assessment generation",
 )
-def generate_assessment(_: AssessmentGenerationRequest) -> GenerationUnavailableResponse:
-    return GenerationUnavailableResponse(
-        error=ErrorDto(
-            code="generation_engine_unavailable",
-            message="No assessment generation engine is available yet.",
+def generate_assessment(request: AssessmentGenerationRequest) -> AssessmentGenerationResponse:
+    assessment = generation_service.generate(request.to_domain())
+    if assessment.seed is None or len(assessment.questions) != 1:
+        raise GenerationApplicationError(
+            "generation_failed", "The generation engine returned an incomplete assessment."
         )
+    question = assessment.questions[0]
+    parts: list[LearnerQuestionPartDto] = []
+    for part in question.parts:
+        if part.response_specification is None:
+            raise GenerationApplicationError(
+                "generation_failed", "The generation engine returned an incomplete question."
+            )
+        specification = part.response_specification
+        parts.append(
+            LearnerQuestionPartDto(
+                question_part_id=part.identifier,
+                prompt=part.prompt,
+                maximum_marks=part.marks,
+                response_specification=ResponseSpecificationDto(
+                    kind=specification.kind.value,
+                    suggested_line_count=specification.suggested_line_count,
+                    expects_working=specification.expects_working,
+                    expects_final_answer=specification.expects_final_answer,
+                    expects_units=specification.expects_units,
+                    required_fields=specification.required_fields,
+                ),
+            )
+        )
+    visuals = tuple(
+        VisualAssetDto(
+            asset_id=visual.identifier,
+            media_type="image/svg+xml",
+            content=visual.content,
+        )
+        for visual in question.visuals
+    )
+    return AssessmentGenerationResponse(
+        assessment_id=assessment.identifier,
+        effective_seed=assessment.seed.value,
+        curriculum=request.curriculum,
+        subject=request.subject,
+        grade=request.grade,
+        topic=request.topic,
+        assessment_type=request.assessment_type,
+        questions=(
+            LearnerQuestionDto(
+                question_id=question.identifier,
+                prompt=question.prompt,
+                parts=tuple(parts),
+            ),
+        ),
+        visuals=visuals,
     )

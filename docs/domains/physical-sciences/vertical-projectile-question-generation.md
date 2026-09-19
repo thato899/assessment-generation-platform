@@ -64,6 +64,8 @@ numeric event labels disabled to avoid answer leakage. The resulting SVG is
 carried as a core `VisualReference`; the generator does not redraw it or
 recalculate its physical values. Visuals are omitted when disabled.
 
-The implementation remains limited to one generated question. API success
-responses, assessment composition, learner marking, printable documents,
-adaptive difficulty, LLM generation, and LMS integration remain future work.
+The implementation remains limited to one generated question. Issue #23
+composes that question into the canonical `Assessment` and exposes only its
+learner-safe projection through the supported v1 API. Learner marking,
+printable documents, adaptive difficulty, LLM generation, and LMS integration
+remain future work.

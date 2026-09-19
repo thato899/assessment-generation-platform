@@ -4,7 +4,7 @@ Last updated: 2026-09-19
 
 ## Current milestone
 
-M2 - Physical Sciences: Vertical Projectile Motion - application generation prerequisites
+M2 - Physical Sciences: Vertical Projectile Motion - application generation
 
 ## Current phase
 
@@ -37,7 +37,7 @@ Issue #23 - application/API orchestration is in progress after the deterministic
 
 ## Known problems
 
-- The generation endpoint intentionally returns HTTP 503 until a later milestone provides an application generation service.
+- The first generation path is intentionally narrow: one CAPS Grade 12 Physical Sciences vertical-projectile question. Unsupported combinations return stable errors.
 
 ## Test/CI status
 
