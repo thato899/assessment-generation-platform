@@ -12,9 +12,10 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 
 ## M3 preparation: Momentum & Impulse
 
-Status: domain, solver, and deterministic scenario-generation foundations are
-complete. Issues #28, #30, and #32 are merged; PR #33 merged at
-`86079a764c9143a778444ed3bdb4e60584726637`.
+Status: M3 foundation and dependency planning are complete. Issues #28, #30,
+and #32 are merged; PR #33 merged at
+`86079a764c9143a778444ed3bdb4e60584726637`. The detailed sequence is recorded
+in [docs/planning/m3-momentum-impulse.md](docs/planning/m3-momentum-impulse.md).
 
 The first planning slice will:
 
@@ -28,28 +29,11 @@ The first planning slice will:
   and unrelated subject logic.
 
 M3 question generation, rendering, application, and API remain deferred until
-the next boundary is selected explicitly.
-
-### M3 next-stage decision gate
-
-No next M3 implementation issue is selected yet. Before creating one, the
-roadmap must decide whether the next boundary is:
-
-- canonical question generation for quantities already exposed by
-  `MomentumImpulseSolver`;
-- technical scenario rendering;
-- explicit domain constraints for solvable final-state or collision questions;
-  or
-- application/API orchestration after canonical question generation exists.
-
-If question generation is selected, its supported question families must be
-limited to authoritative solver results. Individual final velocities,
-post-collision kinetic energy, elasticity, and other quantities not represented
-by the current domain and solver must not be invented in the question layer.
-If those outcomes are required, explicit solvable final-state constraints must
-be designed first. Visual requirements and the ordering of rendering versus
-question generation must also be decided rather than inferred from the
-projectile sequence.
+their planned dependencies are complete. The next ready issue is #35, which
+models explicit solvable interaction/final-state constraints. Issues #36-#43
+are planned in dependency order and remain backlog items. See the dedicated
+[M3 plan](docs/planning/m3-momentum-impulse.md) for the dependency graph,
+CAPS coverage target, question-family matrix, and exit criteria.
 
 ## Canonical assessment architecture prerequisite
 
