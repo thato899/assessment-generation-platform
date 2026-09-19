@@ -75,6 +75,7 @@ change generated values or identifiers.
 
 The factory does not import or depend on `VerticalProjectileSolver` or the
 question generator. The solver remains authoritative for all trajectory
-calculations and validation. The v1 FastAPI generation endpoint remains
-unavailable with HTTP 503 until the later application orchestration work is
-complete.
+calculations and validation. Issue #23 now consumes this factory through the
+application service; the API exposes only the supported CAPS Grade 12
+vertical-projectile path and keeps unsupported capabilities outside the
+success contract.

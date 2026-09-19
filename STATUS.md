@@ -4,11 +4,11 @@ Last updated: 2026-09-19
 
 ## Current milestone
 
-M2 - Physical Sciences: Vertical Projectile Motion - deterministic question generation
+M2 - Physical Sciences: Vertical Projectile Motion - application generation
 
 ## Current phase
 
-Issue #24 - deterministic vertical-projectile scenario generation inputs and factory is in progress on a feature branch.
+Issue #23 - application/API orchestration is in review via PR #26.
 
 ## Completed
 
@@ -21,30 +21,31 @@ Issue #24 - deterministic vertical-projectile scenario generation inputs and fac
 - Issue #5 deterministic vertical projectile SVG renderer merged via PR #19.
 - Issue #6 versioned assessment generation API contract merged via PR #20.
 - Issue #21 deterministic Grade 12 CAPS vertical-projectile question generator merged via PR #22 at `ed61df29cb1688c5f308ead5315081be4390ab11`.
+- Issue #24 deterministic vertical-projectile scenario generation inputs and factory merged via PR #25 at `f709c77465044e5663c4bfac63c49e641be28783`.
 
 ## In progress
 
-- Pull request #25 for Issue #24 is open for review; CI is in progress.
+- Pull request #26 for Issue #23 is open for review; CI is passing.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
-- Issue #23 remains blocked pending the deterministic scenario factory from Issue #24; its generation endpoint remains HTTP 503.
-
 ## Next tasks
 
-- Review and merge the Issue #24 pull request after CI passes.
-- Resume Issue #23 application orchestration and API wiring only after Issue #24 is complete.
+- Review and merge PR #26 after CI passes.
+- Select the next planned M2 work only after Issue #23 is complete.
+- Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
 
-- The generation endpoint intentionally returns HTTP 503 until a later milestone provides an application generation service.
+- The first generation path is intentionally narrow: one CAPS Grade 12 Physical Sciences vertical-projectile question. Unsupported combinations return stable errors.
 
 ## Test/CI status
 
-- Issue #21 local suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
+- Issue #21 final suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
 - Issue #24 full local suite: 201 tests passed; 95% total coverage; Ruff, mypy, and build passed.
-- Issues #1-#6 and #16 merged with CI quality and dependency-audit checks passing.
+- Issue #23 full local suite: 236 tests passed; 95% total coverage; Ruff, mypy, and build passed. PR #26 CI quality and dependency-audit checks passed.
+- Issues #1-#6, #16, #21, and #24 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
 
@@ -58,9 +59,11 @@ Issue #24 - deterministic vertical-projectile scenario generation inputs and fac
 - PR #18 merged at `6df9aae2e442b52df8d08319fef180628ac829f2`.
 - PR #19 merged at `309ed99b25a14573c02263fa9411195aa6e3b99f`.
 - PR #20 merged at `52150816851cbc006e5513eea3ce5c493170083f`.
+- PR #22 merged at `ed61df29cb1688c5f308ead5315081be4390ab11`.
 - Issue #21 is closed; PR #22 is merged.
-- Issue #23 is open and marked `status:in-progress` for deferred application/API orchestration, blocked by Issue #24.
-- Issue #24 is open and marked `status:in-review`; PR #25 is open.
+- PR #25 merged at `f709c77465044e5663c4bfac63c49e641be28783`.
+- Issue #23 is open and marked `status:in-review`; PR #26 is open.
+- Issue #24 is closed after its deterministic scenario-generation prerequisite was merged.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
@@ -68,6 +71,7 @@ Issue #24 - deterministic vertical-projectile scenario generation inputs and fac
 - Python/FastAPI/Pydantic; deterministic domain engines remain framework-independent.
 - API v1 uses explicit boundary DTOs, stable error codes, deterministic seed semantics, and learner-safe projections.
 - Vertical-projectile generation consumes validated solver results, uses deterministic typed templates, and keeps visuals/provenance renderer-neutral in the core.
+- API orchestration delegates scenario creation to the deterministic Issue #24 factory and does not fabricate scenarios.
 - Scenario models use explicit SI value objects and an explicit coordinate sign convention.
 - Canonical assessment relationships use stable QuestionPartId values, not display order.
 - Apache-2.0 planned.
