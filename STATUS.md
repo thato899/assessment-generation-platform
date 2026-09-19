@@ -24,7 +24,7 @@ Issue #24 - deterministic vertical-projectile scenario generation inputs and fac
 
 ## In progress
 
-- Issue #24 implementation is complete locally; its feature branch and pull request are pending final verification.
+- Pull request #25 for Issue #24 is open for review; CI is in progress.
 
 ## Blocked
 
@@ -60,7 +60,7 @@ Issue #24 - deterministic vertical-projectile scenario generation inputs and fac
 - PR #20 merged at `52150816851cbc006e5513eea3ce5c493170083f`.
 - Issue #21 is closed; PR #22 is merged.
 - Issue #23 is open and marked `status:in-progress` for deferred application/API orchestration, blocked by Issue #24.
-- Issue #24 is open and marked `status:in-progress` for deterministic scenario generation.
+- Issue #24 is open and marked `status:in-review`; PR #25 is open.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
