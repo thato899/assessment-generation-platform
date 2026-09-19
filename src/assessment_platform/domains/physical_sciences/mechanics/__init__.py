@@ -24,6 +24,15 @@ from .momentum_impulse_solver import (
     MomentumImpulseSolution,
     MomentumImpulseSolver,
 )
+from .momentum_interaction import (
+    CommonFinalVelocityConstraint,
+    CompleteFinalStateConstraint,
+    FinalBodyState,
+    InteractionConstraint,
+    InteractionConstraintKind,
+    KnownFinalVelocityConstraint,
+    MomentumInteraction,
+)
 from .vertical_projectile_scenario_factory import (
     DEFAULT_GENERATION_POLICY,
     DifficultyProfile,
@@ -43,6 +52,13 @@ __all__ = [
     "MomentumScenario",
     "MomentumImpulseSolution",
     "MomentumImpulseSolver",
+    "CommonFinalVelocityConstraint",
+    "CompleteFinalStateConstraint",
+    "FinalBodyState",
+    "InteractionConstraint",
+    "InteractionConstraintKind",
+    "KnownFinalVelocityConstraint",
+    "MomentumInteraction",
     "DEFAULT_MOMENTUM_GENERATION_POLICY",
     "MomentumDifficultyProfile",
     "MomentumGenerationPolicy",
