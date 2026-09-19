@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from enum import StrEnum
 from math import isfinite
 
-from assessment_platform.core import GenerationSeed
+from assessment_platform.core import GenerationProvenance, GenerationSeed
 
 
 def _finite(value: float, name: str) -> float:
@@ -89,6 +89,7 @@ class VerticalProjectileScenario:
         "in the absence of air friction",
         "one-dimensional vertical motion",
     )
+    provenance: GenerationProvenance | None = None
 
     def __post_init__(self) -> None:
         if not isinstance(self.identifier, str) or not self.identifier.strip():
@@ -104,6 +105,10 @@ class VerticalProjectileScenario:
         if not assumptions or any(not assumption for assumption in assumptions):
             raise ValueError("scenario assumptions must be non-empty strings")
         object.__setattr__(self, "assumptions", assumptions)
+        if self.provenance is not None and not isinstance(
+            self.provenance, GenerationProvenance
+        ):
+            raise ValueError("scenario provenance must be GenerationProvenance")
         self._validate_signs()
 
     def _validate_signs(self) -> None:

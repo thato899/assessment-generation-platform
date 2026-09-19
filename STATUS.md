@@ -1,6 +1,6 @@
 # Status
 
-Last updated: 2026-09-18
+Last updated: 2026-09-19
 
 ## Current milestone
 
@@ -8,7 +8,7 @@ M2 - Physical Sciences: Vertical Projectile Motion - deterministic question gene
 
 ## Current phase
 
-Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator is in progress.
+Issue #24 - deterministic vertical-projectile scenario generation inputs and factory is in progress on a feature branch.
 
 ## Completed
 
@@ -20,19 +20,21 @@ Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator i
 - Issue #16 canonical assessment response, memorandum, and marking model merged via PR #18.
 - Issue #5 deterministic vertical projectile SVG renderer merged via PR #19.
 - Issue #6 versioned assessment generation API contract merged via PR #20.
+- Issue #21 deterministic Grade 12 CAPS vertical-projectile question generator merged via PR #22 at `ed61df29cb1688c5f308ead5315081be4390ab11`.
 
 ## In progress
 
-- Pull request #22 for Issue #21 is open for review; CI is passing.
+- Issue #24 implementation is complete locally; its feature branch and pull request are pending final verification.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
+- Issue #23 remains blocked pending the deterministic scenario factory from Issue #24; its generation endpoint remains HTTP 503.
 
 ## Next tasks
 
-- Complete Issue #21 through PR review and CI.
-- Issue #23 will then cover application orchestration and API wiring; it has not been started.
+- Review and merge the Issue #24 pull request after CI passes.
+- Resume Issue #23 application orchestration and API wiring only after Issue #24 is complete.
 
 ## Known problems
 
@@ -41,6 +43,7 @@ Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator i
 ## Test/CI status
 
 - Issue #21 local suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
+- Issue #24 full local suite: 201 tests passed; 95% total coverage; Ruff, mypy, and build passed.
 - Issues #1-#6 and #16 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -55,8 +58,9 @@ Issue #21 - deterministic Grade 12 CAPS vertical-projectile question generator i
 - PR #18 merged at `6df9aae2e442b52df8d08319fef180628ac829f2`.
 - PR #19 merged at `309ed99b25a14573c02263fa9411195aa6e3b99f`.
 - PR #20 merged at `52150816851cbc006e5513eea3ce5c493170083f`.
-- Issue #21 is open and marked `status:in-review`; PR #22 is open.
-- Issue #23 is open and marked `status:backlog` for deferred application/API orchestration.
+- Issue #21 is closed; PR #22 is merged.
+- Issue #23 is open and marked `status:in-progress` for deferred application/API orchestration, blocked by Issue #24.
+- Issue #24 is open and marked `status:in-progress` for deterministic scenario generation.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions
