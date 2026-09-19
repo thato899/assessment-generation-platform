@@ -10,8 +10,9 @@ M3 - Momentum & Impulse
 
 Issues #28, #30, and #32 are complete. PR #33 merged the deterministic
 Momentum & Impulse scenario generation policy and factory at
-`86079a764c9143a778444ed3bdb4e60584726637`. No next M3 implementation issue
-has been selected; the roadmap decision gate is recorded in PLANNING.md.
+`86079a764c9143a778444ed3bdb4e60584726637`. M3 dependency planning is now
+recorded in `docs/planning/m3-momentum-impulse.md`; Issue #35 is the only ready
+next implementation issue and Issues #36-#43 are planned backlog items.
 
 ## Completed
 
@@ -31,18 +32,17 @@ has been selected; the roadmap decision gate is recorded in PLANNING.md.
 
 ## In progress
 
-- No M3 implementation is in progress. Question generation, rendering,
-  application, API, and follow-up M3 work remain deferred pending the roadmap
-  decision gate in PLANNING.md.
+- No M3 implementation is in progress. Issue #35 is ready; Issues #36-#43 are
+  backlog. Question generation, rendering, application, and API remain
+  deferred behind their documented dependencies.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Resolve the M3 next-stage decision gate and create an implementation issue
-  only after its prerequisites and authoritative answer/source-of-truth
-  requirements are explicit.
+- Begin Issue #35 only in a future implementation execution; do not start
+  downstream M3 issues before their documented dependencies are complete.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -83,7 +83,8 @@ has been selected; the roadmap decision gate is recorded in PLANNING.md.
 - Issue #30 is closed; PR #31 is merged.
 - PR #33 merged at `86079a764c9143a778444ed3bdb4e60584726637`.
 - Issue #32 is closed; PR #33 is merged.
-- Milestone `M3 - Momentum & Impulse` exists with no open issues.
+- Milestone `M3 - Momentum & Impulse` exists with Issue #35 ready and Issues
+  #36-#43 planned backlog.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
