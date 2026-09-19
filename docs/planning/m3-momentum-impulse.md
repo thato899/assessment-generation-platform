@@ -9,9 +9,9 @@ The M3 foundation is complete:
 - Issue #30 provides the authoritative aggregate Momentum & Impulse solver.
 - Issue #32 provides deterministic bounded initial-condition generation.
 
-Issue #35 is the active implementation issue; Issues #36-#43 remain
-`status:backlog` until their dependencies are complete. No downstream
-production implementation is selected by this plan.
+Issues #35 and #36 are complete. Issue #37 is the active implementation issue;
+Issues #38-#43 remain `status:backlog` until their dependencies are complete.
+No downstream production implementation is selected by this plan.
 
 The authoritative curriculum reference is the repository's DBE CAPS Physical
 Sciences representation. Numeric generation pools remain platform policy and
@@ -35,9 +35,9 @@ interaction constraints and a constrained solver path.
 
 | Order | Issue | Responsibility | Dependencies | Status |
 | --- | --- | --- | --- | --- |
-| 1 | #35 | Solvable one-dimensional interaction/final-state domain model | #28, #30, #32 | in-progress |
-| 2 | #36 | Constrained one-dimensional collision solver and validation | #35 | backlog |
-| 3 | #37 | Impulse, force, contact-time, and momentum-change solver | #35, #36 | backlog |
+| 1 | #35 | Solvable one-dimensional interaction/final-state domain model | #28, #30, #32 | complete |
+| 2 | #36 | Constrained one-dimensional collision solver and validation | #35 | complete |
+| 3 | #37 | Impulse, force, contact-time, and momentum-change solver | #35, #36 | in-progress |
 | 4 | #38 | Extended deterministic generation policy for solvable interactions | #35, #36, #37 | backlog |
 | 5 | #39 | Deterministic Momentum & Impulse technical SVG renderer | #35, #36, #37, #38 | backlog |
 | 6 | #40 | Deterministic calculation question generator | #35, #36, #37, #38, #39 | backlog |
@@ -116,7 +116,7 @@ be explicitly deferred with its reason and destination.
 | Complete supplied final state | Not represented | #35 |
 | Constrained final-state solving and validation | Not available | #36 |
 | Elastic/inelastic comparison from complete state | Not available | #36 |
-| Momentum change, force, and contact time | Not available | #37 |
+| Momentum change, force, and contact time | `MomentumImpulseRelationshipSolver` | In progress: #37 |
 | Solvable interaction generation | Not available | #38 |
 | Technical Momentum visual | Not available | #39 |
 | Canonical numerical questions | Not available | #40 |

@@ -13,8 +13,9 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 ## M3 preparation: Momentum & Impulse
 
 Status: M3 foundation and dependency planning are complete. Issues #28, #30,
-#32, and #35 are merged; PR #33 merged at
-`86079a764c9143a778444ed3bdb4e60584726637`. The detailed sequence is recorded
+#32, #35, and #36 are merged. PR #46 merged the constrained collision solver at
+`237ef2500271f4f5e5cba5bf5100feabb3e9982a`; PR #33 merged the scenario factory
+at `86079a764c9143a778444ed3bdb4e60584726637`. The detailed sequence is recorded
 in [docs/planning/m3-momentum-impulse.md](docs/planning/m3-momentum-impulse.md).
 
 The first planning slice will:
@@ -29,10 +30,10 @@ The first planning slice will:
   and unrelated subject logic.
 
 M3 question generation, rendering, application, and API remain deferred until
-their planned dependencies are complete. Issue #35 is complete and Issue #36
-is the active implementation issue for constrained two-body
-interaction/final-state solving. Issues #37-#43 remain backlog items. See the
-dedicated
+their planned dependencies are complete. Issues #35 and #36 are complete and
+Issue #37 is the active implementation issue for momentum-change, impulse,
+force, and contact-time relationships. Issues #38-#43 remain backlog items.
+See the dedicated
 [M3 plan](docs/planning/m3-momentum-impulse.md) for the dependency graph,
 CAPS coverage target, question-family matrix, and exit criteria.
 

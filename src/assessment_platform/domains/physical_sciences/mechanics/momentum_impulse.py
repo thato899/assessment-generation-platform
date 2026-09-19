@@ -87,6 +87,16 @@ class Momentum:
 
 
 @dataclass(frozen=True, slots=True)
+class MomentumChange:
+    """A signed change in momentum measured in kilogram metres per second."""
+
+    value: float
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "value", _finite(self.value, "momentum change"))
+
+
+@dataclass(frozen=True, slots=True)
 class Impulse:
     """A signed impulse value measured in newton seconds."""
 
@@ -94,6 +104,29 @@ class Impulse:
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "value", _finite(self.value, "impulse"))
+
+
+@dataclass(frozen=True, slots=True)
+class Newtons:
+    """A signed resultant force measured in newtons."""
+
+    value: float
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "value", _finite(self.value, "force"))
+
+
+@dataclass(frozen=True, slots=True)
+class Seconds:
+    """A strictly positive elapsed interaction time measured in seconds."""
+
+    value: float
+
+    def __post_init__(self) -> None:
+        value = _finite(self.value, "contact time")
+        if value <= 0:
+            raise ValueError("contact time must be positive seconds")
+        object.__setattr__(self, "value", value)
 
 
 @dataclass(frozen=True, slots=True)
