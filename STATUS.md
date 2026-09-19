@@ -8,11 +8,12 @@ M3 - Momentum & Impulse
 
 ## Current phase
 
-Issues #28, #30, and #32 are complete. PR #33 merged the deterministic
+Issues #28, #30, and #32 are complete. Issue #35 is in progress on its
+dedicated feature branch. PR #33 merged the deterministic
 Momentum & Impulse scenario generation policy and factory at
 `86079a764c9143a778444ed3bdb4e60584726637`. M3 dependency planning is now
-recorded in `docs/planning/m3-momentum-impulse.md`; Issue #35 is the only ready
-next implementation issue and Issues #36-#43 are planned backlog items.
+recorded in `docs/planning/m3-momentum-impulse.md`; Issue #35 is the active
+implementation issue and Issues #36-#43 are planned backlog items.
 
 ## Completed
 
@@ -32,17 +33,17 @@ next implementation issue and Issues #36-#43 are planned backlog items.
 
 ## In progress
 
-- No M3 implementation is in progress. Issue #35 is ready; Issues #36-#43 are
-  backlog. Question generation, rendering, application, and API remain
-  deferred behind their documented dependencies.
+- Issue #35 is in progress. Issues #36-#43 are backlog. Question generation,
+  rendering, application, and API remain deferred behind their documented
+  dependencies.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Begin Issue #35 only in a future implementation execution; do not start
-  downstream M3 issues before their documented dependencies are complete.
+- Complete and review Issue #35 without starting downstream M3 issues before
+  their documented dependencies are complete.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -57,6 +58,7 @@ next implementation issue and Issues #36-#43 are planned backlog items.
 - Issue #28 branch suite: 257 tests passed; 95% total coverage; Ruff, mypy, and build passed locally. PR #29 quality and dependency-audit checks passed.
 - Issue #30 full suite: 269 tests passed; 94% total coverage; Ruff, mypy, and build passed. PR #31 CI passed.
 - Issue #32 final suite: 308 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum solver and projectile regression tests passed explicitly. PR #33 CI quality and dependency-audit checks passed.
+- Issue #35 branch suite: 332 tests passed; 94% total coverage; Ruff, mypy, and build passed locally. Momentum domain/solver/factory tests and projectile regressions passed explicitly.
 - Issues #1-#6, #16, #21, #23, #24, #28, #30, and #32 merged with CI quality and dependency-audit checks passing.
 
 ## GitHub state
@@ -83,8 +85,8 @@ next implementation issue and Issues #36-#43 are planned backlog items.
 - Issue #30 is closed; PR #31 is merged.
 - PR #33 merged at `86079a764c9143a778444ed3bdb4e60584726637`.
 - Issue #32 is closed; PR #33 is merged.
-- Milestone `M3 - Momentum & Impulse` exists with Issue #35 ready and Issues
-  #36-#43 planned backlog.
+- Milestone `M3 - Momentum & Impulse` exists with Issue #35 in progress and
+  Issues #36-#43 planned backlog.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 
