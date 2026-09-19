@@ -8,7 +8,7 @@ M2 - Physical Sciences: Vertical Projectile Motion - application generation
 
 ## Current phase
 
-Issue #23 - application/API orchestration is in progress after the deterministic scenario-generation prerequisite was merged.
+Issue #23 - application/API orchestration is in review via PR #26.
 
 ## Completed
 
@@ -25,14 +25,15 @@ Issue #23 - application/API orchestration is in progress after the deterministic
 
 ## In progress
 
-- Issue #23 application service and API integration are in progress on the feature branch.
+- Pull request #26 for Issue #23 is open for review; CI is in progress.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete Issue #23 through application/API tests, review, and CI.
+- Review and merge PR #26 after CI passes.
+- Select the next planned M2 work only after Issue #23 is complete.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -60,7 +61,7 @@ Issue #23 - application/API orchestration is in progress after the deterministic
 - PR #22 merged at `ed61df29cb1688c5f308ead5315081be4390ab11`.
 - Issue #21 is closed; PR #22 is merged.
 - PR #25 merged at `f709c77465044e5663c4bfac63c49e641be28783`.
-- Issue #23 is open and marked `status:in-progress` for application/API orchestration.
+- Issue #23 is open and marked `status:in-review`; PR #26 is open.
 - Issue #24 is closed after its deterministic scenario-generation prerequisite was merged.
 - Project board: blocked/not created; verify permissions before creating one.
 
