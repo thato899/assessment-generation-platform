@@ -5,7 +5,8 @@
 M4 is the current milestone after completed M3 Momentum & Impulse. Issue #54
 is merged and closed; Issue #55 authored domain implementation is merged and closed at `2f6adeb`.
 Issue #56 deterministic solver is merged and closed at `5568b52`. Issue #57
-deterministic scenario generation is implemented and in progress. Issues #58-#62
+deterministic scenario generation is merged and closed at `70b212c`. Issue #58
+deterministic SVG rendering is active on its feature branch; Issues #59-#62
 remain backlog.
 The repository roadmap identifies M4 as Newton's Laws, while the official DBE
 CAPS Physical Sciences document places the core Newton's Laws content in the
@@ -47,8 +48,8 @@ must not duplicate Newton equations.
 | 1 | #54 | Validate CAPS Newton's Laws scope and curriculum metadata | M3 complete | complete |
 | 2 | #55 | Define framework-independent Newton domain and force representations | #54 | complete |
 | 3 | #56 | Implement authoritative deterministic Newton solver and validation | #55 | complete |
-| 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | in progress |
-| 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | backlog |
+| 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | complete |
+| 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | in progress |
 | 6 | #59 | Implement solver-backed calculation question generator | #55–#58 | backlog |
 | 7 | #60 | Implement conceptual templates and machine-readable rubrics | #54, #59 | backlog |
 | 8 | #61 | Integrate Newton generation into the existing application/API | #54, #57–#60 | backlog |
