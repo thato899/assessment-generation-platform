@@ -7,7 +7,8 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 - **M0** Repository & Architecture Bootstrap — governance, API shell, CI.
 - **M1** Assessment Core — stable models, validation, seeds, contract tests.
 - **M2** Physical Sciences: Vertical Projectile Motion — scenario, solver, renderer, questions, rubric.
-- **M3** Momentum & Impulse; **M4** Newton's Laws; **M5** Work, Energy & Power.
+- **M3** Momentum & Impulse (complete); **M4** Newton's Laws (planned next);
+  **M5** Work, Energy & Power.
 - **M6** Mathematics Foundation; **M7** Mathematics: Functions.
 
 ## M3 preparation: Momentum & Impulse
@@ -29,9 +30,27 @@ The first planning slice will:
 - record explicit non-goals for marking, printable output, LMS integration,
   and unrelated subject logic.
 
-M3 question generation, rendering, application, and API dependencies are now
-complete through Issue #42. Issue #43 is the active final coverage-verification
-item; no downstream milestone is being started.
+M3 question generation, rendering, application, API integration, and final
+coverage verification are complete through Issue #43. M3 is formally complete.
+M4 Newton's Laws is the next planned milestone; its planning document is
+[docs/planning/m4-newtons-laws.md](docs/planning/m4-newtons-laws.md). No M4
+implementation has started. Issue #44 is the first ready scope-validation
+issue; later M4 issues remain backlog.
+
+## Completed M3 scope
+
+M3 delivered deterministic Momentum & Impulse domain models, authoritative
+solvers, constrained collisions, generation policy, safe SVG rendering,
+calculation and conceptual question generation, v1 API integration, and
+evidence-based CAPS verification. See the M3 plan and coverage matrix.
+
+## Deferred / future enhancements
+
+M3's documented partial areas remain future enhancements: a standalone
+final-total-momentum question and a dedicated impulse-vector conceptual
+template. General two-unknown elastic solving, multidimensional mechanics,
+automatic free-text marking, printable output, and LMS adapters remain out of
+scope.
 See the dedicated
 [M3 plan](docs/planning/m3-momentum-impulse.md) for the dependency graph,
 CAPS coverage target, question-family matrix, and exit criteria.

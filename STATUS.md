@@ -4,14 +4,13 @@ Last updated: 2026-09-19
 
 ## Current milestone
 
-M3 - Momentum & Impulse
+M3 - Momentum & Impulse — COMPLETE
 
 ## Current phase
 
-Issues #28, #30, #32, #35, #36, #37, #38, #39, #40, #41, and #42 are
-complete. Issue #43 is the active final M3 coverage-verification issue on its
-dedicated branch. M3 dependency planning is recorded in
-`docs/planning/m3-momentum-impulse.md`.
+Issues #28, #30, #32, #35, #36, #37, #38, #39, #40, #41, #42, and #43 are
+closed. M3 implementation and final coverage verification are complete. M4
+Newton's Laws is planned next; implementation has not started.
 
 ## Completed
 
@@ -34,16 +33,16 @@ dedicated branch. M3 dependency planning is recorded in
 
 ## In progress
 
-- Issue #43 is in progress on its dedicated verification branch. All M3
-  implementation dependencies are complete; final coverage verification is
-  being recorded.
+- M3 is complete. M4 planning is active on a documentation branch; Issue #44
+  is the first ready scope-validation issue and all later M4 issues remain
+  backlog.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete and review Issue #43 without starting a new milestone.
+- Review the M4 planning PR, then implement only Issue #44.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
