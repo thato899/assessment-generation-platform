@@ -2,12 +2,13 @@
 
 ## Planning status
 
-M4 is the next planned milestone after M3 Momentum & Impulse. This document
-is planning-only; no Newton's Laws production implementation is included.
+M4 is the current milestone after completed M3 Momentum & Impulse. Issue #54
+is merged and closed; Issue #55 authored domain implementation is in review.
+Issues #56–#62 remain backlog. No Newton solver or downstream pipeline exists.
 The repository roadmap identifies M4 as Newton's Laws, while the official DBE
 CAPS Physical Sciences document places the core Newton's Laws content in the
 Grade 11 sequence and refers to Grade 12 consolidation and integrated
-problem-solving. Issue #54 validates the exact Grade 12 applicability and
+problem-solving. Issue #54 validated the exact Grade 12 applicability and
 curriculum metadata before domain implementation. The resulting scope
 contract is recorded in
 `docs/domains/physical-sciences/newtons-laws-scope.md`.
@@ -36,10 +37,10 @@ must not duplicate Newton equations.
 
 ## Planned issue sequence
 
-| Order | Issue | Responsibility | Dependencies | Initial status |
+| Order | Issue | Responsibility | Dependencies | Current status |
 | --- | --- | --- | --- | --- |
-| 1 | #54 | Validate CAPS Newton's Laws scope and curriculum metadata | M3 complete | in review |
-| 2 | #55 | Define framework-independent Newton domain and force representations | #54 | backlog |
+| 1 | #54 | Validate CAPS Newton's Laws scope and curriculum metadata | M3 complete | complete |
+| 2 | #55 | Define framework-independent Newton domain and force representations | #54 | in review |
 | 3 | #56 | Implement authoritative deterministic Newton solver and validation | #55 | backlog |
 | 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | backlog |
 | 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | backlog |
@@ -100,7 +101,8 @@ After scope validation, evaluate body net force and acceleration, equilibrium
 and resultant-force cases, weight/normal/friction/tension relationships,
 Newton II applications, and supported force-diagram interpretations. Every
 family requires an authoritative solver result and a structural applicability
-check; underdetermined systems must be rejected.
+check; the solver must decline underdetermined requests for results. The #55
+domain permits structurally valid underdetermined scenarios.
 
 ## Planned conceptual families
 
@@ -114,8 +116,8 @@ marking.
 
 The main risk is curriculum-grade ambiguity: Newton's Laws are core Grade 11
 content in the official document, while M4 is a repository roadmap milestone
-with Grade 12 consolidation relevance. #54 is intentionally first and ready
-to resolve this. Other risks are force-diagram semantics, friction/contact
+with Grade 12 consolidation relevance. #54 resolved this before #55 began.
+Remaining risks are force-diagram semantics, friction/contact
 assumptions, and avoiding accidental coupling to Momentum.
 
 M3 partial findings remain documented in

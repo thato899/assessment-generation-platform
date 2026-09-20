@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add immutable, framework-independent Newton domain inputs with explicit
+  units, 1D/2D coordinates, force ownership, contact/friction, light-string,
+  third-law and gravity relationships. Preserve underdetermined states without
+  inferring physics; Newton API routing remains unavailable.
 - Add evidence-backed CAPS Newton's Laws curriculum metadata and a Grade 11
   versus Grade 12 scope contract; no Newton production or API implementation
   is included.

@@ -136,8 +136,14 @@ requirements listed above.
 
 ## Issue #54 non-goals
 
-This issue makes no Newton topic available through the generation API, adds no
-Newton solver or renderer, and does not create production force/scenario/
-question classes. The only implementation change is curriculum metadata plus
-scope regression coverage. No ADR is required: the existing curriculum
+Issue #54 merged in PR #64 at `703de9acf8f334be6eafae0249cc8868f8215c66`.
+Issue #55 now supplies the [authored domain contract](newtons-laws-domain.md)
+within this approved scope. Its structural validation permits underdetermined
+inputs; #56 will determine solvability and numerical consistency. The curriculum
+grade placement and supported/deferred scope above are unchanged.
+
+Issue #54 made no Newton topic available through the generation API, added no
+Newton solver or renderer, and created no production force/scenario/question
+classes. Its implementation changes were curriculum metadata plus scope
+regression coverage. No ADR was required: the existing curriculum
 reference and modular-domain decisions are sufficient.

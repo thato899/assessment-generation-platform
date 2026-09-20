@@ -44,3 +44,14 @@ Canonical assessments keep authoring data separate from submissions and marking 
 Technical SVG renderers consume validated scenario and solver objects and may only transform values into display coordinates. The projectile renderer is separate from the solver, uses physical screen orientation independently of mathematical sign convention, and emits safe deterministic SVG without raster, script, remote, or renderer-specific assessment dependencies.
 
 See ADRs 0001–0011 in `docs/adr/`.
+
+M4 Issue #55 introduces a separate `mechanics.newtons_laws` package for authored
+Newton facts: bodies, explicit 1D/2D bases, signed/unknown force components,
+source/target ownership, selected system membership, and composed contact,
+friction, light-string, third-law and gravitational relationships. Frozen
+objects validate structural meaning; an underdetermined scenario remains valid.
+Authored acceleration and field inputs are separate from bodies and future
+solver results. The package imports no other physics engine and leaves existing
+value objects unchanged. Numerical validation belongs to #56; generation,
+diagrams, questions and routing remain #57–#61. See the
+[Newton domain contract](docs/domains/physical-sciences/newtons-laws-domain.md).
