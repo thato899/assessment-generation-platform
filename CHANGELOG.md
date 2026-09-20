@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add Issue #58 deterministic, learner-safe Newton force and free-body SVG
+  rendering with authored ownership, Cartesian/surface direction mapping,
+  stable accessible IDs, escaping, fixed hidden-value geometry, and no physics
+  calculations. Issues #59 onward remain deferred.
+
 - Add Issue #57 deterministic Newton scenario generation with versioned typed
   policy/input/output models, local seed isolation, stable provenance and
   solver-backed validation for the approved bounded families. Authored unknowns

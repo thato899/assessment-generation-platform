@@ -4,7 +4,7 @@ Last updated: 2026-09-20
 
 ## Current milestone
 
-M4 - Newton's Laws - Issue #57 in progress
+M4 - Newton's Laws - Issue #58 in progress
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -14,8 +14,9 @@ Issues #28, #30, #32, #35, #36, #37, #38, #39, #40, #41, #42, and #43 are
 closed. M3 implementation and final coverage verification are complete. M4
 planning and Issue #54 scope validation are merged. Issue #55 is merged and
 closed; Issue #56 is merged and closed at `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
-Issue #57 is implemented on `feature/issue-57-newton-scenario-generation` and
-is in progress; #58 onward remains deferred.
+Issue #57 is merged and closed at `70b212c5d416a36d535c389a056f79a95c25761e`;
+Issue #58 is active on `feature/issue-58-newton-svg-renderer`; #59 onward remains
+deferred.
 
 ## Completed
 
@@ -46,17 +47,17 @@ is in progress; #58 onward remains deferred.
   membership and contact/friction/string/third-law/gravity relationships are
   merged and closed. Structural validity remains separate from solvability.
 - Issue #56 deterministic Newton solver and validation are merged and closed.
-- Issue #57 deterministic seeded Newton scenario generation is implemented on
-  the feature branch and is undergoing final verification. Issues #58-#62
-  remain backlog; rendering, questions and API routing remain deferred.
+- Issue #57 deterministic seeded Newton scenario generation is merged and
+  closed. Issue #58 deterministic Newton SVG rendering is active; #59-#62
+  remain backlog and question/API routing remain deferred.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete review and open the Issue #57 generation PR. Do not merge it in this
-  execution and do not begin #58.
+- Complete review and open the Issue #58 renderer PR. Do not merge it in this
+  execution and do not begin #59.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -77,6 +78,10 @@ is in progress; #58 onward remains deferred.
 - Issue #57 focused verification: generation tests cover all 12 families,
   replay, global RNG isolation, authored unknown preservation and solver-backed
   validation.
+- Issue #58 focused verification: 22 renderer tests passed with 93% module
+  coverage; all 12 generated families render as force diagrams and projectile,
+  Momentum, solver, generation and API regressions remain green. Full suite:
+  876 passed. Ruff, mypy, wheel build, pip check and `git diff --check` passed.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -132,8 +137,9 @@ is in progress; #58 onward remains deferred.
   present on `main`.
 - PR #64 merged at `703de9acf8f334be6eafae0249cc8868f8215c66`; Issue #54 is closed.
 - PR #65 merged at `2f6adeb8d8df5e1b3faa9ef30c9fae4830f158f`; Issue #55 is
-  closed at `5568b527bdba75bd46f11ab7bdc2014289c836a4`; Issue #57 is active and
-#58-#62 remain backlog.
+  closed. PR #66 merged Issue #56 at `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
+  PR #67 merged Issue #57 at `70b212c5d416a36d535c389a056f79a95c25761e`.
+  Issue #58 is active; #59-#62 remain backlog.
 - Existing Momentum & Impulse API support is preserved. Newton routing is absent.
 - Project board: blocked/not created; verify permissions before creating one.
 

@@ -76,3 +76,14 @@ versioned policy pools and `GenerationProvenance` to create only authored
 never copies Newton equations, stores solver answers, mutates unknowns, or adds
 rendering, question, marking or API concerns. Family-specific output types keep
 contact, string, gravitation, third-law and unknown-force data explicit.
+
+M4 Issue #58 adds `rendering.svg.newton.NewtonSvgRenderer` as a downstream
+technical-visual boundary. It consumes authored Newton scenarios and optional
+explicit validated data, maps declared Cartesian or surface directions to
+screen coordinates, and emits deterministic accessible SVG. Free-body views
+select forces through `NewtonScenario.forces_on`, so third-law partners acting
+on another body cannot leak into the selected body. Learner-safe visibility
+defaults hide numbers and derived values; fixed arrow geometry prevents hidden
+magnitudes being inferred. The renderer performs no Newton calculations and
+does not call generation, questions, marking or API layers. See
+`docs/domains/physical-sciences/newtons-laws-rendering.md`.
