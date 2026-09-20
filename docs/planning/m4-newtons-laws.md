@@ -3,8 +3,8 @@
 ## Planning status
 
 M4 is the current milestone after completed M3 Momentum & Impulse. Issue #54
-is merged and closed; Issue #55 authored domain implementation is in review.
-Issues #56–#62 remain backlog. No Newton solver or downstream pipeline exists.
+is merged and closed; Issue #55 authored domain implementation is merged and closed at `2f6adeb`.
+Issue #56 deterministic solver is implemented and in review. Issues #57-#62 remain backlog. Generation and downstream pipeline work remains deferred.
 The repository roadmap identifies M4 as Newton's Laws, while the official DBE
 CAPS Physical Sciences document places the core Newton's Laws content in the
 Grade 11 sequence and refers to Grade 12 consolidation and integrated
@@ -32,7 +32,10 @@ accessibility, and deterministic-ID conventions where semantics are shared.
 Newton-specific domain concepts must remain separate from Momentum models;
 shared mass, force, direction, and small SI value objects should be composed
 only where their invariants genuinely match. The solver is authoritative for
-all numerical results. Generation, renderers, question authors, and the API
+all numerical results. Issue #56 now provides immutable typed results, explicit
+underdetermination/inconsistency failures, deterministic tolerance handling,
+and the bounded contact, string, third-law and gravity calculations in scope.
+Generation, renderers, question authors, and the API
 must not duplicate Newton equations.
 
 ## Planned issue sequence
@@ -40,8 +43,8 @@ must not duplicate Newton equations.
 | Order | Issue | Responsibility | Dependencies | Current status |
 | --- | --- | --- | --- | --- |
 | 1 | #54 | Validate CAPS Newton's Laws scope and curriculum metadata | M3 complete | complete |
-| 2 | #55 | Define framework-independent Newton domain and force representations | #54 | in review |
-| 3 | #56 | Implement authoritative deterministic Newton solver and validation | #55 | backlog |
+| 2 | #55 | Define framework-independent Newton domain and force representations | #54 | complete |
+| 3 | #56 | Implement authoritative deterministic Newton solver and validation | #55 | in review |
 | 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | backlog |
 | 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | backlog |
 | 6 | #59 | Implement solver-backed calculation question generator | #55–#58 | backlog |
