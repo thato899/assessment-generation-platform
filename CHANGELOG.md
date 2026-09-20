@@ -2,16 +2,22 @@
 
 ## Unreleased
 
+- Add Issue #60 deterministic Grade 11 Newton conceptual templates with
+  machine-readable concept tokens, reconciled declarative rubrics, stable IDs,
+  provenance, response specifications, and optional #58 visuals. Keep numeric
+  physics, automatic marking, API routing, and printable output outside this
+  boundary.
+
+
 - Add Issue #58 deterministic, learner-safe Newton force and free-body SVG
   rendering with authored ownership, Cartesian/surface direction mapping,
   stable accessible IDs, escaping, fixed hidden-value geometry, and no physics
-  calculations. Issues #59 onward remain deferred.
+  calculations. Issue #59 is complete; conceptual questions are active in #60.
 
 - Add Issue #59 solver-backed Newton calculation question generation with
   canonical assessment parts, structured numeric answers, reconciled marking
   schemes, deterministic IDs/provenance, explicit givens, and optional safe
-  SVG visuals. Conceptual templates, API routing, automatic marking and
-  printing remain deferred.
+  SVG visuals. API routing, automatic marking and printing remain deferred to #61-#62.
 
 - Add Issue #57 deterministic Newton scenario generation with versioned typed
   policy/input/output models, local seed isolation, stable provenance and
@@ -63,8 +69,6 @@
 - Added deterministic CAPS vertical-projectile question generation with solver-derived canonical question parts, structured answers, marking schemes, optional SVG references, and provenance metadata.
 - Added a deterministic, policy-driven vertical-projectile scenario factory with typed generation inputs, four supported scenario families, seed replay, and provenance metadata.
 - Added the first application/API generation path for one deterministic CAPS Grade 12 Physical Sciences vertical-projectile question with solver validation, canonical assessment composition, learner-safe projection, stable unsupported-configuration errors, and visual controls.
-## Unreleased
-
 - Add Issue #57 deterministic Newton scenario generation with versioned typed
   policy/input/output models, local seed isolation, stable provenance and
   solver-backed validation for the approved bounded families. Authored unknowns

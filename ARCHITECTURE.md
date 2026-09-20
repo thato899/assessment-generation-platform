@@ -94,5 +94,12 @@ to canonical `QuestionPart`, `ResponseSpecification`, `ExpectedAnswer`,
 `MarkingScheme`, `VisualReference` and `GenerationProvenance` values. Prompts
 expose authored givens and sign conventions while preserving unknown inputs;
 question IDs and provenance contain no answers. Newton III validation has no
-numeric question template, conceptual templates remain #60, and API routing,
-automatic marking and printing remain outside this layer.
+numeric question template, conceptual templates are owned by active #60, and
+API routing, automatic marking and printing remain outside this layer.
+
+M4 Issue #60 adds `NewtonConceptualQuestionGenerator` as the conceptual
+question boundary. It emits deterministic canonical questions whose
+`ExpectedAnswer` contains concept tokens and whose marking criteria describe
+those concepts declaratively. It may consume an authored scenario and attach a
+learner-safe #58 visual, but it performs no numerical physics, automatic
+marking, API routing, or PDF generation.

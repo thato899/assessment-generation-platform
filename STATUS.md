@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 
 ## Current milestone
 
-M4 - Newton's Laws - Issue #59 in progress
+M4 - Newton's Laws - Issue #60 in progress
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -16,8 +16,9 @@ planning and Issue #54 scope validation are merged. Issue #55 is merged and
 closed; Issue #56 is merged and closed at `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
 Issue #57 is merged and closed at `70b212c5d416a36d535c389a056f79a95c25761e`;
 Issue #58 is merged and closed at `c3ee3b9e707ea04b1f73826b5cb8f6b008cf5e21`;
-Issue #59 is active on `feature/issue-59-newton-calculation-questions`; #60
-onward remains deferred.
+Issue #59 is merged and closed at `5025c3730e4af6e46e3851f468215c501d490f30`;
+Issue #60 is active on `feature/issue-60-newton-conceptual-questions`; #61 onward
+remains deferred.
 
 ## Completed
 
@@ -50,16 +51,16 @@ onward remains deferred.
 - Issue #56 deterministic Newton solver and validation are merged and closed.
 - Issue #57 deterministic seeded Newton scenario generation is merged and
   closed. Issue #58 deterministic Newton SVG rendering is merged and closed.
-  Issue #59 solver-backed calculation questions are active; #60-#62 remain
-  backlog and conceptual/API routing remain deferred.
+  Issue #59 solver-backed calculation questions are merged and closed; Issue #60
+  conceptual questions are active; #61-#62 remain backlog and API routing remains deferred.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete review and open the Issue #59 calculation-question PR. Do not merge
-  it in this execution and do not begin #60.
+- Complete review and open the Issue #60 conceptual-question PR. Do not merge
+  it in this execution and do not begin #61.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -84,10 +85,11 @@ onward remains deferred.
   coverage; all 12 generated families render as force diagrams and projectile,
   Momentum, solver, generation and API regressions remain green. Full suite:
   876 passed. Ruff, mypy, wheel build, pip check and `git diff --check` passed.
-- Issue #59 focused verification: 17 calculation-question tests passed with
-  93% module coverage; all supported generated calculation families match
-  `NewtonSolver`, while Newton III is explicitly deferred to conceptual work.
-  Full suite: 893 passed. Ruff, mypy, wheel build, pip check and
+- Issue #59 merged verification: 17 calculation-question tests passed with 93%
+  module coverage; PR #69 CI passed and merged at `5025c373`.
+- Issue #60 focused verification: 26 conceptual-template, rubric-reconciliation,
+  context, visual, immutability, and misconception tests passed with 94% module
+  coverage; full suite 919 passed. Ruff, mypy, wheel build, pip check and
   `git diff --check` passed.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
@@ -147,7 +149,8 @@ onward remains deferred.
   closed. PR #66 merged Issue #56 at `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
   PR #67 merged Issue #57 at `70b212c5d416a36d535c389a056f79a95c25761e`.
   PR #68 merged Issue #58 at `c3ee3b9e707ea04b1f73826b5cb8f6b008cf5e21`.
-  Issue #59 is active; #60-#62 remain backlog.
+  PR #69 merged at `5025c3730e4af6e46e3851f468215c501d490f30`; Issue #59 is closed.
+  Issue #60 is active in review preparation; #61-#62 remain backlog.
 - Existing Momentum & Impulse API support is preserved. Newton routing is absent.
 - Project board: blocked/not created; verify permissions before creating one.
 
