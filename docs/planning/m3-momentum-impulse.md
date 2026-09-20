@@ -9,8 +9,8 @@ The M3 foundation is complete:
 - Issue #30 provides the authoritative aggregate Momentum & Impulse solver.
 - Issue #32 provides deterministic bounded initial-condition generation.
 
-Issues #35 through #39 are complete. Issue #40 is the active implementation
-issue; Issues #41-#43 remain `status:backlog` until their
+Issues #35 through #40 are complete. Issue #41 is the active implementation
+issue; Issues #42-#43 remain `status:backlog` until their
 dependencies are complete.
 No downstream production implementation is selected by this plan.
 
@@ -41,8 +41,8 @@ interaction constraints and a constrained solver path.
 | 3 | #37 | Impulse, force, contact-time, and momentum-change solver | #35, #36 | complete |
 | 4 | #38 | Extended deterministic generation policy for solvable interactions | #35, #36, #37 | complete |
 | 5 | #39 | Deterministic Momentum & Impulse technical SVG renderer | #35, #36, #37, #38 | complete |
-| 6 | #40 | Deterministic calculation question generator | #35, #36, #37, #38, #39 | in-progress |
-| 7 | #41 | CAPS conceptual question templates and rubrics | #2, #16, #40 | backlog |
+| 6 | #40 | Deterministic calculation question generator | #35, #36, #37, #38, #39 | complete |
+| 7 | #41 | CAPS conceptual question templates and rubrics | #2, #16, #40 | in-progress |
 | 8 | #42 | Application service and existing v1 API integration | #2, #6, #16, #38, #39, #40, #41 | backlog |
 | 9 | #43 | CAPS coverage matrix and M3 exit verification | #2, #35, #36, #37, #38, #39, #40, #41, #42 | backlog |
 

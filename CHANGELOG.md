@@ -36,3 +36,5 @@
   explicit final-value visibility controls.
 - Add solver-backed canonical Momentum & Impulse calculation question
   generation with structured answers, marking schemes, and optional visuals.
+- Add deterministic CAPS-aligned conceptual Momentum & Impulse templates and
+  machine-readable rubrics.
