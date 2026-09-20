@@ -9,8 +9,8 @@ The M3 foundation is complete:
 - Issue #30 provides the authoritative aggregate Momentum & Impulse solver.
 - Issue #32 provides deterministic bounded initial-condition generation.
 
-Issues #35 through #42 are complete. Issue #43 is the active final
-coverage-verification issue.
+Issues #35 through #43 are complete. M3 is formally complete; the final
+coverage matrix is recorded in `docs/verification/m3-momentum-impulse-caps-coverage.md`.
 No downstream production implementation is selected by this plan.
 
 The authoritative curriculum reference is the repository's DBE CAPS Physical
@@ -43,7 +43,7 @@ interaction constraints and a constrained solver path.
 | 6 | #40 | Deterministic calculation question generator | #35, #36, #37, #38, #39 | complete |
 | 7 | #41 | CAPS conceptual question templates and rubrics | #2, #16, #40 | complete |
 | 8 | #42 | Application service and existing v1 API integration | #2, #6, #16, #38, #39, #40, #41 | complete |
-| 9 | #43 | CAPS coverage matrix and M3 exit verification | #2, #35, #36, #37, #38, #39, #40, #41, #42 | in-progress |
+| 9 | #43 | CAPS coverage matrix and M3 exit verification | #2, #35, #36, #37, #38, #39, #40, #41, #42 | complete |
 
 The renderer is intentionally placed before generated questions so visual
 question support can be decided from a safe, data-derived adapter. If a later
