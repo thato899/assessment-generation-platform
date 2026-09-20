@@ -1,5 +1,10 @@
 """Mechanics domain models and deterministic scenario factories."""
 
+from .momentum_conceptual_questions import (
+    ConceptualQuestionOptions,
+    ConceptualTemplate,
+    MomentumConceptualQuestionGenerator,
+)
 from .momentum_constrained_solver import (
     CollisionClassification,
     ConstrainedCollisionSolution,
@@ -127,6 +132,9 @@ __all__ = [
     "MomentumQuestionGenerator",
     "MomentumQuestionOptions",
     "MomentumQuestionTemplate",
+    "ConceptualQuestionOptions",
+    "ConceptualTemplate",
+    "MomentumConceptualQuestionGenerator",
     "DEFAULT_MOMENTUM_GENERATION_POLICY",
     "MomentumDifficultyProfile",
     "MomentumGenerationPolicy",

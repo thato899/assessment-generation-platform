@@ -8,7 +8,7 @@ M3 - Momentum & Impulse
 
 ## Current phase
 
-Issues #28, #30, #32, #35, #36, #37, #38, and #39 are complete. Issue #40 is in
+Issues #28, #30, #32, #35, #36, #37, #38, #39, and #40 are complete. Issue #41 is in
 progress on its dedicated feature branch. PR #33 merged the deterministic
 Momentum & Impulse scenario generation policy and factory at
 `86079a764c9143a778444ed3bdb4e60584726637`. M3 dependency planning is now
@@ -36,7 +36,7 @@ implementation issue and Issues #39-#43 are planned backlog items.
 
 ## In progress
 
-- Issue #40 is in progress on its dedicated feature branch. Issues #41-#43 are
+- Issue #41 is in progress on its dedicated feature branch. Issues #42-#43 are
   backlog. Question generation,
   rendering, application, and API remain deferred behind their documented
   dependencies.
@@ -46,7 +46,7 @@ implementation issue and Issues #39-#43 are planned backlog items.
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete and review Issue #40 without starting downstream M3
+- Complete and review Issue #41 without starting downstream M3
   issues before their documented dependencies are complete.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
