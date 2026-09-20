@@ -6,7 +6,8 @@ M4 is the current milestone after completed M3 Momentum & Impulse. Issue #54
 is merged and closed; Issue #55 authored domain implementation is merged and closed at `2f6adeb`.
 Issue #56 deterministic solver is merged and closed at `5568b52`. Issue #57
 deterministic scenario generation is merged and closed at `70b212c`. Issue #58
-deterministic SVG rendering is active on its feature branch; Issues #59-#62
+deterministic SVG rendering is merged and closed at `c3ee3b9`. Issue #59
+calculation-question generation is active on its feature branch; Issues #60-#62
 remain backlog.
 The repository roadmap identifies M4 as Newton's Laws, while the official DBE
 CAPS Physical Sciences document places the core Newton's Laws content in the
@@ -49,8 +50,8 @@ must not duplicate Newton equations.
 | 2 | #55 | Define framework-independent Newton domain and force representations | #54 | complete |
 | 3 | #56 | Implement authoritative deterministic Newton solver and validation | #55 | complete |
 | 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | complete |
-| 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | in progress |
-| 6 | #59 | Implement solver-backed calculation question generator | #55–#58 | backlog |
+| 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | complete |
+| 6 | #59 | Implement solver-backed calculation question generator | #55–#58 | in progress |
 | 7 | #60 | Implement conceptual templates and machine-readable rubrics | #54, #59 | backlog |
 | 8 | #61 | Integrate Newton generation into the existing application/API | #54, #57–#60 | backlog |
 | 9 | #62 | Verify CAPS coverage, regressions, and M4 readiness | #54–#61 | backlog |
@@ -101,6 +102,12 @@ must not duplicate Newton equations.
 - Questions: calculation templates, conceptual templates, structured answers,
   declarative rubrics, and explicit applicability.
 - API: orchestration and learner-safe projection only; no equations.
+
+Issue #59 is the numeric-question boundary after rendering. It packages only
+successful #56 solver results into canonical assessment parts, preserves
+authored unknowns and signs, reconciles marking criteria with part marks, and
+may attach #58 learner-safe SVG. Conceptual templates, automatic marking,
+printing and API routing remain deferred to #60-#62.
 
 ## Planned calculation families
 

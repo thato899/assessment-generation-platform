@@ -87,3 +87,12 @@ defaults hide numbers and derived values; fixed arrow geometry prevents hidden
 magnitudes being inferred. The renderer performs no Newton calculations and
 does not call generation, questions, marking or API layers. See
 `docs/domains/physical-sciences/newtons-laws-rendering.md`.
+
+M4 Issue #59 adds `NewtonCalculationQuestionGenerator` after the generated
+problem and solver boundaries. It maps only successful `NewtonSolver` results
+to canonical `QuestionPart`, `ResponseSpecification`, `ExpectedAnswer`,
+`MarkingScheme`, `VisualReference` and `GenerationProvenance` values. Prompts
+expose authored givens and sign conventions while preserving unknown inputs;
+question IDs and provenance contain no answers. Newton III validation has no
+numeric question template, conceptual templates remain #60, and API routing,
+automatic marking and printing remain outside this layer.

@@ -100,6 +100,18 @@ from .newton_generation import (
     NewtonGenerationPolicy,
     NewtonProblemFactory,
 )
+from .newton_question_generator import (
+    GENERATOR_ID as NEWTON_QUESTION_GENERATOR_ID,
+)
+from .newton_question_generator import (
+    GENERATOR_VERSION as NEWTON_QUESTION_GENERATOR_VERSION,
+)
+from .newton_question_generator import (
+    NewtonCalculationQuestionGenerator,
+    NewtonCalculationTemplate,
+    NewtonQuestionGenerator,
+    NewtonQuestionOptions,
+)
 from .newton_solver import (
     GRAVITATIONAL_CONSTANT,
     SOLVER_ID,
@@ -211,6 +223,12 @@ __all__ = [
     "NewtonGeneratedMetadata",
     "NewtonGeneratedProblem",
     "NewtonProblemFactory",
+    "NEWTON_QUESTION_GENERATOR_ID",
+    "NEWTON_QUESTION_GENERATOR_VERSION",
+    "NewtonCalculationQuestionGenerator",
+    "NewtonCalculationTemplate",
+    "NewtonQuestionGenerator",
+    "NewtonQuestionOptions",
     "POLICY_VERSION",
     "ConceptualQuestionOptions",
     "ConceptualTemplate",

@@ -69,5 +69,7 @@ universal gravitation and Newton III. It only displays authored force data;
 for example, a gravitational field alone does not manufacture a weight arrow.
 
 Question wording, expected answers, marking, generation policy, API routing and
-CAPS interpretation remain outside this module and are deferred to Issues
-#59-#62. No new cross-cutting ADR is required for this renderer.
+CAPS interpretation and numeric question packaging remain outside this module;
+calculation questions are owned by active #59 and conceptual templates/API
+work remain deferred to #60-#62. No new cross-cutting ADR is required for this
+renderer.
