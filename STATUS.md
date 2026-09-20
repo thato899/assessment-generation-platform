@@ -122,8 +122,10 @@ remain unmerged; #56 has not started.
 - PR #63 merged at `f64aa1a85698272917ec66c028ccd45e60350a8c`; M4 planning is
   present on `main`.
 - PR #64 merged at `703de9acf8f334be6eafae0249cc8868f8215c66`; Issue #54 is closed.
-- Issue #55 branch: `feature/issue-55-newton-domain`; its PR remains open for
-  review, and #55 remains open until that PR is merged.
+- Issue #55 branch: `feature/issue-55-newton-domain`;
+  [PR #65](https://github.com/thato899/assessment-generation-platform/pull/65)
+  remains open and unmerged for review. #55 has `status:in-review` and remains
+  open until that PR is merged.
 - Existing Momentum & Impulse API support is preserved. Newton routing is absent.
 - Project board: blocked/not created; verify permissions before creating one.
 

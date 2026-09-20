@@ -59,7 +59,8 @@ Issue #55 adds immutable authored bodies, forces, explicit coordinates, system
 boundaries and contact/string/gravity relationships. Structural validity does
 not imply solvability. The [domain contract](docs/domains/physical-sciences/newtons-laws-domain.md)
 records ownership, unknown values, assumptions and the boundary with derived
-results. Its PR remains open for review. No solver, generator, renderer,
+results. [PR #65](https://github.com/thato899/assessment-generation-platform/pull/65)
+remains open for review. No solver, generator, renderer,
 question or API implementation is included. #56 is next only after #55 merges;
 #56–#62 remain backlog and have not started.
 
