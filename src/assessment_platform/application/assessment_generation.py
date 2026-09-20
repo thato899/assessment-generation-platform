@@ -22,6 +22,13 @@ from assessment_platform.curriculum.caps.physical_sciences import (
     get_caps_physical_sciences,
 )
 from assessment_platform.domains.physical_sciences.mechanics import (
+    ConceptualTemplate,
+    MomentumConceptualQuestionGenerator,
+    MomentumProblemFactory,
+    MomentumProblemGenerationInput,
+    MomentumQuestionGenerator,
+)
+from assessment_platform.domains.physical_sciences.mechanics import (
     vertical_projectile_question_generator as question_generator_module,
 )
 from assessment_platform.domains.physical_sciences.mechanics import (
@@ -36,6 +43,7 @@ from assessment_platform.domains.physical_sciences.mechanics.vertical_projectile
 )
 
 VERTICAL_PROJECTILE_TOPIC_ID = "vertical-projectile-motion-1d"
+MOMENTUM_TOPIC_ID = "momentum-and-impulse"
 DEFAULT_GENERATION_SEED = GenerationSeed(0)
 SUPPORTED_DIFFICULTIES = frozenset(Difficulty)
 SUPPORTED_ASSESSMENT_TYPE = AssessmentType.QUESTION
@@ -97,6 +105,8 @@ class AssessmentGenerationService:
     def generate(self, request: AssessmentRequest) -> Assessment:
         self._validate_request(request)
         effective_seed = request.seed or DEFAULT_GENERATION_SEED
+        if request.topic.value == MOMENTUM_TOPIC_ID:
+            return self._generate_momentum(request, effective_seed)
         topic = self._topic()
 
         try:
@@ -147,6 +157,54 @@ class AssessmentGenerationService:
             seed=effective_seed,
         )
 
+    def _generate_momentum(
+        self, request: AssessmentRequest, effective_seed: GenerationSeed
+    ) -> Assessment:
+        try:
+            topic = self._curriculum.topic(MOMENTUM_TOPIC_ID)
+            problem = MomentumProblemFactory().generate(
+                MomentumProblemGenerationInput(
+                    seed=effective_seed, difficulty=request.difficulty
+                )
+            )
+            if effective_seed.value % 2 == 0:
+                template = tuple(ConceptualTemplate)[
+                    effective_seed.value % len(ConceptualTemplate)
+                ]
+                question = MomentumConceptualQuestionGenerator(topic).generate(
+                    template, effective_seed
+                )
+            else:
+                question = MomentumQuestionGenerator(topic).generate(problem)
+        except (AttributeError, KeyError, ValueError) as error:
+            raise GenerationApplicationError(
+                "generation_failed",
+                "The assessment could not be generated for this configuration.",
+            ) from error
+        if not isinstance(question, Question):
+            raise GenerationApplicationError(
+                "generation_failed",
+                "The generation engine returned an invalid assessment question.",
+            )
+        if not request.include_visuals:
+            question = Question(
+                question.identifier,
+                question.prompt,
+                question.parts,
+                question.scenario,
+                question.solution,
+                question.rubric,
+                (),
+                question.provenance,
+            )
+        return Assessment(
+            identifier=f"assessment-v1-{question.identifier}",
+            assessment_type=request.assessment_type,
+            curriculum=topic.reference,
+            questions=(question,),
+            seed=effective_seed,
+        )
+
     @staticmethod
     def memorandum_for(assessment: Assessment) -> tuple[MemoEntry, ...]:
         """Return canonical memorandum data for a trusted teacher-side caller."""
@@ -188,10 +246,10 @@ class AssessmentGenerationService:
                 "The generation engine supports Grade 12 only.",
                 ("grade",),
             )
-        if request.topic.value != VERTICAL_PROJECTILE_TOPIC_ID:
+        if request.topic.value not in {VERTICAL_PROJECTILE_TOPIC_ID, MOMENTUM_TOPIC_ID}:
             raise GenerationApplicationError(
                 "unsupported_topic",
-                "The generation engine supports vertical projectile motion only.",
+                "The generation engine does not support the requested topic.",
                 ("topic",),
             )
         if request.assessment_type is not SUPPORTED_ASSESSMENT_TYPE:

@@ -16,6 +16,36 @@ VALID_REQUEST = {
     "seed": 18472,
 }
 
+MOMENTUM_REQUEST = {
+    **VALID_REQUEST,
+    "topic": "momentum-and-impulse",
+    "seed": 7,
+}
+
+
+def test_momentum_topic_is_supported_and_learner_safe() -> None:
+    response = client.post("/api/v1/assessments/generate", json=MOMENTUM_REQUEST)
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["topic"] == "momentum-and-impulse"
+    assert body["questions"]
+    assert "expected_answer" not in response.text
+    assert "marking_scheme" not in response.text
+
+
+def test_momentum_requests_are_deterministic_and_visual_preference_is_honoured() -> None:
+    first = client.post("/api/v1/assessments/generate", json=MOMENTUM_REQUEST)
+    second = client.post("/api/v1/assessments/generate", json=MOMENTUM_REQUEST)
+    without_visuals = client.post(
+        "/api/v1/assessments/generate",
+        json={**MOMENTUM_REQUEST, "seed": 9, "include_visuals": False},
+    )
+
+    assert first.status_code == second.status_code == 200
+    assert first.json() == second.json()
+    assert without_visuals.json()["visuals"] == []
+
 
 def test_supported_generation_returns_a_learner_safe_v1_response() -> None:
     response = client.post("/api/v1/assessments/generate", json=VALID_REQUEST)
@@ -88,7 +118,6 @@ def test_unsupported_configuration_returns_stable_safe_errors() -> None:
         ("curriculum", "OTHER", "unsupported_curriculum"),
         ("subject", "mathematics", "unsupported_subject"),
         ("grade", 11, "unsupported_grade"),
-        ("topic", "momentum-and-impulse", "unsupported_topic"),
         ("assessment_type", "quiz", "unsupported_assessment_type"),
         ("assessment_type", "examination", "unsupported_assessment_type"),
         ("assessment_type", "diagnostic", "unsupported_assessment_type"),
