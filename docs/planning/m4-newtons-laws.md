@@ -4,7 +4,9 @@
 
 M4 is the current milestone after completed M3 Momentum & Impulse. Issue #54
 is merged and closed; Issue #55 authored domain implementation is merged and closed at `2f6adeb`.
-Issue #56 deterministic solver is implemented and in review. Issues #57-#62 remain backlog. Generation and downstream pipeline work remains deferred.
+Issue #56 deterministic solver is merged and closed at `5568b52`. Issue #57
+deterministic scenario generation is implemented and in progress. Issues #58-#62
+remain backlog.
 The repository roadmap identifies M4 as Newton's Laws, while the official DBE
 CAPS Physical Sciences document places the core Newton's Laws content in the
 Grade 11 sequence and refers to Grade 12 consolidation and integrated
@@ -44,8 +46,8 @@ must not duplicate Newton equations.
 | --- | --- | --- | --- | --- |
 | 1 | #54 | Validate CAPS Newton's Laws scope and curriculum metadata | M3 complete | complete |
 | 2 | #55 | Define framework-independent Newton domain and force representations | #54 | complete |
-| 3 | #56 | Implement authoritative deterministic Newton solver and validation | #55 | in review |
-| 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | backlog |
+| 3 | #56 | Implement authoritative deterministic Newton solver and validation | #55 | complete |
+| 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | in progress |
 | 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | backlog |
 | 6 | #59 | Implement solver-backed calculation question generator | #55–#58 | backlog |
 | 7 | #60 | Implement conceptual templates and machine-readable rubrics | #54, #59 | backlog |
@@ -90,8 +92,9 @@ must not duplicate Newton equations.
   contact/friction assumptions, and validated invariants.
 - Solver: net/resultant forces, acceleration, equilibrium, and supported force
   relationships; no question wording or rendering.
-- Generation: bounded masses, force magnitudes, angles/coefficients only after
-  #54 scope approval; local seeded randomness and stable provenance.
+- Generation: bounded authored masses, force magnitudes, fields, coefficients
+  and relationships from #57 policy; local seeded randomness and stable
+  provenance. The factory delegates all numerical results to #56.
 - Renderer: force arrows, body/system boundaries, labels, free-body diagrams,
   safe escaping, deterministic IDs, and no answer leakage.
 - Questions: calculation templates, conceptual templates, structured answers,

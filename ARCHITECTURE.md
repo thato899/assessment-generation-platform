@@ -66,3 +66,13 @@ solver results. The package imports no other physics engine and leaves existing
 value objects unchanged. Numerical validation belongs to #56; generation,
 diagrams, questions and routing remain #57–#61. See the
 [Newton domain contract](docs/domains/physical-sciences/newtons-laws-domain.md).
+
+
+M4 Issue #57 adds `mechanics.newton_generation` as the authored-input factory
+boundary after the #56 solver. `NewtonProblemFactory` uses immutable typed
+inputs, shared `GenerationSeed`/`Difficulty`, local `random.Random`, bounded
+versioned policy pools and `GenerationProvenance` to create only authored
+`NewtonScenario` variants. It invokes `NewtonSolver` for acceptance checks but
+never copies Newton equations, stores solver answers, mutates unknowns, or adds
+rendering, question, marking or API concerns. Family-specific output types keep
+contact, string, gravitation, third-law and unknown-force data explicit.
