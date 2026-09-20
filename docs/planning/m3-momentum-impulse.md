@@ -9,9 +9,9 @@ The M3 foundation is complete:
 - Issue #30 provides the authoritative aggregate Momentum & Impulse solver.
 - Issue #32 provides deterministic bounded initial-condition generation.
 
-Issues #35, #36, and #37 are complete. Issue #38 is the active implementation
-issue; Issues #39-#43 remain `status:backlog` until their dependencies are
-complete.
+Issues #35, #36, #37, and #38 are complete. Issue #39 is the active
+implementation issue; Issues #40-#43 remain `status:backlog` until their
+dependencies are complete.
 No downstream production implementation is selected by this plan.
 
 The authoritative curriculum reference is the repository's DBE CAPS Physical
@@ -39,8 +39,8 @@ interaction constraints and a constrained solver path.
 | 1 | #35 | Solvable one-dimensional interaction/final-state domain model | #28, #30, #32 | complete |
 | 2 | #36 | Constrained one-dimensional collision solver and validation | #35 | complete |
 | 3 | #37 | Impulse, force, contact-time, and momentum-change solver | #35, #36 | complete |
-| 4 | #38 | Extended deterministic generation policy for solvable interactions | #35, #36, #37 | in-progress |
-| 5 | #39 | Deterministic Momentum & Impulse technical SVG renderer | #35, #36, #37, #38 | backlog |
+| 4 | #38 | Extended deterministic generation policy for solvable interactions | #35, #36, #37 | complete |
+| 5 | #39 | Deterministic Momentum & Impulse technical SVG renderer | #35, #36, #37, #38 | in-progress |
 | 6 | #40 | Deterministic calculation question generator | #35, #36, #37, #38, #39 | backlog |
 | 7 | #41 | CAPS conceptual question templates and rubrics | #2, #16, #40 | backlog |
 | 8 | #42 | Application service and existing v1 API integration | #2, #6, #16, #38, #39, #40, #41 | backlog |

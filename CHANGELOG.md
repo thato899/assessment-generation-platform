@@ -30,3 +30,7 @@
 - Added deterministic CAPS vertical-projectile question generation with solver-derived canonical question parts, structured answers, marking schemes, optional SVG references, and provenance metadata.
 - Added a deterministic, policy-driven vertical-projectile scenario factory with typed generation inputs, four supported scenario families, seed replay, and provenance metadata.
 - Added the first application/API generation path for one deterministic CAPS Grade 12 Physical Sciences vertical-projectile question with solver validation, canonical assessment composition, learner-safe projection, stable unsupported-configuration errors, and visual controls.
+## Unreleased
+
+- Add deterministic, learner-safe Momentum & Impulse SVG rendering with
+  explicit final-value visibility controls.
