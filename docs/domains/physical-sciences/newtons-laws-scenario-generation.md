@@ -48,6 +48,14 @@ Difficulty changes the discrete mass, force, acceleration, field, coefficient,
 inclination, normal-force and separation pools. These are platform choices;
 CAPS metadata remains separate from numeric policy.
 
+The default policy uses these bounded pools (introductory / moderate /
+advanced): masses `2,4` / `2,4,5` / `3,4,6` kg; applied forces `4,8` /
+`4,6,10` / `6,10,12` N; normal-force pools `10,20` / `10,20,30` /
+`12,24,36` N; accelerations `2,4` / `2,3,5` / `2,4,6` m·s⁻²; field
+magnitudes `10` / `9.8,10` / `9.8,10` m·s⁻²; coefficients `0.5` /
+`0.3,0.5,1.0` / `0.4,0.6,1.2`; inclinations `0` / `20,30` /
+`25,35,45` degrees; and separations `2,4` / `2,5,10` / `5,10,20` m.
+
 Every family is solver-validated before it is returned:
 
 | Family | Authoritative check |
