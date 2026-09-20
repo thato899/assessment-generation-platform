@@ -7,7 +7,7 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 - **M0** Repository & Architecture Bootstrap — governance, API shell, CI.
 - **M1** Assessment Core — stable models, validation, seeds, contract tests.
 - **M2** Physical Sciences: Vertical Projectile Motion — scenario, solver, renderer, questions, rubric.
-- **M3** Momentum & Impulse (complete); **M4** Newton's Laws (#58 in progress);
+- **M3** Momentum & Impulse (complete); **M4** Newton's Laws (#59 in progress);
   **M5** Work, Energy & Power.
 - **M6** Mathematics Foundation; **M7** Mathematics: Functions.
 
@@ -36,8 +36,8 @@ M4 Newton's Laws is the current milestone; its planning document is
 [docs/planning/m4-newtons-laws.md](docs/planning/m4-newtons-laws.md). Issue #54
 is merged and closed. Issue #55 is merged and closed at `2f6adeb`; Issue #56 is
 merged and closed at `5568b52`; Issue #57 is merged and closed at `70b212c`;
-Issue #58 is active on its feature branch; Issues #59-#62 remain backlog in
-the existing dependency order.
+Issue #58 is merged and closed at `c3ee3b9`; Issue #59 is active on its feature
+branch; Issues #60-#62 remain backlog in the existing dependency order.
 
 ## Completed M3 scope
 
@@ -64,7 +64,8 @@ records ownership, unknown values, assumptions and the boundary with derived
 results. [PR #65](https://github.com/thato899/assessment-generation-platform/pull/65)
 merged at `2f6adeb8d8df5e1b3faa9ef30c9fae4830f158f`; #55 is closed. No
 generator, renderer, question or API implementation is included.
-#57 is complete; #58 is the active rendering issue; #59-#62 remain backlog.
+#57 and #58 are complete; #59 is the active calculation-question issue;
+#60-#62 remain backlog.
 
 ## M4 Issue #56 authoritative solver
 
@@ -84,8 +85,8 @@ Issue #57 adds `NewtonProblemFactory`, immutable generation inputs/policies and
 family-specific generated outputs. Local seeded randomness, stable IDs and
 shared `GenerationProvenance` preserve replayability. Each advertised family
 is accepted by the Issue #56 solver before return, while authored unknowns stay
-in the scenario. #57 is complete at merge `70b212c`; #58 is active and owns the
-renderer; #59-#62 remain backlog.
+in the scenario. #57 is complete at merge `70b212c`; #58 is complete at merge
+`c3ee3b9`; #59 owns numeric calculation questions and #60-#62 remain backlog.
 
 ## M4 Issue #58 Newton SVG rendering
 
@@ -96,7 +97,18 @@ free-body ownership, and supports safe labels, strings, surfaces and selected
 system boundaries. Hidden values use fixed arrow geometry and are absent from
 all SVG text and metadata. The renderer does not calculate forces, acceleration,
 weight, friction, tension or gravitation and does not call the solver. #59-#62
-remain deferred until this renderer is reviewed and merged.
+is complete at merge `c3ee3b9`; #59 owns solver-backed numeric calculation
+questions and #60-#62 remain deferred.
+
+## M4 Issue #59 Newton calculation questions
+
+Issue #59 adds canonical numeric `Question` generation over the typed #57
+problem outputs. The generator delegates every expected value to #56
+`NewtonSolver`, rejects unsupported or unresolved cases before returning, and
+creates deterministic question/part IDs, provenance, response specifications,
+numeric tolerances and reconciled marking schemes. It may attach learner-safe
+#58 SVG visuals, but it does not calculate physics, mark responses, add
+conceptual templates or route Newton requests through the API.
 
 ## Deferred / future enhancements
 

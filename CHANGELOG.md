@@ -7,6 +7,12 @@
   stable accessible IDs, escaping, fixed hidden-value geometry, and no physics
   calculations. Issues #59 onward remain deferred.
 
+- Add Issue #59 solver-backed Newton calculation question generation with
+  canonical assessment parts, structured numeric answers, reconciled marking
+  schemes, deterministic IDs/provenance, explicit givens, and optional safe
+  SVG visuals. Conceptual templates, API routing, automatic marking and
+  printing remain deferred.
+
 - Add Issue #57 deterministic Newton scenario generation with versioned typed
   policy/input/output models, local seed isolation, stable provenance and
   solver-backed validation for the approved bounded families. Authored unknowns
