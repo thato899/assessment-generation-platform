@@ -1,6 +1,6 @@
 # Status
 
-Last updated: 2026-09-19
+Last updated: 2026-09-20
 
 ## Current milestone
 
@@ -10,7 +10,9 @@ M3 - Momentum & Impulse — COMPLETE
 
 Issues #28, #30, #32, #35, #36, #37, #38, #39, #40, #41, #42, and #43 are
 closed. M3 implementation and final coverage verification are complete. M4
-Newton's Laws is planned next; implementation has not started.
+planning is merged, and Issue #54 scope validation is complete on a
+documentation branch; its PR is in review. Newton production implementation
+has not started.
 
 ## Completed
 
@@ -30,19 +32,21 @@ Newton's Laws is planned next; implementation has not started.
 - Issue #35 authored Momentum interaction constraints merged via PR #45 at `027028c679e4fed2777fa10f459d364239f38819`.
 - Issue #36 constrained collision solver merged via PR #46 at `237ef2500271f4f5e5cba5bf5100feabb3e9982a`.
 - Issue #37 force-time and momentum-change relationships merged via PR #47 at `159ee9f6b9ca03bffc354f3bdc46f87eba969d24`.
+- Issue #54 CAPS Newton's Laws scope and curriculum metadata completed with
+  Grade 11 core placement, Grade 12 consolidation/examinability context, and
+  a dedicated scope contract; no Newton production pipeline was added.
 
 ## In progress
 
-- M3 is complete. M4 planning is active on a documentation branch; Issue #54
-  is the first ready scope-validation issue and all later M4 issues remain
-  backlog.
+- M3 is complete. M4 planning is merged. Issue #54 is in review; Issues #55
+  through #62 remain backlog.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Review the M4 planning PR, then implement only Issue #54.
+- Review the Issue #54 scope PR. Do not begin Issue #55 until #54 is merged.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -98,6 +102,10 @@ Newton's Laws is planned next; implementation has not started.
 - PR #47 merged at `159ee9f6b9ca03bffc354f3bdc46f87eba969d24`; Issue #37 is
   closed. PR #48 is open and unmerged; Issue #38 is in review and PR quality
   and dependency-audit checks passed.
+- PR #63 merged at `f64aa1a85698272917ec66c028ccd45e60350a8c`; M4 planning is
+  present on `main`.
+- Issue #54 scope-validation branch is `docs/issue-54-newtons-laws-caps-scope`;
+  its PR is pending.
 - No Momentum & Impulse API support has been added.
 - Project board: blocked/not created; verify permissions before creating one.
 

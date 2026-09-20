@@ -6,12 +6,30 @@ from assessment_platform.curriculum.caps import CapsCurriculum, get_caps_physica
 
 def test_grade_12_physical_sciences_topics_are_complete_and_ordered() -> None:
     curriculum = get_caps_physical_sciences()
-    assert [topic.identifier for topic in curriculum.topics] == [
+    grade_12_topics = curriculum.topics_for(Grade(12), Subject("physical-sciences"))
+    assert [topic.identifier for topic in grade_12_topics] == [
         "momentum-and-impulse", "vertical-projectile-motion-1d", "work-energy-and-power"
     ]
-    assert all(topic.reference.grade == Grade(12) for topic in curriculum.topics)
+    assert all(topic.reference.grade == Grade(12) for topic in grade_12_topics)
     assert all(
-        topic.reference.subject == Subject("physical-sciences") for topic in curriculum.topics
+        topic.reference.subject == Subject("physical-sciences") for topic in grade_12_topics
+    )
+
+
+def test_newtons_laws_is_a_grade_11_topic_with_grade_12_assessment_relevance() -> None:
+    topic = get_caps_physical_sciences().topic("newtons-laws")
+    assert topic.reference.grade == Grade(11)
+    assert topic.reference.subject == Subject("physical-sciences")
+    assert "Newton's first, second and third laws" in topic.concepts
+    assert (
+        "Grade 11 core instruction" in topic.assessment_metadata
+    )
+    assert (
+        "Grade 12 consolidation" in topic.assessment_metadata
+    )
+    assert (
+        "selected Grade 11 content examinable in the Grade 12 final examination"
+        in topic.assessment_metadata
     )
 
 
@@ -32,7 +50,9 @@ def test_lookup_is_deterministic_and_unknown_topics_fail() -> None:
 
 def test_subject_and_grade_filtering_rejects_mismatches() -> None:
     curriculum = get_caps_physical_sciences()
-    assert curriculum.topics_for(Grade(11), Subject("physical-sciences")) == ()
+    assert [topic.identifier for topic in curriculum.topics_for(
+        Grade(11), Subject("physical-sciences")
+    )] == ["newtons-laws"]
     assert curriculum.topics_for(Grade(12), Subject("mathematics")) == ()
 
 

@@ -10,7 +10,9 @@ from assessment_platform.core import CurriculumReference, Grade, Subject, Topic
 
 CAPS: Final[str] = "CAPS"
 PHYSICAL_SCIENCES: Final[Subject] = Subject("physical-sciences")
+GRADE_11: Final[Grade] = Grade(11)
 GRADE_12: Final[Grade] = Grade(12)
+NEWTONS_LAWS_TOPIC_ID: Final[str] = "newtons-laws"
 
 
 @dataclass(frozen=True, slots=True)
@@ -33,6 +35,35 @@ class CurriculumTopic:
 MECHANICS: Final[Domain] = Domain("mechanics", "Mechanics")
 
 _TOPICS: tuple[CurriculumTopic, ...] = (
+    CurriculumTopic(
+        NEWTONS_LAWS_TOPIC_ID,
+        "Newton's Laws and Application of Newton's Laws",
+        CurriculumReference(CAPS, phase="FET", grade=GRADE_11, subject=PHYSICAL_SCIENCES,
+                            topic=Topic(NEWTONS_LAWS_TOPIC_ID)),
+        MECHANICS,
+        (
+            "Newton's first, second and third laws",
+            "Newton's law of universal gravitation",
+            "weight, normal, frictional, applied and tension forces",
+            "force diagrams and free-body diagrams",
+            "equilibrium and non-equilibrium applications",
+            "resultant forces and two-dimensional force components",
+            "horizontal, inclined-plane, vertical-motion and two-body applications",
+            "mass and weight distinction, including apparent weight",
+        ),
+        (
+            "one- and two-dimensional force systems",
+            "light/negligible-mass string for the bounded two-body case",
+            "static and kinetic friction relationships on horizontal and inclined planes",
+            "explicit gravitational field data",
+        ),
+        (
+            "Grade 11 core instruction",
+            "Grade 12 consolidation",
+            "selected Grade 11 content examinable in the Grade 12 final examination",
+            "Mechanics",
+        ),
+    ),
     CurriculumTopic(
         "momentum-and-impulse",
         "Momentum and Impulse",
