@@ -4,7 +4,7 @@ Last updated: 2026-09-20
 
 ## Current milestone
 
-M4 - Newton's Laws - Issue #56 in review
+M4 - Newton's Laws - Issue #57 in progress
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -13,8 +13,9 @@ M3 - Momentum & Impulse — COMPLETE
 Issues #28, #30, #32, #35, #36, #37, #38, #39, #40, #41, #42, and #43 are
 closed. M3 implementation and final coverage verification are complete. M4
 planning and Issue #54 scope validation are merged. Issue #55 is merged and
-closed; Issue #56 is implemented on `feature/issue-56-newton-solver` and is in
-review. #57 onward remains deferred.
+closed; Issue #56 is merged and closed at `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
+Issue #57 is implemented on `feature/issue-57-newton-scenario-generation` and
+is in progress; #58 onward remains deferred.
 
 ## Completed
 
@@ -44,17 +45,18 @@ review. #57 onward remains deferred.
 - Issue #55 immutable Newton bodies, forces, coordinate conventions, system
   membership and contact/friction/string/third-law/gravity relationships are
   merged and closed. Structural validity remains separate from solvability.
-- Issue #56 deterministic Newton solver and validation are implemented and in
-  review. Issues #57-#62 remain backlog; generation, rendering, questions and
-  API routing remain deferred.
+- Issue #56 deterministic Newton solver and validation are merged and closed.
+- Issue #57 deterministic seeded Newton scenario generation is implemented on
+  the feature branch and is undergoing final verification. Issues #58-#62
+  remain backlog; rendering, questions and API routing remain deferred.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Review the Issue #56 solver PR. Do not merge it in this execution and do not
-  begin #57 until #56 has subsequently been reviewed and merged.
+- Complete review and open the Issue #57 generation PR. Do not merge it in this
+  execution and do not begin #58.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -72,9 +74,12 @@ review. #57 onward remains deferred.
   selection: 353 passed; projectile selection: 166 passed; curriculum,
   application and API checks: 52 passed. Ruff, mypy, build, pip check and
   `git diff --check` passed. CI is tracked on the linked issue PR.
+- Issue #57 focused verification: generation tests cover all 12 families,
+  replay, global RNG isolation, authored unknown preservation and solver-backed
+  validation.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
-  tests passed locally; Ruff, mypy, and wheel build passed. The solver branch
-  remains unmerged pending review.
+  tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
+  `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
 - Hypothesis was not added: the bounded structural invariants are covered by
   deterministic parameterized tests. No shared-unit refactor or ADR was needed.
 - Issue #21 final suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
@@ -127,8 +132,8 @@ review. #57 onward remains deferred.
   present on `main`.
 - PR #64 merged at `703de9acf8f334be6eafae0249cc8868f8215c66`; Issue #54 is closed.
 - PR #65 merged at `2f6adeb8d8df5e1b3faa9ef30c9fae4830f158f`; Issue #55 is
-  closed. Issue #56 is implemented on `feature/issue-56-newton-solver` and is
-  pending review; #57-#62 remain backlog.
+  closed at `5568b527bdba75bd46f11ab7bdc2014289c836a4`; Issue #57 is active and
+#58-#62 remain backlog.
 - Existing Momentum & Impulse API support is preserved. Newton routing is absent.
 - Project board: blocked/not created; verify permissions before creating one.
 

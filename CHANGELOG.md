@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add Issue #57 deterministic Newton scenario generation with versioned typed
+  policy/input/output models, local seed isolation, stable provenance and
+  solver-backed validation for the approved bounded families. Authored unknowns
+  remain intact; rendering, questions, marking and API routing remain deferred.
+
 - Add the Issue #56 deterministic Newton solver with immutable typed results
   for resultants, Newton II dynamics, equilibrium, one-unknown force solving,
   authored-field weight, contact/normal/friction, straight light strings,
@@ -48,6 +53,11 @@
 - Added a deterministic, policy-driven vertical-projectile scenario factory with typed generation inputs, four supported scenario families, seed replay, and provenance metadata.
 - Added the first application/API generation path for one deterministic CAPS Grade 12 Physical Sciences vertical-projectile question with solver validation, canonical assessment composition, learner-safe projection, stable unsupported-configuration errors, and visual controls.
 ## Unreleased
+
+- Add Issue #57 deterministic Newton scenario generation with versioned typed
+  policy/input/output models, local seed isolation, stable provenance and
+  solver-backed validation for the approved bounded families. Authored unknowns
+  remain intact; rendering, questions, marking and API routing remain deferred.
 
 - Add deterministic, learner-safe Momentum & Impulse SVG rendering with
   explicit final-value visibility controls.
