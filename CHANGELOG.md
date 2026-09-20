@@ -34,3 +34,5 @@
 
 - Add deterministic, learner-safe Momentum & Impulse SVG rendering with
   explicit final-value visibility controls.
+- Add solver-backed canonical Momentum & Impulse calculation question
+  generation with structured answers, marking schemes, and optional visuals.

@@ -67,6 +67,11 @@ from .momentum_interaction import (
     KnownFinalVelocityConstraint,
     MomentumInteraction,
 )
+from .momentum_question_generator import (
+    MomentumQuestionGenerator,
+    MomentumQuestionOptions,
+    MomentumQuestionTemplate,
+)
 from .vertical_projectile_scenario_factory import (
     DEFAULT_GENERATION_POLICY,
     DifficultyProfile,
@@ -119,6 +124,9 @@ __all__ = [
     "InteractionConstraintKind",
     "KnownFinalVelocityConstraint",
     "MomentumInteraction",
+    "MomentumQuestionGenerator",
+    "MomentumQuestionOptions",
+    "MomentumQuestionTemplate",
     "DEFAULT_MOMENTUM_GENERATION_POLICY",
     "MomentumDifficultyProfile",
     "MomentumGenerationPolicy",
