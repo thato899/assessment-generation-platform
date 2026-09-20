@@ -7,31 +7,19 @@ is planning-only; no Newton's Laws production implementation is included.
 The repository roadmap identifies M4 as Newton's Laws, while the official DBE
 CAPS Physical Sciences document places the core Newton's Laws content in the
 Grade 11 sequence and refers to Grade 12 consolidation and integrated
-problem-solving. Issue #54 must validate the exact Grade 12 applicability and
-curriculum metadata before domain scope is frozen.
+problem-solving. Issue #54 validates the exact Grade 12 applicability and
+curriculum metadata before domain implementation. The resulting scope
+contract is recorded in
+`docs/domains/physical-sciences/newtons-laws-scope.md`.
 
 Authoritative basis: [DBE CAPS Physical Sciences Grades 10–12](https://www.education.gov.za/Portals/0/CD/National%20Curriculum%20Statements%20and%20Vocational/CAPS%20FET%20%20PHYSICAL%20SCIENCE%20WEB.pdf), especially the Newton's Laws and application material and Grade 12 consolidation guidance. The project must retain the official grade distinction rather than silently relabel Grade 11 content as Grade 12.
 
-## Proposed scope to validate
+## Approved scope
 
-Subject to #54's evidence review, the milestone should cover Newton's Laws
-and applications in the repository's one-dimensional mechanics boundary:
-
-- Newton's first, second, and third laws and their application;
-- net/resultant force, mass, acceleration, and signed/vector reasoning;
-- weight/gravitational force, normal force, friction, applied force, and
-  tension where the authoritative scope requires them;
-- free-body/force diagrams and explicit system/environment assumptions;
-- static versus kinetic friction if confirmed applicable;
-- horizontal and inclined-plane cases only if confirmed by the authoritative
-  CAPS mapping;
-- deterministic numerical relationships and conceptual explanations.
-
-Potential exclusions pending #54 include rotational dynamics, fluid forces,
-non-inertial frames, arbitrary three-dimensional rigid-body mechanics,
-unbounded contact/friction models, and university-level calculus. The engine
-must state assumptions such as ideal strings, contact conditions, friction
-model, and gravitational field rather than infer them.
+Issue #54 establishes a Grade 11-owned Newton's Laws topic with Grade 12
+consolidation, integrated-problem-solving, and selected-examinability
+relevance. The bounded supported scope, relationships, exclusions, and later
+layer requirements are recorded in the dedicated scope contract.
 
 ## Architecture boundaries
 
@@ -50,7 +38,7 @@ must not duplicate Newton equations.
 
 | Order | Issue | Responsibility | Dependencies | Initial status |
 | --- | --- | --- | --- | --- |
-| 1 | #54 | Validate CAPS Newton's Laws scope and curriculum metadata | M3 complete | ready |
+| 1 | #54 | Validate CAPS Newton's Laws scope and curriculum metadata | M3 complete | in review |
 | 2 | #55 | Define framework-independent Newton domain and force representations | #54 | backlog |
 | 3 | #56 | Implement authoritative deterministic Newton solver and validation | #55 | backlog |
 | 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | backlog |

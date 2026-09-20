@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Add evidence-backed CAPS Newton's Laws curriculum metadata and a Grade 11
+  versus Grade 12 scope contract; no Newton production or API implementation
+  is included.
 - Add deterministic, framework-independent Momentum & Impulse relationships
   for signed momentum change, impulse, average force, and contact time.
 - Add the versioned Issue #38 Momentum & Impulse problem-generation companion

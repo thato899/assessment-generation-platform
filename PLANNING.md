@@ -32,10 +32,10 @@ The first planning slice will:
 
 M3 question generation, rendering, application, API integration, and final
 coverage verification are complete through Issue #43. M3 is formally complete.
-M4 Newton's Laws is the next planned milestone; its planning document is
+M4 Newton's Laws is the current milestone; its planning document is
 [docs/planning/m4-newtons-laws.md](docs/planning/m4-newtons-laws.md). No M4
-implementation has started. Issue #54 is the first ready scope-validation
-issue; later M4 issues remain backlog.
+production implementation has started. Issue #54 scope validation is
+complete and its PR is in review; later M4 issues remain backlog.
 
 ## Completed M3 scope
 
@@ -43,6 +43,17 @@ M3 delivered deterministic Momentum & Impulse domain models, authoritative
 solvers, constrained collisions, generation policy, safe SVG rendering,
 calculation and conceptual question generation, v1 API integration, and
 evidence-based CAPS verification. See the M3 plan and coverage matrix.
+
+## M4 Issue #54 scope validation
+
+Issue #54 records the official Grade 11 placement of Newton's Laws, the Grade
+12 consolidation/integrated-problem-solving relationship, and selected Grade
+11 examinability in the Grade 12 final examination. The stable topic metadata
+and the approved supported/deferred boundary are documented in
+[docs/domains/physical-sciences/newtons-laws-scope.md](docs/domains/physical-sciences/newtons-laws-scope.md).
+No Newton domain, solver, generator, renderer, question, or API implementation
+is included. Issues #55–#62 remain blocked on the dependency sequence until
+Issue #54 is merged.
 
 ## Deferred / future enhancements
 

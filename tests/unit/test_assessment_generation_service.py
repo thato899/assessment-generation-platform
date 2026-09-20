@@ -264,6 +264,7 @@ def test_canonical_assessment_without_seed_is_not_a_valid_api_result() -> None:
         ("curriculum", "OTHER", "unsupported_curriculum"),
         ("subject", Subject("mathematics"), "unsupported_subject"),
         ("grade", Grade(11), "unsupported_grade"),
+        ("topic", Topic("newtons-laws"), "unsupported_topic"),
         ("assessment_type", AssessmentType.QUIZ, "unsupported_assessment_type"),
         ("question_count", 2, "unsupported_question_count"),
     ],
