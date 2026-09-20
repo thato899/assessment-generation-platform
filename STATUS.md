@@ -33,7 +33,7 @@ Newton's Laws is planned next; implementation has not started.
 
 ## In progress
 
-- M3 is complete. M4 planning is active on a documentation branch; Issue #44
+- M3 is complete. M4 planning is active on a documentation branch; Issue #54
   is the first ready scope-validation issue and all later M4 issues remain
   backlog.
 
@@ -42,7 +42,7 @@ Newton's Laws is planned next; implementation has not started.
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Review the M4 planning PR, then implement only Issue #44.
+- Review the M4 planning PR, then implement only Issue #54.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems

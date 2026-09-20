@@ -34,7 +34,7 @@ M3 question generation, rendering, application, API integration, and final
 coverage verification are complete through Issue #43. M3 is formally complete.
 M4 Newton's Laws is the next planned milestone; its planning document is
 [docs/planning/m4-newtons-laws.md](docs/planning/m4-newtons-laws.md). No M4
-implementation has started. Issue #44 is the first ready scope-validation
+implementation has started. Issue #54 is the first ready scope-validation
 issue; later M4 issues remain backlog.
 
 ## Completed M3 scope

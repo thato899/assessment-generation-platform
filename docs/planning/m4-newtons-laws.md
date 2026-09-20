@@ -7,14 +7,14 @@ is planning-only; no Newton's Laws production implementation is included.
 The repository roadmap identifies M4 as Newton's Laws, while the official DBE
 CAPS Physical Sciences document places the core Newton's Laws content in the
 Grade 11 sequence and refers to Grade 12 consolidation and integrated
-problem-solving. Issue #44 must validate the exact Grade 12 applicability and
+problem-solving. Issue #54 must validate the exact Grade 12 applicability and
 curriculum metadata before domain scope is frozen.
 
 Authoritative basis: [DBE CAPS Physical Sciences Grades 10–12](https://www.education.gov.za/Portals/0/CD/National%20Curriculum%20Statements%20and%20Vocational/CAPS%20FET%20%20PHYSICAL%20SCIENCE%20WEB.pdf), especially the Newton's Laws and application material and Grade 12 consolidation guidance. The project must retain the official grade distinction rather than silently relabel Grade 11 content as Grade 12.
 
 ## Proposed scope to validate
 
-Subject to #44's evidence review, the milestone should cover Newton's Laws
+Subject to #54's evidence review, the milestone should cover Newton's Laws
 and applications in the repository's one-dimensional mechanics boundary:
 
 - Newton's first, second, and third laws and their application;
@@ -27,7 +27,7 @@ and applications in the repository's one-dimensional mechanics boundary:
   CAPS mapping;
 - deterministic numerical relationships and conceptual explanations.
 
-Potential exclusions pending #44 include rotational dynamics, fluid forces,
+Potential exclusions pending #54 include rotational dynamics, fluid forces,
 non-inertial frames, arbitrary three-dimensional rigid-body mechanics,
 unbounded contact/friction models, and university-level calculus. The engine
 must state assumptions such as ideal strings, contact conditions, friction
@@ -50,44 +50,44 @@ must not duplicate Newton equations.
 
 | Order | Issue | Responsibility | Dependencies | Initial status |
 | --- | --- | --- | --- | --- |
-| 1 | #44 | Validate CAPS Newton's Laws scope and curriculum metadata | M3 complete | ready |
-| 2 | #45 | Define framework-independent Newton domain and force representations | #44 | backlog |
-| 3 | #46 | Implement authoritative deterministic Newton solver and validation | #45 | backlog |
-| 4 | #47 | Implement deterministic Newton scenario-generation policy/factory | #45, #46 | backlog |
-| 5 | #48 | Implement safe deterministic force/free-body SVG renderer | #45, #46, #47 | backlog |
-| 6 | #49 | Implement solver-backed calculation question generator | #45–#48 | backlog |
-| 7 | #50 | Implement conceptual templates and machine-readable rubrics | #44, #49 | backlog |
-| 8 | #51 | Integrate Newton generation into the existing application/API | #44, #47–#50 | backlog |
-| 9 | #52 | Verify CAPS coverage, regressions, and M4 readiness | #44–#51 | backlog |
+| 1 | #54 | Validate CAPS Newton's Laws scope and curriculum metadata | M3 complete | ready |
+| 2 | #55 | Define framework-independent Newton domain and force representations | #54 | backlog |
+| 3 | #56 | Implement authoritative deterministic Newton solver and validation | #55 | backlog |
+| 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | backlog |
+| 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | backlog |
+| 6 | #59 | Implement solver-backed calculation question generator | #55–#58 | backlog |
+| 7 | #60 | Implement conceptual templates and machine-readable rubrics | #54, #59 | backlog |
+| 8 | #61 | Integrate Newton generation into the existing application/API | #54, #57–#60 | backlog |
+| 9 | #62 | Verify CAPS coverage, regressions, and M4 readiness | #54–#61 | backlog |
 
 ## Dependency graph
 
 ```text
-#44 CAPS scope and metadata
+#54 CAPS scope and metadata
           |
           v
-#45 domain and force representations
+#55 domain and force representations
           |
           v
-#46 authoritative solver
+#56 authoritative solver
           |
           v
-#47 deterministic scenario generation
+#57 deterministic scenario generation
           |
           v
-#48 force/free-body renderer
+#58 force/free-body renderer
           |
           v
-#49 calculation questions
+#59 calculation questions
           |
           v
-#50 conceptual questions and rubrics
+#60 conceptual questions and rubrics
           |
           v
-#51 application/API integration
+#61 application/API integration
           |
           v
-#52 final CAPS coverage verification
+#62 final CAPS coverage verification
 ```
 
 ## Responsibilities by layer
@@ -99,7 +99,7 @@ must not duplicate Newton equations.
 - Solver: net/resultant forces, acceleration, equilibrium, and supported force
   relationships; no question wording or rendering.
 - Generation: bounded masses, force magnitudes, angles/coefficients only after
-  #44 scope approval; local seeded randomness and stable provenance.
+  #54 scope approval; local seeded randomness and stable provenance.
 - Renderer: force arrows, body/system boundaries, labels, free-body diagrams,
   safe escaping, deterministic IDs, and no answer leakage.
 - Questions: calculation templates, conceptual templates, structured answers,
@@ -126,7 +126,7 @@ marking.
 
 The main risk is curriculum-grade ambiguity: Newton's Laws are core Grade 11
 content in the official document, while M4 is a repository roadmap milestone
-with Grade 12 consolidation relevance. #44 is intentionally first and ready
+with Grade 12 consolidation relevance. #54 is intentionally first and ready
 to resolve this. Other risks are force-diagram semantics, friction/contact
 assumptions, and avoiding accidental coupling to Momentum.
 
