@@ -23,6 +23,17 @@ MOMENTUM_REQUEST = {
 }
 
 
+def test_newton_domain_does_not_enable_api_routing_before_issue_61() -> None:
+    for grade, code in ((11, "unsupported_grade"), (12, "unsupported_topic")):
+        response = client.post(
+            "/api/v1/assessments/generate",
+            json={**VALID_REQUEST, "grade": grade, "topic": "newtons-laws"},
+        )
+        assert response.status_code == 422
+        assert response.json()["error"]["code"] == code
+        assert "questions" not in response.json()
+
+
 def test_momentum_topic_is_supported_and_learner_safe() -> None:
     response = client.post("/api/v1/assessments/generate", json=MOMENTUM_REQUEST)
 

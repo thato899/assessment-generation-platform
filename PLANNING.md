@@ -7,7 +7,7 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 - **M0** Repository & Architecture Bootstrap — governance, API shell, CI.
 - **M1** Assessment Core — stable models, validation, seeds, contract tests.
 - **M2** Physical Sciences: Vertical Projectile Motion — scenario, solver, renderer, questions, rubric.
-- **M3** Momentum & Impulse (complete); **M4** Newton's Laws (planned next);
+- **M3** Momentum & Impulse (complete); **M4** Newton's Laws (domain in review);
   **M5** Work, Energy & Power.
 - **M6** Mathematics Foundation; **M7** Mathematics: Functions.
 
@@ -33,9 +33,9 @@ The first planning slice will:
 M3 question generation, rendering, application, API integration, and final
 coverage verification are complete through Issue #43. M3 is formally complete.
 M4 Newton's Laws is the current milestone; its planning document is
-[docs/planning/m4-newtons-laws.md](docs/planning/m4-newtons-laws.md). No M4
-production implementation has started. Issue #54 scope validation is
-complete and its PR is in review; later M4 issues remain backlog.
+[docs/planning/m4-newtons-laws.md](docs/planning/m4-newtons-laws.md). Issue #54
+is merged and closed. Issue #55 domain implementation is in review; Issues
+#56–#62 remain backlog in the existing dependency order.
 
 ## Completed M3 scope
 
@@ -51,9 +51,18 @@ Issue #54 records the official Grade 11 placement of Newton's Laws, the Grade
 11 examinability in the Grade 12 final examination. The stable topic metadata
 and the approved supported/deferred boundary are documented in
 [docs/domains/physical-sciences/newtons-laws-scope.md](docs/domains/physical-sciences/newtons-laws-scope.md).
-No Newton domain, solver, generator, renderer, question, or API implementation
-is included. Issues #55–#62 remain blocked on the dependency sequence until
-Issue #54 is merged.
+PR #64 merged at `703de9acf8f334be6eafae0249cc8868f8215c66` and closed #54.
+
+## M4 Issue #55 domain representations
+
+Issue #55 adds immutable authored bodies, forces, explicit coordinates, system
+boundaries and contact/string/gravity relationships. Structural validity does
+not imply solvability. The [domain contract](docs/domains/physical-sciences/newtons-laws-domain.md)
+records ownership, unknown values, assumptions and the boundary with derived
+results. [PR #65](https://github.com/thato899/assessment-generation-platform/pull/65)
+remains open for review. No solver, generator, renderer,
+question or API implementation is included. #56 is next only after #55 merges;
+#56–#62 remain backlog and have not started.
 
 ## Deferred / future enhancements
 
