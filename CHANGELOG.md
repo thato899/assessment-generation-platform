@@ -19,6 +19,7 @@
 - Added a deterministic Momentum & Impulse scenario factory with versioned platform policy, supported initial-condition families, explicit axis selection, stable provenance, and seed replay. It does not generate solver outputs or final collision states.
 - Added the deterministic Momentum & Impulse solver boundary for signed body momentum, aggregate system totals, external impulse effects, validation, and explicit underdetermined-collision handling. No Momentum API or question generation is included.
 - Added the first framework-independent Momentum & Impulse domain models: explicit masses, signed velocities, axis conventions, body identities, system boundaries, and distinct momentum/impulse values. No solver or API support is included yet.
+- Add evidence-based M3 CAPS coverage verification and explicit limitation documentation.
 - Bootstrapped the Python/FastAPI repository, API v1 shell, validation, tests, governance documentation, and CI/security configuration.
 - Added framework-independent core assessment value objects and models with validation tests.
 - Added CAPS Grade 12 Physical Sciences Mechanics curriculum metadata and deterministic lookup tests.

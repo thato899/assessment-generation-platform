@@ -29,12 +29,9 @@ The first planning slice will:
 - record explicit non-goals for marking, printable output, LMS integration,
   and unrelated subject logic.
 
-M3 question generation, rendering, application, and API remain deferred until
-their planned dependencies are complete. Issues #35, #36, and #37 are complete
-and Issues #37 and #38 are complete. Issue #39 is the active implementation
-issue for deterministic Momentum & Impulse SVG rendering. Issues #39 and #40
-are now complete and Issue #41 is complete. Issue #42 is active; Issue #43
-remains the backlog coverage-verification item.
+M3 question generation, rendering, application, and API dependencies are now
+complete through Issue #42. Issue #43 is the active final coverage-verification
+item; no downstream milestone is being started.
 See the dedicated
 [M3 plan](docs/planning/m3-momentum-impulse.md) for the dependency graph,
 CAPS coverage target, question-family matrix, and exit criteria.
