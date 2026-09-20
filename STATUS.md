@@ -4,7 +4,7 @@ Last updated: 2026-09-20
 
 ## Current milestone
 
-M4 - Newton's Laws — Issue #55 in review
+M4 - Newton's Laws - Issue #56 in review
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -12,9 +12,9 @@ M3 - Momentum & Impulse — COMPLETE
 
 Issues #28, #30, #32, #35, #36, #37, #38, #39, #40, #41, #42, and #43 are
 closed. M3 implementation and final coverage verification are complete. M4
-planning and Issue #54 scope validation are merged. Issue #55 adds the authored
-Newton domain on `feature/issue-55-newton-domain` and is in review. Its PR must
-remain unmerged; #56 has not started.
+planning and Issue #54 scope validation are merged. Issue #55 is merged and
+closed; Issue #56 is implemented on `feature/issue-56-newton-solver` and is in
+review. #57 onward remains deferred.
 
 ## Completed
 
@@ -43,17 +43,18 @@ remain unmerged; #56 has not started.
 
 - Issue #55 immutable Newton bodies, forces, coordinate conventions, system
   membership and contact/friction/string/third-law/gravity relationships are
-  implemented for review. Structural validity remains separate from solvability.
-- Issues #56–#62 remain backlog in their original dependency order. No Newton
-  solver, generation, rendering, questions or API routing were added.
+  merged and closed. Structural validity remains separate from solvability.
+- Issue #56 deterministic Newton solver and validation are implemented and in
+  review. Issues #57-#62 remain backlog; generation, rendering, questions and
+  API routing remain deferred.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Review the Issue #55 domain PR. Do not merge it in this execution and do not
-  begin #56 until #55 has subsequently been reviewed and merged.
+- Review the Issue #56 solver PR. Do not merge it in this execution and do not
+  begin #57 until #56 has subsequently been reviewed and merged.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -71,6 +72,9 @@ remain unmerged; #56 has not started.
   selection: 353 passed; projectile selection: 166 passed; curriculum,
   application and API checks: 52 passed. Ruff, mypy, build, pip check and
   `git diff --check` passed. CI is tracked on the linked issue PR.
+- Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
+  tests passed locally; Ruff, mypy, and wheel build passed. The solver branch
+  remains unmerged pending review.
 - Hypothesis was not added: the bounded structural invariants are covered by
   deterministic parameterized tests. No shared-unit refactor or ADR was needed.
 - Issue #21 final suite: 82 tests passed; 95% coverage; Ruff, mypy, and build passed. PR #22 CI quality and dependency-audit checks passed.
@@ -122,10 +126,9 @@ remain unmerged; #56 has not started.
 - PR #63 merged at `f64aa1a85698272917ec66c028ccd45e60350a8c`; M4 planning is
   present on `main`.
 - PR #64 merged at `703de9acf8f334be6eafae0249cc8868f8215c66`; Issue #54 is closed.
-- Issue #55 branch: `feature/issue-55-newton-domain`;
-  [PR #65](https://github.com/thato899/assessment-generation-platform/pull/65)
-  remains open and unmerged for review. #55 has `status:in-review` and remains
-  open until that PR is merged.
+- PR #65 merged at `2f6adeb8d8df5e1b3faa9ef30c9fae4830f158f`; Issue #55 is
+  closed. Issue #56 is implemented on `feature/issue-56-newton-solver` and is
+  pending review; #57-#62 remain backlog.
 - Existing Momentum & Impulse API support is preserved. Newton routing is absent.
 - Project board: blocked/not created; verify permissions before creating one.
 

@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Add the Issue #56 deterministic Newton solver with immutable typed results
+  for resultants, Newton II dynamics, equilibrium, one-unknown force solving,
+  authored-field weight, contact/normal/friction, straight light strings,
+  third-law validation and universal-gravity magnitude. Explicitly reject
+  underdetermined, inconsistent, unsupported and numerical-range outcomes;
+  generation, rendering, questions, marking and API routing remain deferred.
+
 - Add immutable, framework-independent Newton domain inputs with explicit
   units, 1D/2D coordinates, force ownership, contact/friction, light-string,
   third-law and gravity relationships. Preserve underdetermined states without

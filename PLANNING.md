@@ -7,7 +7,7 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 - **M0** Repository & Architecture Bootstrap — governance, API shell, CI.
 - **M1** Assessment Core — stable models, validation, seeds, contract tests.
 - **M2** Physical Sciences: Vertical Projectile Motion — scenario, solver, renderer, questions, rubric.
-- **M3** Momentum & Impulse (complete); **M4** Newton's Laws (domain in review);
+- **M3** Momentum & Impulse (complete); **M4** Newton's Laws (solver in review);
   **M5** Work, Energy & Power.
 - **M6** Mathematics Foundation; **M7** Mathematics: Functions.
 
@@ -34,7 +34,7 @@ M3 question generation, rendering, application, API integration, and final
 coverage verification are complete through Issue #43. M3 is formally complete.
 M4 Newton's Laws is the current milestone; its planning document is
 [docs/planning/m4-newtons-laws.md](docs/planning/m4-newtons-laws.md). Issue #54
-is merged and closed. Issue #55 domain implementation is in review; Issues
+is merged and closed. Issue #55 is merged and closed at `2f6adeb`; Issue #56 is implemented on its feature branch and is in review; Issues
 #56–#62 remain backlog in the existing dependency order.
 
 ## Completed M3 scope
@@ -60,9 +60,20 @@ boundaries and contact/string/gravity relationships. Structural validity does
 not imply solvability. The [domain contract](docs/domains/physical-sciences/newtons-laws-domain.md)
 records ownership, unknown values, assumptions and the boundary with derived
 results. [PR #65](https://github.com/thato899/assessment-generation-platform/pull/65)
-remains open for review. No solver, generator, renderer,
-question or API implementation is included. #56 is next only after #55 merges;
+merged at `2f6adeb8d8df5e1b3faa9ef30c9fae4830f158f`; #55 is closed. No
+generator, renderer, question or API implementation is included.
 #56–#62 remain backlog and have not started.
+
+## M4 Issue #56 authoritative solver
+
+Issue #56 adds the deterministic, framework-independent Newton solver and
+immutable derived results. It owns signed resultants, Newton II acceleration,
+equilibrium, one-unknown force resolution, authored acceleration validation,
+weight from authored fields, contact/normal/friction, straight light-string,
+third-law numerical validation, and scalar universal-gravity magnitude. It
+rejects underdetermined, inconsistent, unsupported, and numerical-range cases
+explicitly. The focused solver suite has 82 tests and the full suite passes
+locally. #56 is in review; #57 onward remain backlog.
 
 ## Deferred / future enhancements
 

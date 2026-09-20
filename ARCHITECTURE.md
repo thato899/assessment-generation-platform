@@ -45,6 +45,17 @@ Technical SVG renderers consume validated scenario and solver objects and may on
 
 See ADRs 0001–0011 in `docs/adr/`.
 
+M4 Issue #56 adds `mechanics.newton_solver` as the authoritative numerical
+boundary after the authored #55 scenario. `NewtonSolver` consumes an immutable
+`NewtonScenario` and returns frozen, typed resultant, dynamics, weight,
+contact, string and gravity results. It uses the scenario's explicit Cartesian
+or surface-aligned basis, `math.fsum`, a shared absolute tolerance of `1e-9`,
+and no display rounding or hidden gravitational field. A valid authored model
+can still be unsolvable: unresolved components, inconsistent authored values,
+unsupported geometry/constraints and numerical overflow/underflow are reported
+through typed `NewtonSolveError` reasons. The package is framework-independent
+and imports no generation, rendering, question, marking or API layers.
+
 M4 Issue #55 introduces a separate `mechanics.newtons_laws` package for authored
 Newton facts: bodies, explicit 1D/2D bases, signed/unknown force components,
 source/target ownership, selected system membership, and composed contact,
