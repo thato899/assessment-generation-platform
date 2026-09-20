@@ -38,3 +38,5 @@
   generation with structured answers, marking schemes, and optional visuals.
 - Add deterministic CAPS-aligned conceptual Momentum & Impulse templates and
   machine-readable rubrics.
+- Add Momentum & Impulse routing to the existing learner-safe v1 assessment
+  generation service and API.
