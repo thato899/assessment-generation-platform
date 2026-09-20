@@ -150,7 +150,8 @@ remains deferred.
   PR #67 merged Issue #57 at `70b212c5d416a36d535c389a056f79a95c25761e`.
   PR #68 merged Issue #58 at `c3ee3b9e707ea04b1f73826b5cb8f6b008cf5e21`.
   PR #69 merged at `5025c3730e4af6e46e3851f468215c501d490f30`; Issue #59 is closed.
-  Issue #60 is active in review preparation; #61-#62 remain backlog.
+  PR #70 is open with CI passed and `status:in-review`; Issue #60 is active;
+  #61-#62 remain backlog.
 - Existing Momentum & Impulse API support is preserved. Newton routing is absent.
 - Project board: blocked/not created; verify permissions before creating one.
 
