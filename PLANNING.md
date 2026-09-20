@@ -30,9 +30,9 @@ The first planning slice will:
   and unrelated subject logic.
 
 M3 question generation, rendering, application, and API remain deferred until
-their planned dependencies are complete. Issues #35 and #36 are complete and
-Issue #37 is the active implementation issue for momentum-change, impulse,
-force, and contact-time relationships. Issues #38-#43 remain backlog items.
+their planned dependencies are complete. Issues #35, #36, and #37 are complete
+and Issue #38 is the active implementation issue for deterministic solvable
+interaction and impulse generation. Issues #39-#43 remain backlog items.
 See the dedicated
 [M3 plan](docs/planning/m3-momentum-impulse.md) for the dependency graph,
 CAPS coverage target, question-family matrix, and exit criteria.

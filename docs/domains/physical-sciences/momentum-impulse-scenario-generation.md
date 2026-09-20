@@ -46,6 +46,22 @@ Velocity signs are derived from physical direction and the explicit
 assumes that right is positive and never converts solver outputs or fabricates
 final states.
 
+## Issue #38 problem generation
+
+Issue #38 adds `MomentumProblemFactory` as a focused companion rather than
+expanding this initial-condition factory. It composes the version-1 scenario
+policy and wraps its output, or creates typed relationship inputs and authored
+interaction constraints for the completed #36 and #37 solver capabilities.
+The companion policy is version `2`; its bounded numeric pools, difficulty
+mapping, output variants, solver-authority boundary, and collision validation
+are documented in [the Momentum & Impulse generation policy](momentum-impulse-generation-policy.md).
+
+The companion factory does not calculate momentum, momentum change, impulse,
+force, contact time, final velocities, or collision classifications. Complete
+final-state candidates are accepted only after the authoritative constrained
+solver validates them. The original `MomentumScenarioFactory` remains
+unchanged and reproducible under policy version `1`.
+
 ## Boundaries
 
 The factory imports no solver, renderer, API framework, or question generator.
