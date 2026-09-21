@@ -164,3 +164,5 @@ boundary; no hidden cross-domain calculation is allowed.
 The implemented #74 authored representation is documented in
 [work-energy-power-domain.md](work-energy-power-domain.md). It uses local M5
 semantic value objects and leaves all numerical relationships to #75.
+The #75 numerical authority is documented in
+[work-energy-power-solver.md](work-energy-power-solver.md).

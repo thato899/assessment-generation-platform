@@ -147,3 +147,13 @@ and imports no FastAPI, Pydantic, application, solver, generator, renderer,
 question, or API modules. See
 `docs/domains/physical-sciences/work-energy-power-domain.md`. #75 owns all
 numerical relationships and solvability decisions.
+
+Issue #75 adds the parallel `mechanics.work_energy_power_solver` package as
+the single deterministic numerical authority for M5. It owns checked
+arithmetic, the internal `1e-9` consistency tolerance, exact cardinal-angle
+handling, typed failure reasons, work/energy/power operations, and immutable
+derived results with independent validation. It imports only the M5 authored
+domain, core `ValidationResult`, and the standard library; no Newton,
+Momentum, Projectile, generation, rendering, question, or API layer is
+involved. See
+`docs/domains/physical-sciences/work-energy-power-solver.md`.

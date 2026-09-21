@@ -94,4 +94,5 @@ unknown solving, conservation calculations, friction or contact solving,
 universal gravitation, motor efficiency, springs or spring potential energy,
 random generation, SVG, questions, marking, learner projections, or API
 routing. Those responsibilities remain outside #74; #75 owns deterministic
-numerical solution and validation.
+numerical solution and validation as documented in
+[work-energy-power-solver.md](work-energy-power-solver.md).

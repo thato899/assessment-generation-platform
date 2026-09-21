@@ -188,6 +188,22 @@ from .work_energy_power import (
 from .work_energy_power import (
     UnknownValue as WorkEnergyUnknownValue,
 )
+from .work_energy_power_solver import (
+    SOLVER_ID as WORK_ENERGY_SOLVER_ID,
+)
+from .work_energy_power_solver import (
+    SOLVER_VERSION as WORK_ENERGY_SOLVER_VERSION,
+)
+from .work_energy_power_solver import (
+    VALIDATION_TOLERANCE as WORK_ENERGY_VALIDATION_TOLERANCE,
+)
+from .work_energy_power_solver import (
+    FailureReason as WorkEnergyFailureReason,
+)
+from .work_energy_power_solver import (
+    WorkEnergySolveError,
+    WorkEnergySolver,
+)
 
 __all__ = [
     "Impulse",
@@ -336,4 +352,10 @@ __all__ = [
     "WorkEnergyAssumptions",
     "WorkEnergyContext",
     "WorkEnergyScenario",
+    "WORK_ENERGY_SOLVER_ID",
+    "WORK_ENERGY_SOLVER_VERSION",
+    "WORK_ENERGY_VALIDATION_TOLERANCE",
+    "WorkEnergyFailureReason",
+    "WorkEnergySolveError",
+    "WorkEnergySolver",
 ]

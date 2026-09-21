@@ -6,7 +6,7 @@ Last updated: 2026-09-21
 
 M4 - Newton's Laws - COMPLETE
 
-M5 - Work, Energy & Power - ISSUE #74 DOMAIN IMPLEMENTATION
+M5 - Work, Energy & Power - ISSUE #75 SOLVER IMPLEMENTATION
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -23,9 +23,9 @@ Issue #60 is merged and closed at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`;
 Issue #61 is merged and closed at `7a3d8b835df770166f69c62a722ab63508aabb6f`;
 Issue #62 is merged and closed at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`.
 M4 is complete. PR #86 merged Issue #73 at
-`17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`. Issue #74 is active on
-`feature/issue-74-work-energy-power-domain`; it defines only the immutable,
-framework-independent authored M5 domain. #75 onward remain backlog.
+`17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged Issue #74 at
+`9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 is active on
+`feature/issue-75-work-energy-power-solver`; #76 onward remain backlog.
 
 ## Completed
 
@@ -60,16 +60,16 @@ framework-independent authored M5 domain. #75 onward remain backlog.
   closed. Issue #58 deterministic Newton SVG rendering is merged and closed.
   Issue #59 solver-backed calculation questions and Issue #60 conceptual questions
   are merged and closed; Issue #61 application/API integration and Issue #62
-  final verification are merged and closed. M4 is complete; Issue #74 is the
-  active M5 authored-domain slice and #75 onward remain backlog.
+  final verification are merged and closed. M4 is complete; Issue #75 is the
+  active M5 solver slice and #76 onward remain backlog.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete Issue #74, open its review PR, and leave it unmerged. Do not begin
-  Issue #75 in this execution.
+- Complete Issue #75, open its review PR, and leave it unmerged. Do not begin
+  Issue #76 in this execution.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -77,8 +77,8 @@ framework-independent authored M5 domain. #75 onward remain backlog.
 - Newton generation is available through the existing v1 application/API route
   for the exact Grade 11 `newtons-laws` route. Local `pip-audit --local` reports
   pre-existing advisories in environment packages; repository CI is the
-  authoritative dependency gate. M5 numerical physics remains deferred to #75;
-  #74 contains authored representations and structural validation only.
+  authoritative dependency gate. M5 generation and later pipeline layers remain
+  deferred to #76 onward; #75 contains the numerical authority only.
 
 ## Test/CI status
 
@@ -123,12 +123,16 @@ framework-independent authored M5 domain. #75 onward remain backlog.
   explicit spring/efficiency boundaries are implemented on
   `feature/issue-73-work-energy-power-curriculum`.
 - PR #86 merged Issue #73 at `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`;
-  Issue #73 is closed. Issue #74 domain verification is in progress on
-  `feature/issue-74-work-energy-power-domain`.
+  Issue #73 is closed. PR #87 merged Issue #74 at
+  `9fb5da21a41ec8385dffc20c4971e968efdad82e`.
 - Issue #74 verification: 19 focused domain tests and 954 full-suite tests
   pass with 92% total coverage. Ruff, mypy, wheel build, pip check, and
   `git diff --check` pass. The authored domain contains no solver equations,
   generation, rendering, question, or API code.
+- Issue #75 verification: 32 focused solver tests and 986 full-suite tests
+  pass with 90% total coverage. Ruff and mypy pass; checked arithmetic,
+  immutable result validation, bounded unknown solving, and dependency-boundary
+  tests are green on `feature/issue-75-work-energy-power-solver`.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -194,8 +198,9 @@ framework-independent authored M5 domain. #75 onward remain backlog.
   #62 is closed. Milestone `M5 - Work, Energy & Power` (#7) is open and the
   planning branch `docs/m5-work-energy-power-planning` merged via PR #85 at
   `a0e0dd4cf75156f53a5c4adc148c03e0e6badfdf`, and PR #86 merged #73 at
-  `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`. Issue #74 is active on
-  `feature/issue-74-work-energy-power-domain`; #75 onward remain backlog.
+  `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged #74 at
+  `9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 is active on
+  `feature/issue-75-work-energy-power-solver`; #76 onward remain backlog.
 - Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
   is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.
