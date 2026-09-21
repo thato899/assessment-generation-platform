@@ -104,7 +104,8 @@ coverage and readiness verification.
   coverage; application/API coverage is 97%. Ruff, mypy, wheel build, pip
   check, and `git diff --check` passed locally. The local dependency audit
   reports pre-existing package advisories; the #62 PR CI audit remains the
-  authoritative repository result.
+  authoritative repository result. PR #72 quality and dependency-audit checks
+  passed; the PR remains open and unmerged for review.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -167,7 +168,8 @@ coverage and readiness verification.
   PR #70 merged at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`; Issue #60 is closed.
   PR #71 merged at `7a3d8b835df770166f69c62a722ab63508aabb6f`; Issue #61 is
   closed. Issue #62 is active on `feature/issue-62-newton-m4-verification`;
-  its review PR is intentionally unmerged.
+  PR #72 is open with `status:in-review` and both CI checks passed; it is
+  intentionally unmerged.
 - Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
   is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.

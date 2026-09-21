@@ -192,9 +192,9 @@ repository's documented audit tool. It reported 25 advisories in six packages
 (`anyio`, `click`, `idna`, `pip`, `pytest`, and `starlette`) from the current
 environment, plus the editable project itself is not published to PyPI. These
 are dependency-baseline findings outside the Newton implementation and are
-recorded for dependency maintenance; no M4 code introduced them. The PR CI
-dependency-audit result is the authoritative repository check and is recorded
-with this verification PR.
+recorded for dependency maintenance; no M4 code introduced them. The #72 PR CI
+dependency-audit result is authoritative and passed; the quality workflow also
+passed.
 
 ## Regression audit
 
@@ -223,8 +223,8 @@ determinism, and safe-error regressions remain green.
 - Wheel build: **pass**.
 - `pip check`: **pass**.
 - `git diff --check`: **pass**.
-- Existing CI quality and dependency-audit workflows: **pass on #61**; #62 PR
-  CI is the final verification of this branch.
+- Existing CI quality and dependency-audit workflows: **pass on #61 and #72**;
+  #72 is the final verification of this branch.
 
 ## Partial and deferred capabilities
 
