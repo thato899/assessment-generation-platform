@@ -70,6 +70,6 @@ for example, a gravitational field alone does not manufacture a weight arrow.
 
 Question wording, expected answers, marking, generation policy, API routing and
 CAPS interpretation and numeric question packaging remain outside this module;
-calculation questions are owned by active #59 and conceptual templates/API
-work remain deferred to #60-#62. No new cross-cutting ADR is required for this
+calculation questions are owned by #59 and conceptual templates are active in
+#60; API work remains deferred to #61-#62. No new cross-cutting ADR is required for this
 renderer.

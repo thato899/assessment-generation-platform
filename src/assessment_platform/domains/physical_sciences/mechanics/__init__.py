@@ -77,6 +77,21 @@ from .momentum_question_generator import (
     MomentumQuestionOptions,
     MomentumQuestionTemplate,
 )
+from .newton_conceptual_questions import (
+    GENERATOR_ID as NEWTON_CONCEPTUAL_GENERATOR_ID,
+)
+from .newton_conceptual_questions import (
+    GENERATOR_VERSION as NEWTON_CONCEPTUAL_GENERATOR_VERSION,
+)
+from .newton_conceptual_questions import (
+    NewtonConceptualQuestionGenerator,
+    NewtonConceptualQuestionOptions,
+    NewtonConceptualTemplate,
+    NewtonQuestionTemplate,
+)
+from .newton_conceptual_questions import (
+    NewtonQuestionOptions as NewtonConceptualOptions,
+)
 from .newton_generation import (
     DEFAULT_NEWTON_GENERATION_POLICY,
     DEFAULT_NEWTON_PROBLEM_FACTORY,
@@ -229,6 +244,13 @@ __all__ = [
     "NewtonCalculationTemplate",
     "NewtonQuestionGenerator",
     "NewtonQuestionOptions",
+    "NEWTON_CONCEPTUAL_GENERATOR_ID",
+    "NEWTON_CONCEPTUAL_GENERATOR_VERSION",
+    "NewtonConceptualQuestionGenerator",
+    "NewtonConceptualQuestionOptions",
+    "NewtonConceptualTemplate",
+    "NewtonConceptualOptions",
+    "NewtonQuestionTemplate",
     "POLICY_VERSION",
     "ConceptualQuestionOptions",
     "ConceptualTemplate",
