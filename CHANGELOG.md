@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Complete M4 Newton's Laws after Issue #62 verification merged at
+  `20b763ccde63ede025d97c3ee2aa772400e1b9f5`. Add the planning-only M5 Work,
+  Energy & Power scope contract, Grade 12 CAPS basis, architecture boundary,
+  issue sequence, and definition of done. No M5 production implementation is
+  included.
+
 - Add Issue #62 final M4 Newton's Laws CAPS coverage and readiness verification.
   Record the #54–#61 evidence matrix, bounded physics capabilities, explicit
   partial/deferred areas, determinism/sign/solvability/safety/regression audits,

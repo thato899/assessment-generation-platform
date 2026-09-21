@@ -4,7 +4,9 @@ Last updated: 2026-09-21
 
 ## Current milestone
 
-M4 - Newton's Laws - Issue #62 final verification in progress
+M4 - Newton's Laws - COMPLETE
+
+M5 - Work, Energy & Power - PLANNING
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -19,8 +21,9 @@ Issue #58 is merged and closed at `c3ee3b9e707ea04b1f73826b5cb8f6b008cf5e21`;
 Issue #59 is merged and closed at `5025c3730e4af6e46e3851f468215c501d490f30`;
 Issue #60 is merged and closed at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`;
 Issue #61 is merged and closed at `7a3d8b835df770166f69c62a722ab63508aabb6f`;
-Issue #62 is active on `feature/issue-62-newton-m4-verification` for final
-coverage and readiness verification.
+Issue #62 is merged and closed at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`.
+M4 is complete. M5 planning is active on
+`docs/m5-work-energy-power-planning`; no M5 implementation has started.
 
 ## Completed
 
@@ -54,16 +57,16 @@ coverage and readiness verification.
 - Issue #57 deterministic seeded Newton scenario generation is merged and
   closed. Issue #58 deterministic Newton SVG rendering is merged and closed.
   Issue #59 solver-backed calculation questions and Issue #60 conceptual questions
-  are merged and closed; Issue #61 application/API integration is merged and
-  closed; Issue #62 final verification is active.
+  are merged and closed; Issue #61 application/API integration and Issue #62
+  final verification are merged and closed. M4 is complete; M5 is planning-only.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete the Issue #62 verification, open its review PR, and leave it
-  unmerged pending review. Do not begin M5 or later work.
+- Complete and review the M5 planning PR. Do not begin the first M5
+  implementation issue in this execution.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -71,7 +74,7 @@ coverage and readiness verification.
 - Newton generation is available through the existing v1 application/API route
   for the exact Grade 11 `newtons-laws` route. Local `pip-audit --local` reports
   pre-existing advisories in environment packages; repository CI is the
-  authoritative dependency gate.
+  authoritative dependency gate. M5 has no production implementation yet.
 
 ## Test/CI status
 
@@ -105,7 +108,10 @@ coverage and readiness verification.
   check, and `git diff --check` passed locally. The local dependency audit
   reports pre-existing package advisories; the #62 PR CI audit remains the
   authoritative repository result. PR #72 quality and dependency-audit checks
-  passed; the PR remains open and unmerged for review.
+  passed before merge.
+- PR #72 merged Issue #62 at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`;
+  Issue #62 is closed. Main CI quality and dependency-audit checks passed for
+  the merge commit.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -129,7 +135,7 @@ coverage and readiness verification.
 
 - Repository: https://github.com/thato899/assessment-generation-platform
 - Default branch: `main`
-- Milestones: M0, M1, M2, M3, M6
+- Milestones: M0, M1, M2, M3, M4, M5, M6
 - PR #13 merged at `405cb1927fa0d68fa11ca55d432e1382f6ba59a1`.
 - PR #14 merged at `ad815850d9b9458978b4c92c153abbaace7d96d7`.
 - PR #15 merged at `15236ce0abb902689c96e4b3fe01f7a85a09b0d5`.
@@ -167,9 +173,9 @@ coverage and readiness verification.
   PR #69 merged at `5025c3730e4af6e46e3851f468215c501d490f30`; Issue #59 is closed.
   PR #70 merged at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`; Issue #60 is closed.
   PR #71 merged at `7a3d8b835df770166f69c62a722ab63508aabb6f`; Issue #61 is
-  closed. Issue #62 is active on `feature/issue-62-newton-m4-verification`;
-  PR #72 is open with `status:in-review` and both CI checks passed; it is
-  intentionally unmerged.
+  closed. PR #72 merged at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`; Issue
+  #62 is closed. Milestone `M5 - Work, Energy & Power` (#7) is open and the
+  planning branch is `docs/m5-work-energy-power-planning`.
 - Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
   is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.
