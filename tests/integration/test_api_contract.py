@@ -1,5 +1,15 @@
 from fastapi.testclient import TestClient
 
+from assessment_platform.application import AssessmentGenerationService
+from assessment_platform.core import (
+    AssessmentRequest,
+    AssessmentType,
+    Difficulty,
+    GenerationSeed,
+    Grade,
+    Subject,
+    Topic,
+)
 from assessment_platform.main import app
 
 client = TestClient(app)
@@ -22,16 +32,125 @@ MOMENTUM_REQUEST = {
     "seed": 7,
 }
 
+NEWTON_REQUEST = {
+    **VALID_REQUEST,
+    "grade": 11,
+    "topic": "newtons-laws",
+    "difficulty": "moderate",
+    "include_visuals": True,
+    "seed": 0,
+}
 
-def test_newton_domain_does_not_enable_api_routing_before_issue_61() -> None:
-    for grade, code in ((11, "unsupported_grade"), (12, "unsupported_topic")):
+
+def test_exact_grade_topic_routing_matrix() -> None:
+    cases = (
+        (11, "newtons-laws", 200, None),
+        (12, "newtons-laws", 422, "unsupported_topic"),
+        (12, "vertical-projectile-motion-1d", 200, None),
+        (12, "momentum-and-impulse", 200, None),
+        (11, "vertical-projectile-motion-1d", 422, "unsupported_topic"),
+        (11, "momentum-and-impulse", 422, "unsupported_topic"),
+        (10, "newtons-laws", 422, "unsupported_grade"),
+    )
+    for grade, topic, status, code in cases:
         response = client.post(
             "/api/v1/assessments/generate",
-            json={**VALID_REQUEST, "grade": grade, "topic": "newtons-laws"},
+            json={**NEWTON_REQUEST, "grade": grade, "topic": topic},
         )
-        assert response.status_code == 422
-        assert response.json()["error"]["code"] == code
-        assert "questions" not in response.json()
+        assert response.status_code == status
+        if code is None:
+            assert response.json()["questions"]
+        else:
+            assert response.json()["error"]["code"] == code
+            assert "questions" not in response.json()
+
+
+def test_newton_generation_is_canonical_deterministic_and_learner_safe() -> None:
+    first = client.post("/api/v1/assessments/generate", json=NEWTON_REQUEST)
+    second = client.post("/api/v1/assessments/generate", json=NEWTON_REQUEST)
+
+    assert first.status_code == second.status_code == 200
+    assert first.json() == second.json()
+    body = first.json()
+    assert body["api_version"] == "v1"
+    assert body["effective_seed"] == 0
+    assert body["grade"] == 11
+    assert body["topic"] == "newtons-laws"
+    assert len(body["questions"]) == 1
+    assert body["questions"][0]["parts"]
+    assert body["visuals"]
+    forbidden = {
+        "expected_answer",
+        "marking_scheme",
+        "rubric",
+        "criteria",
+        "memo",
+        "memorandum",
+        "solution",
+        "solver",
+        "scenario",
+        "provenance",
+        "concepts",
+        "correct_choice",
+        "worked_solution",
+    }
+
+    def keys(value):
+        if isinstance(value, dict):
+            yield from value.keys()
+            for child in value.values():
+                yield from keys(child)
+        elif isinstance(value, list):
+            for child in value:
+                yield from keys(child)
+
+    assert not forbidden & set(keys(body))
+    assert "equal_magnitude" not in first.text
+    assert "same_interaction" not in first.text
+
+
+def test_newton_calculation_route_has_no_internal_answers_or_hidden_svg_values() -> None:
+    payload = {**NEWTON_REQUEST, "seed": 1}
+    response = client.post("/api/v1/assessments/generate", json=payload)
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["questions"][0]["question_id"].startswith("newton-question-")
+    assert "expected_answer" not in response.text
+    assert "marking_scheme" not in response.text
+    assert "solver" not in response.text.lower()
+    assert all("?" in visual["content"] or "F" in visual["content"] for visual in body["visuals"])
+
+    internal = AssessmentGenerationService().generate(
+        AssessmentRequest(
+            "CAPS",
+            Subject("physical-sciences"),
+            Grade(11),
+            Topic("newtons-laws"),
+            AssessmentType.QUESTION,
+            1,
+            Difficulty.MODERATE,
+            True,
+            GenerationSeed(1),
+        )
+    )
+    answer = internal.questions[0].parts[0].expected_answer
+    assert answer is not None
+    assert str(answer.value) not in body["visuals"][0]["content"]
+
+
+def test_newton_omitted_seed_and_visual_preference_are_stable() -> None:
+    payload = {key: value for key, value in NEWTON_REQUEST.items() if key != "seed"}
+    first = client.post("/api/v1/assessments/generate", json=payload)
+    second = client.post("/api/v1/assessments/generate", json=payload)
+    no_visuals = client.post(
+        "/api/v1/assessments/generate", json={**payload, "include_visuals": False}
+    )
+
+    assert first.status_code == second.status_code == 200
+    assert first.json() == second.json()
+    assert first.json()["effective_seed"] == 0
+    assert no_visuals.json()["visuals"] == []
 
 
 def test_momentum_topic_is_supported_and_learner_safe() -> None:
@@ -128,7 +247,7 @@ def test_unsupported_configuration_returns_stable_safe_errors() -> None:
     cases = (
         ("curriculum", "OTHER", "unsupported_curriculum"),
         ("subject", "mathematics", "unsupported_subject"),
-        ("grade", 11, "unsupported_grade"),
+        ("grade", 11, "unsupported_topic"),
         ("assessment_type", "quiz", "unsupported_assessment_type"),
         ("assessment_type", "examination", "unsupported_assessment_type"),
         ("assessment_type", "diagnostic", "unsupported_assessment_type"),

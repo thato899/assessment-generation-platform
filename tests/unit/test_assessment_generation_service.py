@@ -20,6 +20,9 @@ from assessment_platform.core import (
     ValidationResult,
 )
 from assessment_platform.domains.physical_sciences.mechanics import (
+    NewtonGenerationFamily,
+    NewtonGenerationInput,
+    NewtonProblemFactory,
     ScenarioGenerationInput,
     VerticalProjectileScenarioFactory,
 )
@@ -56,6 +59,28 @@ def request(
     return AssessmentRequest(**values)  # type: ignore[arg-type]
 
 
+def newton_request(
+    *,
+    seed: int | None = 0,
+    difficulty: Difficulty = Difficulty.MODERATE,
+    include_visuals: bool = True,
+    **overrides: object,
+) -> AssessmentRequest:
+    values: dict[str, object] = {
+        "curriculum": "CAPS",
+        "subject": Subject("physical-sciences"),
+        "grade": Grade(11),
+        "topic": Topic("newtons-laws"),
+        "assessment_type": AssessmentType.QUESTION,
+        "question_count": 1,
+        "difficulty": difficulty,
+        "include_visuals": include_visuals,
+        "seed": GenerationSeed(seed) if seed is not None else None,
+    }
+    values.update(overrides)
+    return AssessmentRequest(**values)  # type: ignore[arg-type]
+
+
 class SpyFactory:
     def __init__(self) -> None:
         self.delegate = VerticalProjectileScenarioFactory()
@@ -83,6 +108,16 @@ class SpyQuestionGenerator:
         return self.delegate.generate(
             scenario, solution, curriculum_topic, seed=seed, include_visuals=include_visuals
         )
+
+
+class SpyNewtonFactory:
+    def __init__(self) -> None:
+        self.delegate = NewtonProblemFactory()
+        self.requests: list[NewtonGenerationInput] = []
+
+    def generate(self, generation_input: NewtonGenerationInput):
+        self.requests.append(generation_input)
+        return self.delegate.generate(generation_input)
 
 
 def test_service_runs_factory_solver_validation_generator_and_composition() -> None:
@@ -162,6 +197,92 @@ def test_application_seed_corpus_produces_valid_questions(seed: int) -> None:
     assert assessment.seed == GenerationSeed(seed)
     assert assessment.questions[0].parts
     assert assessment.questions[0].scenario is not None
+
+
+@pytest.mark.parametrize("difficulty", list(Difficulty))
+def test_newton_route_returns_canonical_grade_11_assessment_and_propagates_difficulty(
+    difficulty: Difficulty,
+) -> None:
+    factory = SpyNewtonFactory()
+    assessment = AssessmentGenerationService(newton_factory=factory).generate(
+        newton_request(seed=1, difficulty=difficulty)
+    )
+
+    assert assessment.curriculum.grade == Grade(11)
+    assert assessment.curriculum.topic == Topic("newtons-laws")
+    assert assessment.assessment_type is AssessmentType.QUESTION
+    assert assessment.seed == GenerationSeed(1)
+    assert factory.requests[0].difficulty is difficulty
+    assert factory.requests[0].family in set(NewtonGenerationFamily) - {
+        NewtonGenerationFamily.THIRD_LAW
+    }
+
+
+def test_newton_seed_policy_selects_conceptual_for_even_and_calculation_for_odd() -> None:
+    service = AssessmentGenerationService()
+    conceptual = service.generate(newton_request(seed=0, include_visuals=False))
+    calculation = service.generate(newton_request(seed=1, include_visuals=False))
+
+    assert conceptual.questions[0].identifier.startswith("newton-conceptual-")
+    assert calculation.questions[0].identifier.startswith("newton-question-")
+    assert not conceptual.questions[0].visuals
+    assert not calculation.questions[0].visuals
+
+
+def test_newton_omitted_seed_defaults_deterministically_and_memorandum_matches_parts() -> None:
+    service = AssessmentGenerationService()
+    first = service.generate(newton_request(seed=None, include_visuals=False))
+    second = service.generate(newton_request(seed=None, include_visuals=False))
+
+    assert first == second
+    assert first.seed == DEFAULT_GENERATION_SEED
+    assert tuple(entry.question_part_id.value for entry in service.memorandum_for(first)) == tuple(
+        part.identifier for part in first.questions[0].parts
+    )
+
+
+def test_newton_visual_preference_and_random_state_are_preserved() -> None:
+    random.seed(20260919)
+    before = random.getstate()
+    service = AssessmentGenerationService()
+    with_visuals = service.generate(newton_request(seed=0, include_visuals=True))
+    without_visuals = service.generate(newton_request(seed=0, include_visuals=False))
+
+    assert random.getstate() == before
+    assert with_visuals.questions[0].visuals
+    assert not without_visuals.questions[0].visuals
+
+
+@pytest.mark.parametrize(
+    ("grade", "topic", "code"),
+    [
+        (Grade(12), Topic("newtons-laws"), "unsupported_topic"),
+        (Grade(11), Topic("momentum-and-impulse"), "unsupported_topic"),
+        (Grade(11), Topic("vertical-projectile-motion-1d"), "unsupported_topic"),
+        (Grade(10), Topic("newtons-laws"), "unsupported_grade"),
+    ],
+)
+def test_newton_route_matrix_rejects_non_exact_grade_topic_pairs(
+    grade: Grade, topic: Topic, code: str
+) -> None:
+    with pytest.raises(GenerationApplicationError) as error:
+        AssessmentGenerationService().generate(newton_request(grade=grade, topic=topic))
+
+    assert error.value.code == code
+
+
+def test_newton_failure_is_mapped_to_safe_application_error() -> None:
+    class BrokenNewtonFactory:
+        def generate(self, _request: NewtonGenerationInput):
+            raise ValueError("private Newton scenario detail")
+
+    with pytest.raises(GenerationApplicationError) as error:
+        AssessmentGenerationService(newton_factory=BrokenNewtonFactory()).generate(
+            newton_request(seed=1)
+        )
+
+    assert error.value.code == "generation_failed"
+    assert "private" not in error.value.message
 
 
 def test_solution_validation_failure_stops_before_question_generation() -> None:
@@ -263,7 +384,7 @@ def test_canonical_assessment_without_seed_is_not_a_valid_api_result() -> None:
     [
         ("curriculum", "OTHER", "unsupported_curriculum"),
         ("subject", Subject("mathematics"), "unsupported_subject"),
-        ("grade", Grade(11), "unsupported_grade"),
+        ("grade", Grade(11), "unsupported_topic"),
         ("topic", Topic("newtons-laws"), "unsupported_topic"),
         ("assessment_type", AssessmentType.QUIZ, "unsupported_assessment_type"),
         ("question_count", 2, "unsupported_question_count"),
@@ -276,7 +397,8 @@ def test_unsupported_application_configuration_is_stable(
         AssessmentGenerationService().generate(request(**{field: value}))
 
     assert error.value.code == code
-    assert error.value.field == (field,)
+    expected_field = ("topic",) if field == "grade" else (field,)
+    assert error.value.field == expected_field
 
 
 def test_trusted_memorandum_projection_uses_canonical_assessment_relationships() -> None:

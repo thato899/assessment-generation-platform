@@ -7,8 +7,9 @@ is merged and closed; Issue #55 authored domain implementation is merged and clo
 Issue #56 deterministic solver is merged and closed at `5568b52`. Issue #57
 deterministic scenario generation is merged and closed at `70b212c`. Issue #58
 deterministic SVG rendering is merged and closed at `c3ee3b9`. Issue #59 calculation-question generation is merged and closed at `5025c37`.
-Issue #60 conceptual-question generation is active on its feature branch;
-Issues #61-#62 remain backlog.
+Issue #60 conceptual-question generation is merged and closed at `f0e5a46`.
+Issue #61 application/API integration is active on its feature branch; Issue #62
+remains backlog.
 The repository roadmap identifies M4 as Newton's Laws, while the official DBE
 CAPS Physical Sciences document places the core Newton's Laws content in the
 Grade 11 sequence and refers to Grade 12 consolidation and integrated
@@ -52,8 +53,8 @@ must not duplicate Newton equations.
 | 4 | #57 | Implement deterministic Newton scenario-generation policy/factory | #55, #56 | complete |
 | 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | complete |
 | 6 | #59 | Implement solver-backed calculation question generator | #55–#58 | complete |
-| 7 | #60 | Implement conceptual templates and machine-readable rubrics | #54, #59 | in progress |
-| 8 | #61 | Integrate Newton generation into the existing application/API | #54, #57–#60 | backlog |
+| 7 | #60 | Implement conceptual templates and machine-readable rubrics | #54, #59 | complete |
+| 8 | #61 | Integrate Newton generation into the existing application/API | #54, #57–#60 | in progress |
 | 9 | #62 | Verify CAPS coverage, regressions, and M4 readiness | #54–#61 | backlog |
 
 ## Dependency graph
@@ -106,8 +107,9 @@ must not duplicate Newton equations.
 Issue #59 is the numeric-question boundary after rendering. It packages only
 successful #56 solver results into canonical assessment parts, preserves
 authored unknowns and signs, reconciles marking criteria with part marks, and
-may attach #58 learner-safe SVG. Conceptual templates are active in #60; automatic marking, printing and API
-routing remain deferred to #61-#62.
+may attach #58 learner-safe SVG. Conceptual templates are complete in #60; #61 owns
+application/API routing, while automatic marking, printing and final verification
+remain deferred to #62.
 
 ## Planned calculation families
 

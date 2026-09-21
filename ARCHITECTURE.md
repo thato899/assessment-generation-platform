@@ -94,8 +94,9 @@ to canonical `QuestionPart`, `ResponseSpecification`, `ExpectedAnswer`,
 `MarkingScheme`, `VisualReference` and `GenerationProvenance` values. Prompts
 expose authored givens and sign conventions while preserving unknown inputs;
 question IDs and provenance contain no answers. Newton III validation has no
-numeric question template, conceptual templates are owned by active #60, and
-API routing, automatic marking and printing remain outside this layer.
+numeric question template, conceptual templates are owned by merged #60, and
+application/API routing is owned by active #61; automatic marking and printing
+remain outside this layer.
 
 M4 Issue #60 adds `NewtonConceptualQuestionGenerator` as the conceptual
 question boundary. It emits deterministic canonical questions whose
@@ -103,3 +104,11 @@ question boundary. It emits deterministic canonical questions whose
 those concepts declaratively. It may consume an authored scenario and attach a
 learner-safe #58 visual, but it performs no numerical physics, automatic
 marking, API routing, or PDF generation.
+
+M4 Issue #61 adds only application/API orchestration for the merged Newton
+pipeline. The exact `(Grade 11, newtons-laws)` route delegates to the existing
+factory and question generators, selects conceptual versus calculation output
+deterministically from the effective seed, and composes the existing canonical
+`Assessment`. The v1 request and learner response DTOs are unchanged; answer,
+rubric, memo, scenario, provenance, solver state, and hidden SVG data remain
+outside learner projection. Final CAPS verification remains #62.

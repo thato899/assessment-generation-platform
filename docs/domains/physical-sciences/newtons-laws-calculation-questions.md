@@ -26,7 +26,7 @@ The generator supports these numeric templates:
 
 Newton III is intentionally unsupported here: the solver validates an authored
 third-law pair but does not derive a new numeric quantity. Its calculation
-question belongs nowhere in this issue; conceptual treatment is owned by active #60. Unsupported, underdetermined, inconsistent and numerical-range solver
+question belongs nowhere in this issue; conceptual treatment is complete in #60. Unsupported, underdetermined, inconsistent and numerical-range solver
 outcomes raise before a `Question` is returned.
 
 ## Canonical model and authority
@@ -65,6 +65,6 @@ no PDF, DOCX, API routing or automatic marking is added.
 
 Marking schemes describe criteria only; this issue does not evaluate learner
 responses or award marks. Conceptual Newton First/Second/Third Law templates,
-conceptual rubrics are owned by #60; API integration, printing and final CAPS
-verification remain deferred to #61-#62. Generation policy remains owned by #57 and numerical authority
+conceptual rubrics are owned by merged #60; API integration is active in #61,
+while printing and final CAPS verification remain deferred to #62. Generation policy remains owned by #57 and numerical authority
 remains owned by #56.
