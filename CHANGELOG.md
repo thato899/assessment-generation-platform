@@ -8,7 +8,6 @@
   renderer, security, regression, and readiness audits without adding runtime
   physics or API capability.
 
-
 - Implement Issue #83's bounded Work, Energy & Power application/API
   integration through the existing v1 assessment-generation route. Add the
   exact Grade 12 route, deterministic even-seed conceptual versus odd-seed

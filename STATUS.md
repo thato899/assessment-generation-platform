@@ -159,9 +159,11 @@ M4 is complete. PR #86 merged Issue #73 at
   coverage and 96% application-service coverage. Ruff, mypy, wheel build, pip
   check, and `git diff --check` are green locally.
 - PR #93 merged Issue #83 at `98fca9e5a80b1152a570a0baaf41f51dfb452532`.
-  Post-#93 main baseline: 1,104 tests passed. Issue #84 adds focused
-  verification coverage across the M5 pipeline; final branch quality-gate
-  results are recorded with the review PR.
+  Post-#93 main baseline: 1,104 tests passed. PR #94 carries Issue #84's
+  focused verification: M5 164, Projectile 152, Momentum 351, Newton 328,
+  and application/API/core/curriculum 97 tests passed; final branch 1,111
+  passed with 90% total coverage. Ruff, mypy, build, pip check, and diff check
+  pass locally; repository CI is green.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -234,8 +236,9 @@ M4 is complete. PR #86 merged Issue #73 at
   `045a4c587b43d939e3dc70296e95d5bd3a708b04`; PR #91 merged #78 at
   `fccc3713ce2ed0827194ed077e67f95eb254522d`; PR #92 merged #82 at
   `0683927498e1720256431c040381016a65bebda4`; PR #93 merged #83 at
-  `98fca9e5a80b1152a570a0baaf41f51dfb452532`; #84 is active on
-  `feature/issue-84-work-energy-power-m5-verification`.
+  `98fca9e5a80b1152a570a0baaf41f51dfb452532`; PR #94 is open for #84 at
+  https://github.com/thato899/assessment-generation-platform/pull/94; #84 is
+  in review on `feature/issue-84-work-energy-power-m5-verification`.
 - Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
   is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.
