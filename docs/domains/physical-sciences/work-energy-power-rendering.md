@@ -49,6 +49,5 @@ JavaScript URLs, external images, remote fonts, stylesheets, or links are
 emitted. A shared `SvgDocument` contract keeps this renderer independent of
 the projectile, momentum, and Newton solver modules.
 
-Question generation (#78), conceptual templates (#82), API work (#83),
+Question generation (#78) consumes this renderer through a VisualReference and never supplies answer-dependent data. Conceptual templates (#82), API work (#83),
 PDF/PNG conversion, and image generation are outside this boundary.
-

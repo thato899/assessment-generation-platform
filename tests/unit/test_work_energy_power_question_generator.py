@@ -5,7 +5,14 @@ from pathlib import Path
 
 import pytest
 
-from assessment_platform.core import Difficulty, ExpectedAnswerKind, GenerationSeed
+from assessment_platform.core import (
+    Assessment,
+    AssessmentType,
+    CurriculumReference,
+    Difficulty,
+    ExpectedAnswerKind,
+    GenerationSeed,
+)
 from assessment_platform.curriculum.caps.physical_sciences import get_caps_physical_sciences
 from assessment_platform.domains.physical_sciences.mechanics import (
     WorkEnergyCalculationQuestionGenerator,
@@ -101,6 +108,21 @@ def test_unknown_targets_and_authored_problem_are_unchanged() -> None:
     assert question.parts[0].expected_answer is not None
     assert generated == before
     assert generated.scenario.work_energy_contexts[0].final_state.speed.value == "unknown"
+
+
+def test_memorandum_is_derived_from_the_canonical_question_part() -> None:
+    question = generator(False).generate(problem(WorkEnergyGenerationFamily.NET_WORK, 31))
+    assessment = Assessment(
+        "m5-calculation",
+        AssessmentType.QUESTION,
+        CurriculumReference("CAPS"),
+        (question,),
+    )
+    entry = assessment.memorandum[0]
+    part = question.parts[0]
+    assert entry.question_part_id.value == part.identifier
+    assert entry.expected_answer == part.expected_answer
+    assert entry.marking_scheme == part.marking_scheme
 
 
 def test_visual_option_and_average_power_policy() -> None:
