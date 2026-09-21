@@ -115,10 +115,12 @@ curriculum metadata and scope contract. #74 onward remain backlog.
 - PR #72 merged Issue #62 at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`;
   Issue #62 is closed. Main CI quality and dependency-audit checks passed for
   the merge commit.
-- Issue #73 curriculum verification: focused curriculum tests pass; the M5
-  topic constant, Grade 12/Mechanics/Term 2/10-hour metadata, CAPS concepts,
-  constraints, source traceability, and explicit spring/efficiency boundaries
-  are implemented on `feature/issue-73-work-energy-power-curriculum`.
+- Issue #73 curriculum verification: 8 focused curriculum tests and 935 full
+  tests pass with 93% total coverage; Ruff, mypy, wheel build, pip check, and
+  `git diff --check` pass. The M5 topic constant, Grade 12/Mechanics/Term
+  2/10-hour metadata, CAPS concepts, constraints, source traceability, and
+  explicit spring/efficiency boundaries are implemented on
+  `feature/issue-73-work-energy-power-curriculum`.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
