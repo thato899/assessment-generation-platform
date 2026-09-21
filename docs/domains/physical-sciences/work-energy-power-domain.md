@@ -2,8 +2,9 @@
 
 This package defines the immutable authored facts accepted by the Grade 12
 CAPS Work, Energy & Power slice. It is framework-independent and contains no
-solver, generation, rendering, question, or API code. The later #75 solver
-derives numerical results from these facts.
+solver, generation, rendering, question, or API code. The merged #75 solver
+derives numerical results from these facts, and the #76 factory creates
+deterministic authored scenarios accepted by that solver.
 
 ## Boundary and invariants
 
@@ -95,4 +96,6 @@ universal gravitation, motor efficiency, springs or spring potential energy,
 random generation, SVG, questions, marking, learner projections, or API
 routing. Those responsibilities remain outside #74; #75 owns deterministic
 numerical solution and validation as documented in
-[work-energy-power-solver.md](work-energy-power-solver.md).
+[work-energy-power-solver.md](work-energy-power-solver.md), while #76 owns
+scenario generation as documented in
+[work-energy-power-scenario-generation.md](work-energy-power-scenario-generation.md).

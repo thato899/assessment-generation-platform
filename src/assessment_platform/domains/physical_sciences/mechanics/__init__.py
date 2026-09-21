@@ -188,6 +188,29 @@ from .work_energy_power import (
 from .work_energy_power import (
     UnknownValue as WorkEnergyUnknownValue,
 )
+from .work_energy_power_generation import (
+    DEFAULT_WORK_ENERGY_GENERATION_POLICY,
+    GeneratedMechanicalEnergyProblem,
+    GeneratedPowerProblem,
+    GeneratedWorkEnergyMetadata,
+    GeneratedWorkEnergyProblem,
+    GeneratedWorkEnergyTheoremProblem,
+    GeneratedWorkProblem,
+    WorkEnergyDifficultyProfile,
+    WorkEnergyGenerationFamily,
+    WorkEnergyGenerationInput,
+    WorkEnergyGenerationPolicy,
+    WorkEnergyProblemFactory,
+)
+from .work_energy_power_generation import (
+    GENERATOR_ID as WORK_ENERGY_GENERATOR_ID,
+)
+from .work_energy_power_generation import (
+    GENERATOR_VERSION as WORK_ENERGY_GENERATOR_VERSION,
+)
+from .work_energy_power_generation import (
+    POLICY_VERSION as WORK_ENERGY_GENERATION_POLICY_VERSION,
+)
 from .work_energy_power_solver import (
     SOLVER_ID as WORK_ENERGY_SOLVER_ID,
 )
@@ -358,4 +381,19 @@ __all__ = [
     "WorkEnergyFailureReason",
     "WorkEnergySolveError",
     "WorkEnergySolver",
+    "DEFAULT_WORK_ENERGY_GENERATION_POLICY",
+    "WORK_ENERGY_GENERATOR_ID",
+    "WORK_ENERGY_GENERATOR_VERSION",
+    "WORK_ENERGY_GENERATION_POLICY_VERSION",
+    "GeneratedMechanicalEnergyProblem",
+    "GeneratedPowerProblem",
+    "GeneratedWorkEnergyMetadata",
+    "GeneratedWorkEnergyProblem",
+    "GeneratedWorkEnergyTheoremProblem",
+    "GeneratedWorkProblem",
+    "WorkEnergyDifficultyProfile",
+    "WorkEnergyGenerationFamily",
+    "WorkEnergyGenerationInput",
+    "WorkEnergyGenerationPolicy",
+    "WorkEnergyProblemFactory",
 ]

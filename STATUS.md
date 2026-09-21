@@ -6,7 +6,7 @@ Last updated: 2026-09-21
 
 M4 - Newton's Laws - COMPLETE
 
-M5 - Work, Energy & Power - ISSUE #75 SOLVER IMPLEMENTATION
+M5 - Work, Energy & Power - ISSUE #76 SCENARIO GENERATION
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -24,8 +24,9 @@ Issue #61 is merged and closed at `7a3d8b835df770166f69c62a722ab63508aabb6f`;
 Issue #62 is merged and closed at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`.
 M4 is complete. PR #86 merged Issue #73 at
 `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged Issue #74 at
-`9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 is active on
-`feature/issue-75-work-energy-power-solver`; #76 onward remain backlog.
+`9fb5da21a41ec8385dffc20c4971e968efdad82e`. PR #88 merged Issue #75 at
+`4b7bc2220ea962f6f115232729a5e0ccb52d4856`; Issue #76 is active on
+`feature/issue-76-work-energy-power-generation`; #77 onward remain backlog.
 
 ## Completed
 
@@ -60,16 +61,17 @@ M4 is complete. PR #86 merged Issue #73 at
   closed. Issue #58 deterministic Newton SVG rendering is merged and closed.
   Issue #59 solver-backed calculation questions and Issue #60 conceptual questions
   are merged and closed; Issue #61 application/API integration and Issue #62
-  final verification are merged and closed. M4 is complete; Issue #75 is the
-  active M5 solver slice and #76 onward remain backlog.
+  final verification are merged and closed. M4 is complete; Issue #75 is
+  merged and Issue #76 is the active M5 generation slice. #77 onward remain
+  backlog.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete Issue #75, open its review PR, and leave it unmerged. Do not begin
-  Issue #76 in this execution.
+- Complete Issue #76, open its review PR, and leave it unmerged. Do not begin
+  Issue #77 in this execution.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -77,8 +79,9 @@ M4 is complete. PR #86 merged Issue #73 at
 - Newton generation is available through the existing v1 application/API route
   for the exact Grade 11 `newtons-laws` route. Local `pip-audit --local` reports
   pre-existing advisories in environment packages; repository CI is the
-  authoritative dependency gate. M5 generation and later pipeline layers remain
-  deferred to #76 onward; #75 contains the numerical authority only.
+  authoritative dependency gate. M5 rendering and later pipeline layers remain
+  deferred to #77 onward; #75 contains the numerical authority and #76 owns
+  deterministic authored scenario generation.
 
 ## Test/CI status
 
@@ -132,7 +135,12 @@ M4 is complete. PR #86 merged Issue #73 at
 - Issue #75 verification: 32 focused solver tests and 986 full-suite tests
   pass with 90% total coverage. Ruff and mypy pass; checked arithmetic,
   immutable result validation, bounded unknown solving, and dependency-boundary
-  tests are green on `feature/issue-75-work-energy-power-solver`.
+  tests are green. PR #88 merged at
+  `4b7bc2220ea962f6f115232729a5e0ccb52d4856`; Issue #75 is closed.
+- Issue #76 generation verification: 52 focused tests cover all 13 families,
+  deterministic replay, local RNG isolation, policy validation, solver-backed
+  acceptance, unknown preservation, answer-leakage boundaries, immutability,
+  and dependency audits.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -199,8 +207,9 @@ M4 is complete. PR #86 merged Issue #73 at
   planning branch `docs/m5-work-energy-power-planning` merged via PR #85 at
   `a0e0dd4cf75156f53a5c4adc148c03e0e6badfdf`, and PR #86 merged #73 at
   `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged #74 at
-  `9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 is active on
-  `feature/issue-75-work-energy-power-solver`; #76 onward remain backlog.
+  `9fb5da21a41ec8385dffc20c4971e968efdad82e`. PR #88 merged Issue #75 at
+  `4b7bc2220ea962f6f115232729a5e0ccb52d4856`; Issue #76 is active on
+  `feature/issue-76-work-energy-power-generation`; #77 onward remain backlog.
 - Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
   is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.
