@@ -12,8 +12,8 @@ solver; generation, renderer, question, and API implementation remain deferred.
 
 The M5 GitHub milestone `M5 - Work, Energy & Power` exists. The proposed issue
 sequence below is planned on top of the existing M4 pipeline and is tracked by
-separate implementation issues. The first implementation issue is not being
-started here.
+separate implementation issues. Issue #75 is the active implementation and
+review item for the numerical solver.
 
 ## Authoritative CAPS basis and placement
 
@@ -268,5 +268,6 @@ M5 is complete only when:
 - a final CAPS coverage matrix records evidence, tests, assumptions, and
   remaining limitations.
 
-M5 planning does not begin implementation. The first implementation issue must
-be reviewed separately after this planning PR.
+M5 planning remains the scope and dependency reference. Numerical implementation
+is reviewed through Issue #75 and its dedicated pull request; later issues remain
+deferred until that review is complete.
