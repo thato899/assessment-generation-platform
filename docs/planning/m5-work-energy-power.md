@@ -7,13 +7,15 @@ M4 Newton's Laws is complete after PR #72 merged at
 planning is complete through PR #85, and the #73 curriculum contract merged at
 PR #86 (`17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`). Issue #74 owns the
 framework-independent authored domain and merged via PR #87 at
-`9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 now owns the numerical
-solver; generation, renderer, question, and API implementation remain deferred.
+`9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 owns the numerical
+solver and merged via PR #88 at `4b7bc2220ea962f6f115232729a5e0ccb52d4856`.
+Issue #76 now owns deterministic scenario generation; renderer, question, and
+API implementation remain deferred.
 
 The M5 GitHub milestone `M5 - Work, Energy & Power` exists. The proposed issue
 sequence below is planned on top of the existing M4 pipeline and is tracked by
-separate implementation issues. Issue #75 is the active implementation and
-review item for the numerical solver.
+separate implementation issues. Issue #76 is the active implementation and
+review item for deterministic authored scenario generation.
 
 ## Authoritative CAPS basis and placement
 
@@ -268,6 +270,6 @@ M5 is complete only when:
 - a final CAPS coverage matrix records evidence, tests, assumptions, and
   remaining limitations.
 
-M5 planning remains the scope and dependency reference. Numerical implementation
-is reviewed through Issue #75 and its dedicated pull request; later issues remain
-deferred until that review is complete.
+M5 planning remains the scope and dependency reference. Numerical solving is
+merged through Issue #75, and generation is reviewed through Issue #76; later
+issues remain deferred until that review is complete.

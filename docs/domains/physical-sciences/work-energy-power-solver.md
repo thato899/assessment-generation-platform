@@ -3,7 +3,7 @@
 `mechanics.work_energy_power_solver` is the single numerical authority for
 M5. It consumes the authored objects in `mechanics.work_energy_power` and
 returns frozen, typed derived results. It never writes into an authored
-scenario. Issue #76 generation and later question/API layers must validate or
+scenario. Issue #76 generation and later question/API layers validate or
 consume results through this boundary.
 
 ## Identity and numerical policy
@@ -107,5 +107,5 @@ The package imports only Python standard library, the core validation result,
 and the M5 authored domain. It does not import FastAPI, Pydantic, application
 services, API DTOs, renderers, generators, questions, Newton, Momentum, or
 Projectile solvers. It contains no generation, SVG, marking, learner
-projection, motor efficiency, springs, or API route. Those responsibilities
-remain in later issues, with #76 owning deterministic scenario generation.
+projection, motor efficiency, springs, or API route. #76 owns deterministic
+scenario generation; later issues own presentation, questions, and API work.

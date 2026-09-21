@@ -129,7 +129,8 @@ The planning contract is recorded in
 `docs/domains/physical-sciences/work-energy-power-scope.md`, and the authored
 domain contract is recorded in
 `docs/domains/physical-sciences/work-energy-power-domain.md`. Numerical solving
-remains deferred to #75.
+is implemented by the merged #75 solver, and deterministic generation is owned
+by the active #76 factory.
 
 Issue #73 is the curriculum boundary for M5. It enriches the existing immutable
 `CurriculumTopic` for `work-energy-and-power` with CAPS concepts, bounded
@@ -157,3 +158,11 @@ domain, core `ValidationResult`, and the standard library; no Newton,
 Momentum, Projectile, generation, rendering, question, or API layer is
 involved. See
 `docs/domains/physical-sciences/work-energy-power-solver.md`.
+
+Issue #76 adds `mechanics.work_energy_power_generation` as the bounded
+deterministic authored-scenario layer. It uses local seeded randomness,
+versioned difficulty pools, stable answer-free IDs and `GenerationProvenance`,
+then delegates every family to the #75 solver before returning a frozen wrapper.
+It preserves authored unknowns and imports no renderer, question, API, or
+cross-domain solver. See
+`docs/domains/physical-sciences/work-energy-power-scenario-generation.md`.

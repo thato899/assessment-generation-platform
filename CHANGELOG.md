@@ -14,8 +14,15 @@
   arithmetic, exact cardinal-angle handling, explicit failure reasons,
   immutable work/energy/power results, bounded theorem unknown solving,
   independent result validation, and no Newton/Momentum/Projectile or API
-  coupling. Generation, rendering, questions, and API integration remain
-  deferred.
+  coupling. PR #88 merged it at
+  `4b7bc2220ea962f6f115232729a5e0ccb52d4856`.
+
+- Implement Issue #76's deterministic Work, Energy & Power scenario factory.
+  Add versioned finite difficulty pools, local seeded randomness, stable
+  answer-free IDs and provenance, all 13 solver-backed authored families,
+  bounded retry handling, authored-unknown preservation, and generation
+  boundary tests. Rendering, questions, conceptual work, and API integration
+  remain deferred.
 
 - Complete M4 Newton's Laws after Issue #62 verification merged at
   `20b763ccde63ede025d97c3ee2aa772400e1b9f5`. Add the planning-only M5 Work,

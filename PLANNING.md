@@ -8,7 +8,7 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 - **M1** Assessment Core — stable models, validation, seeds, contract tests.
 - **M2** Physical Sciences: Vertical Projectile Motion — scenario, solver, renderer, questions, rubric.
 - **M3** Momentum & Impulse (complete); **M4** Newton's Laws (complete);
-  **M5** Work, Energy & Power (planning).
+  **M5** Work, Energy & Power (active generation).
 - **M6** Mathematics Foundation; **M7** Mathematics: Functions.
 
 ## M3 preparation: Momentum & Impulse
@@ -41,8 +41,9 @@ Issue #60 is merged and closed at `f0e5a46`; Issue #61 is merged and closed at
 `7a3d8b8`; Issue #62 is merged and closed at
 `20b763ccde63ede025d97c3ee2aa772400e1b9f5`. M4 is complete. PR #86 merged
 Issue #73 at `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged Issue #74
-at `9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 is active on
-`feature/issue-75-work-energy-power-solver`, and #76 onward remain backlog.
+at `9fb5da21a41ec8385dffc20c4971e968efdad82e`; PR #88 merged Issue #75 at
+`4b7bc2220ea962f6f115232729a5e0ccb52d4856`. Issue #76 is active on
+`feature/issue-76-work-energy-power-generation`, and #77 onward remain backlog.
 
 ## Completed M3 scope
 
@@ -146,7 +147,7 @@ answer-leakage, security, regressions, and quality gates. The verification
 records explicit partial/deferred capabilities and the local dependency-audit
 baseline. The bounded M4 scope was ready for completion and is now complete
 after merge of the #62 verification PR; M5 implementation is now proceeding
-through Issue #75 while generation and later layers remain deferred.
+through Issue #76 while rendering and later layers remain deferred.
 
 ## M5 Work, Energy & Power planning
 
@@ -157,8 +158,8 @@ and definition of done are recorded in
 [docs/planning/m5-work-energy-power.md](docs/planning/m5-work-energy-power.md)
 and [docs/domains/physical-sciences/work-energy-power-scope.md](docs/domains/physical-sciences/work-energy-power-scope.md).
 Issues #73 and #74 are merged. Issue #75 owns the deterministic numerical
-solver and its validation; no generation, rendering, questions, or API work
-has started.
+solver and its validation; Issue #76 owns the active bounded generation
+factory. Rendering, questions, and API work remain deferred.
 
 ## Deferred / future enhancements
 
