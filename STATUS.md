@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 
 ## Current milestone
 
-M4 - Newton's Laws - Issue #60 in progress
+M4 - Newton's Laws - Issue #61 in progress
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -17,8 +17,8 @@ closed; Issue #56 is merged and closed at `5568b527bdba75bd46f11ab7bdc2014289c83
 Issue #57 is merged and closed at `70b212c5d416a36d535c389a056f79a95c25761e`;
 Issue #58 is merged and closed at `c3ee3b9e707ea04b1f73826b5cb8f6b008cf5e21`;
 Issue #59 is merged and closed at `5025c3730e4af6e46e3851f468215c501d490f30`;
-Issue #60 is active on `feature/issue-60-newton-conceptual-questions`; #61 onward
-remains deferred.
+Issue #60 is merged and closed at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`;
+Issue #61 is active on `feature/issue-61-newton-api-integration`; #62 remains deferred.
 
 ## Completed
 
@@ -51,22 +51,22 @@ remains deferred.
 - Issue #56 deterministic Newton solver and validation are merged and closed.
 - Issue #57 deterministic seeded Newton scenario generation is merged and
   closed. Issue #58 deterministic Newton SVG rendering is merged and closed.
-  Issue #59 solver-backed calculation questions are merged and closed; Issue #60
-  conceptual questions are active; #61-#62 remain backlog and API routing remains deferred.
+  Issue #59 solver-backed calculation questions and Issue #60 conceptual questions
+  are merged and closed; Issue #61 application/API integration is active; #62 remains backlog.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete review and open the Issue #60 conceptual-question PR. Do not merge
-  it in this execution and do not begin #61.
+- Complete implementation and open the Issue #61 application/API integration PR.
+  Do not merge it in this execution and do not begin #62.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
 
-- Generation supports the existing CAPS Grade 12 projectile and Momentum paths.
-  Newton requests remain unsupported before #61 and return stable errors.
+- Newton generation is now available through the existing v1 application/API route
+  for the exact Grade 11 `newtons-laws` route. Issue #62 remains deferred.
 
 ## Test/CI status
 
@@ -87,10 +87,12 @@ remains deferred.
   876 passed. Ruff, mypy, wheel build, pip check and `git diff --check` passed.
 - Issue #59 merged verification: 17 calculation-question tests passed with 93%
   module coverage; PR #69 CI passed and merged at `5025c373`.
-- Issue #60 focused verification: 26 conceptual-template, rubric-reconciliation,
+- Issue #60 merged verification: 26 conceptual-template, rubric-reconciliation,
   context, visual, immutability, and misconception tests passed with 94% module
-  coverage; full suite 919 passed. Ruff, mypy, wheel build, pip check and
-  `git diff --check` passed.
+  coverage; full suite 919 passed. PR #70 CI passed and merged at `f0e5a46`.
+- Issue #61 focused application/API verification: 60 tests passed with 97% combined
+  application/API coverage; full suite 933 passed with 93% total coverage. Ruff,
+  mypy, wheel build, pip check and `git diff --check` passed locally.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -150,9 +152,10 @@ remains deferred.
   PR #67 merged Issue #57 at `70b212c5d416a36d535c389a056f79a95c25761e`.
   PR #68 merged Issue #58 at `c3ee3b9e707ea04b1f73826b5cb8f6b008cf5e21`.
   PR #69 merged at `5025c3730e4af6e46e3851f468215c501d490f30`; Issue #59 is closed.
-  PR #70 is open with CI passed and `status:in-review`; Issue #60 is active;
-  #61-#62 remain backlog.
-- Existing Momentum & Impulse API support is preserved. Newton routing is absent.
+  PR #70 merged at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`; Issue #60 is closed.
+  Issue #61 is active on its feature branch; #62 remains backlog.
+- Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
+  is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.
 
 ## Important decisions

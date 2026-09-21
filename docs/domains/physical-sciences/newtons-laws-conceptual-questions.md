@@ -73,5 +73,5 @@ leak hidden magnitudes or derived answers. The default is no visual.
 
 The generator has no dependency on `NewtonSolver`, numeric calculation
 templates, automatic marking, the application API, or printable-document
-layers. Those concerns remain deferred to the later M4 issues; #61 is the next
-planned integration item after review of #60.
+layers. Application/API integration is owned by active #61; automatic marking,
+printing, and final CAPS verification remain deferred to #62.

@@ -16,6 +16,7 @@ from assessment_platform.core import (
 )
 from assessment_platform.curriculum.caps.physical_sciences import (
     CAPS,
+    GRADE_11,
     GRADE_12,
     PHYSICAL_SCIENCES,
     CurriculumTopic,
@@ -34,6 +35,20 @@ from assessment_platform.domains.physical_sciences.mechanics import (
 from assessment_platform.domains.physical_sciences.mechanics import (
     vertical_projectile_scenario_factory as scenario_factory_module,
 )
+from assessment_platform.domains.physical_sciences.mechanics.newton_conceptual_questions import (
+    NewtonConceptualQuestionGenerator,
+    NewtonConceptualQuestionOptions,
+    NewtonConceptualTemplate,
+)
+from assessment_platform.domains.physical_sciences.mechanics.newton_generation import (
+    NewtonGenerationFamily,
+    NewtonGenerationInput,
+    NewtonProblemFactory,
+)
+from assessment_platform.domains.physical_sciences.mechanics.newton_question_generator import (
+    NewtonCalculationQuestionGenerator,
+    NewtonQuestionOptions,
+)
 from assessment_platform.domains.physical_sciences.mechanics.vertical_projectile import (
     VerticalProjectileScenario,
 )
@@ -44,10 +59,21 @@ from assessment_platform.domains.physical_sciences.mechanics.vertical_projectile
 
 VERTICAL_PROJECTILE_TOPIC_ID = "vertical-projectile-motion-1d"
 MOMENTUM_TOPIC_ID = "momentum-and-impulse"
+NEWTON_TOPIC_ID = "newtons-laws"
 DEFAULT_GENERATION_SEED = GenerationSeed(0)
 SUPPORTED_DIFFICULTIES = frozenset(Difficulty)
 SUPPORTED_ASSESSMENT_TYPE = AssessmentType.QUESTION
 SUPPORTED_QUESTION_COUNT = 1
+SUPPORTED_ROUTES = frozenset(
+    {
+        (GRADE_12.value, VERTICAL_PROJECTILE_TOPIC_ID),
+        (GRADE_12.value, MOMENTUM_TOPIC_ID),
+        (GRADE_11.value, NEWTON_TOPIC_ID),
+    }
+)
+NEWTON_CALCULATION_FAMILIES = tuple(
+    family for family in NewtonGenerationFamily if family is not NewtonGenerationFamily.THIRD_LAW
+)
 
 
 class GenerationApplicationError(ValueError):
@@ -92,6 +118,7 @@ class AssessmentGenerationService:
         solver_factory: Callable[
             [VerticalProjectileScenario], VerticalProjectileSolver
         ] = VerticalProjectileSolver,
+        newton_factory: NewtonProblemFactory | None = None,
     ) -> None:
         self._curriculum = curriculum or get_caps_physical_sciences()
         self._scenario_factory = (
@@ -101,13 +128,16 @@ class AssessmentGenerationService:
             question_generator or question_generator_module.VerticalProjectileQuestionGenerator()
         )
         self._solver_factory = solver_factory
+        self._newton_factory = newton_factory or NewtonProblemFactory()
 
     def generate(self, request: AssessmentRequest) -> Assessment:
         self._validate_request(request)
         effective_seed = request.seed or DEFAULT_GENERATION_SEED
+        if request.topic.value == NEWTON_TOPIC_ID:
+            return self._generate_newton(request, effective_seed)
         if request.topic.value == MOMENTUM_TOPIC_ID:
             return self._generate_momentum(request, effective_seed)
-        topic = self._topic()
+        topic = self._topic(VERTICAL_PROJECTILE_TOPIC_ID)
 
         try:
             scenario = self._scenario_factory.generate(
@@ -156,6 +186,69 @@ class AssessmentGenerationService:
             questions=(question,),
             seed=effective_seed,
         )
+
+    @staticmethod
+    def _assessment(
+        request: AssessmentRequest,
+        topic: CurriculumTopic,
+        question: Question,
+        effective_seed: GenerationSeed,
+    ) -> Assessment:
+        return Assessment(
+            identifier=f"assessment-v1-{question.identifier}",
+            assessment_type=request.assessment_type,
+            curriculum=topic.reference,
+            questions=(question,),
+            seed=effective_seed,
+        )
+
+    def _generate_newton(
+        self, request: AssessmentRequest, effective_seed: GenerationSeed
+    ) -> Assessment:
+        try:
+            topic = self._topic(NEWTON_TOPIC_ID)
+            if effective_seed.value % 2 == 0:
+                template = tuple(NewtonConceptualTemplate)[
+                    effective_seed.value % len(NewtonConceptualTemplate)
+                ]
+                context = None
+                if request.include_visuals:
+                    context = self._newton_factory.generate(
+                        NewtonGenerationInput(
+                            seed=effective_seed,
+                            difficulty=request.difficulty,
+                            family=NewtonGenerationFamily.THIRD_LAW,
+                        )
+                    )
+                question = NewtonConceptualQuestionGenerator(
+                    topic,
+                    NewtonConceptualQuestionOptions(include_visuals=request.include_visuals),
+                ).generate(template, effective_seed, context=context)
+            else:
+                family = NEWTON_CALCULATION_FAMILIES[
+                    effective_seed.value % len(NEWTON_CALCULATION_FAMILIES)
+                ]
+                problem = self._newton_factory.generate(
+                    NewtonGenerationInput(
+                        seed=effective_seed,
+                        difficulty=request.difficulty,
+                        family=family,
+                    )
+                )
+                question = NewtonCalculationQuestionGenerator(
+                    topic, NewtonQuestionOptions(include_visuals=request.include_visuals)
+                ).generate(problem)
+        except ValueError as error:
+            raise GenerationApplicationError(
+                "generation_failed",
+                "The assessment could not be generated for this configuration.",
+            ) from error
+        if not isinstance(question, Question):
+            raise GenerationApplicationError(
+                "generation_failed",
+                "The generation engine returned an invalid assessment question.",
+            )
+        return self._assessment(request, topic, question, effective_seed)
 
     def _generate_momentum(
         self, request: AssessmentRequest, effective_seed: GenerationSeed
@@ -213,9 +306,9 @@ class AssessmentGenerationService:
             raise ValueError("assessment must be an Assessment")
         return assessment.memorandum
 
-    def _topic(self) -> CurriculumTopic:
+    def _topic(self, identifier: str) -> CurriculumTopic:
         try:
-            return self._curriculum.topic(VERTICAL_PROJECTILE_TOPIC_ID)
+            return self._curriculum.topic(identifier)
         except (AttributeError, KeyError) as error:
             raise GenerationApplicationError(
                 "generation_failed",
@@ -240,16 +333,16 @@ class AssessmentGenerationService:
                 "The generation engine supports Physical Sciences only.",
                 ("subject",),
             )
-        if request.grade != GRADE_12:
+        if request.grade.value not in {GRADE_11.value, GRADE_12.value}:
             raise GenerationApplicationError(
                 "unsupported_grade",
-                "The generation engine supports Grade 12 only.",
+                "The generation engine supports only the approved Grade 11 and Grade 12 routes.",
                 ("grade",),
             )
-        if request.topic.value not in {VERTICAL_PROJECTILE_TOPIC_ID, MOMENTUM_TOPIC_ID}:
+        if (request.grade.value, request.topic.value) not in SUPPORTED_ROUTES:
             raise GenerationApplicationError(
                 "unsupported_topic",
-                "The generation engine does not support the requested topic.",
+                "The requested grade and topic route is not supported.",
                 ("topic",),
             )
         if request.assessment_type is not SUPPORTED_ASSESSMENT_TYPE:
