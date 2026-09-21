@@ -82,8 +82,9 @@ term schedule specifies the bounded requirements below.
   assumptions establish the required force.
 - Support the minimum electric-motor power required to pump water from an
   authored borehole depth at an authored rate. The future domain must make
-  mass flow, height/depth, gravitational field, and any efficiency assumption
-  explicit; it must not invent a motor model.
+  mass flow, height/depth, and gravitational field explicit. CAPS does not
+  require motor efficiency; non-ideal efficiency modelling is a deferred
+  extension and must not become a required M5 input.
 
 ## Representation decisions
 
@@ -105,6 +106,22 @@ integrals, and hidden direction inference are not required by this bounded
 contract. Surface diagrams may show a horizontal or inclined context, but
 visual geometry remains downstream of authored scalar relationships.
 
+## Source-to-scope traceability
+
+| CAPS area | CAPS location | Bounded repository interpretation | Intentionally not inferred |
+| --- | --- | --- | --- |
+| Definition of work and net work | Grade 12 Mechanics, pp. 117–118 (PDF pp. 121–122) | Scalar force/displacement/angle contributions, scalar net accumulation, signs, and the along-plane resultant method | A general 2D/3D vector engine or path integral |
+| Work-energy theorem | p. 118 (PDF p. 122) | Net work changes kinetic energy on horizontal/inclined, frictionless/rough planes; contact applicability is authored | Newton free-body solving or inferred contact behavior |
+| Conservation with non-conservative forces | p. 119 (PDF p. 123) | Conservative versus non-conservative terminology, mechanical versus total energy, bounded dissipative relationships, and near-Earth gravitational potential context | Thermodynamics, heat-transfer models, or universal potential functions |
+| Power | p. 120 (PDF p. 124) | Work/time, rough horizontal/inclined constant-speed power, and minimum borehole pumping power from authored depth/rate/field | Motor efficiency as a required variable or electrodynamics |
+
+The Grade 12 pages name gravitational force as conservative and list air
+resistance, friction, tension, and applied forces as non-conservative examples.
+The Grade 10 energy material is a prerequisite reference, not a reason to
+change Grade 12 topic ownership. Springs and spring potential energy do not
+appear in the approved Grade 12 Work, Energy & Power section and are outside
+this contract.
+
 ## Assumptions and applicability
 
 A future scenario must declare the inertial/reference frame, constant-mass
@@ -114,11 +131,20 @@ whether a contact remains engaged. Unknown values remain unknown. Structurally
 valid but underdetermined relationships are preserved by the domain and
 rejected by the solver and question generator.
 
+## Future implementation responsibilities
+
+Later issues own immutable authored domain types, the deterministic solver,
+bounded generation, justified technical visuals, solver-backed calculations,
+conceptual rubrics, API orchestration, and final verification. This curriculum
+contract does not prescribe class names, failure enums, solver equations,
+random policies, renderer settings, or API behavior.
+
 ## Explicit exclusions
 
-This contract excludes rotational work, torque, springs unless a later CAPS
-review adds them to this topic, thermodynamics, relativistic energy,
-variable-mass systems, fluid dynamics, arbitrary 3D vectors, arbitrary
+This contract excludes rotational work, torque, springs and spring potential
+energy (not present in the approved Grade 12 Work, Energy & Power pages),
+motor-efficiency modelling, thermodynamics, relativistic energy, variable-mass
+systems, fluid dynamics, arbitrary 3D vectors, arbitrary
 force-position functions or calculus/integration, general Newton free-body
 solving, automatic/free-text marking, PDF/printing, LMS adapters, a new API
 version, and M6 Mathematics work. The final implementation issue may narrow

@@ -43,8 +43,10 @@ The planned engine will cover:
   reference level, and field;
 - mechanical-energy relationships with explicit conservative and
   non-conservative work/energy data; and
-- average power, constant-speed rough-surface power, and bounded motor/pumping
-  power with explicit mass-flow, depth, field, and efficiency assumptions.
+- average power, constant-speed rough-surface power, and bounded minimum
+  motor/pumping power with explicit mass-flow, depth, and field inputs.
+  Motor efficiency is not a CAPS requirement and is deferred as a non-ideal
+  extension.
 
 The solver must remain the sole numerical authority. It must report explicit
 underdetermined, inconsistent, unsupported, and numerical-range failures using
@@ -181,8 +183,8 @@ Future calculation questions must map one-to-one to successful solver results:
 - average power from work and positive time;
 - constant-speed rough horizontal/inclined power using authored force and speed;
   and
-- minimum motor/pumping power for an authored water mass/rate, depth, field,
-  and efficiency assumption.
+- minimum motor/pumping power for an authored water mass/rate, depth, and
+  near-Earth field; non-ideal efficiency is outside the CAPS requirement.
 
 Unsupported angles, missing reference levels, hidden contact assumptions,
 multiple unknowns, inconsistent authored states, and numerical overflow or
@@ -228,16 +230,17 @@ question contracts exist. No API code changes are part of this planning branch.
 ## Risks and deferred items
 
 Risks include mixing Grade 10 energy prerequisites with the Grade 12 topic,
-under-specifying reference levels or motor efficiency, duplicating Newton
+under-specifying reference levels or pumping inputs, duplicating Newton
 force-solving equations, and adding diagrams that expose answers. The bounded
 scalar representation deliberately avoids a general vector or calculus engine.
 
-Unless later CAPS evidence requires otherwise, rotational work/torque, springs,
-thermodynamics, relativistic energy, variable-mass systems, fluid dynamics,
+Unless later CAPS evidence requires otherwise, rotational work/torque, springs
+and spring potential energy (not present in the approved Grade 12 Work, Energy
+& Power pages), motor-efficiency modelling, thermodynamics, relativistic energy,
+variable-mass systems, fluid dynamics,
 3D vector geometry, arbitrary force-position functions, automatic/free-text
 marking, PDF/printing, LMS adapters, a new API version, and M6 Mathematics work
-remain outside M5. Springs remain a review item until the implementation scope
-issue confirms whether they belong to this CAPS topic.
+remain outside M5.
 
 ## M5 definition of done
 
