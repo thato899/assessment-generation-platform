@@ -1,7 +1,8 @@
 ﻿# M5 Work, Energy & Power planning
 
-Issue #77 is merged as the authored-only technical SVG renderer. Issue #78 is
-the active solver-backed calculation-question generator; #82 remains deferred.
+Issue #77 is merged as the authored-only technical SVG renderer, and Issue #78
+is merged as the solver-backed calculation-question generator. Issue #82 is the
+active conceptual-question and rubric layer; #83 remains deferred.
 
 ## Planning status
 
@@ -13,13 +14,13 @@ framework-independent authored domain and merged via PR #87 at
 `9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 owns the numerical
 solver and merged via PR #88 at `4b7bc2220ea962f6f115232729a5e0ccb52d4856`.
 Issue #76 owns deterministic scenario generation, Issue #77 owns the merged
-technical renderer, and Issue #78 owns the active calculation-question layer.
-API and conceptual work remain deferred.
+technical renderer, Issue #78 owns the merged calculation-question layer, and
+Issue #82 owns the active conceptual-question layer. API work remains deferred.
 
 The M5 GitHub milestone `M5 - Work, Energy & Power` exists. The proposed issue
 sequence below is planned on top of the existing M4 pipeline and is tracked by
-separate implementation issues. Issue #78 is the active implementation and
-review item for solver-backed calculation questions.
+separate implementation issues. Issue #82 is the active implementation and
+review item for conceptual questions and declarative rubrics.
 
 ## Authoritative CAPS basis and placement
 
@@ -274,6 +275,7 @@ M5 is complete only when:
 - a final CAPS coverage matrix records evidence, tests, assumptions, and
   remaining limitations.
 
-M5 planning remains the scope and dependency reference. Numerical solving is
-merged through Issue #77; Issue #78 is active and later issues remain deferred
-until that review is complete.
+M5 planning remains the scope and dependency reference. Numerical solving,
+generation, rendering, and calculation questions are merged through Issue #78;
+Issue #82 is active and later issues remain deferred until that review is
+complete.

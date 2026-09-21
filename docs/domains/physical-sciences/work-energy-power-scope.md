@@ -1,9 +1,13 @@
 ﻿# Work, Energy & Power scope contract
 
 Issue #77 adds authored-only technical SVG presentation; see
-[work-energy-power-rendering.md](work-energy-power-rendering.md). Question generation remains #78.
+[work-energy-power-rendering.md](work-energy-power-rendering.md). Calculation
+questions are merged through #78; conceptual questions and machine-readable
+rubrics are owned by #82.
 Calculation-question packaging is documented in
 [work-energy-power-question-generation.md](work-energy-power-question-generation.md).
+Conceptual-question packaging is documented in
+[work-energy-power-conceptual-questions.md](work-energy-power-conceptual-questions.md).
 
 ## Curriculum identity
 

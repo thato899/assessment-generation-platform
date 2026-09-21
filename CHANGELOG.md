@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Implement Issue #82's context-free Work, Energy & Power conceptual-question
+  generator with 17 stable templates, semantic concept-token answers,
+  declarative reconciled rubrics, misconception protections, deterministic
+  provenance, strict CAPS topic validation, and no solver/API/automatic-marking
+  dependencies.
+
 - Implement Issue #78's solver-backed Work, Energy & Power calculation-question
   generator. Add exhaustive family templates, exact solver-derived numeric
   answers, authored-only prompts and metadata, stable provenance and IDs,

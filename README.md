@@ -4,7 +4,7 @@ An independent, open-source platform for deterministic, curriculum-aware assessm
 
 ## Status
 
-M2 Vertical Projectile Motion is implemented, M3 Momentum & Impulse is complete, and M4 Newton's Laws has completed implementation and final verification. The public v1 API supports the approved deterministic Physical Sciences routes for vertical projectile motion, Momentum & Impulse, and Grade 11 Newton's Laws. M5 Work, Energy & Power has its authoritative solver, deterministic generation, and technical SVG renderer merged; Issue #78 is the active calculation-question generator. Mathematics remains later in the roadmap. See [STATUS.md](STATUS.md) and [PLANNING.md](PLANNING.md) for the current milestone details.
+M2 Vertical Projectile Motion is implemented, M3 Momentum & Impulse is complete, and M4 Newton's Laws has completed implementation and final verification. The public v1 API supports the approved deterministic Physical Sciences routes for vertical projectile motion, Momentum & Impulse, and Grade 11 Newton's Laws. M5 Work, Energy & Power has its authoritative solver, deterministic generation, technical SVG renderer, and calculation-question layer merged; Issue #82 is the active conceptual-question generator. Mathematics remains later in the roadmap. See [STATUS.md](STATUS.md) and [PLANNING.md](PLANNING.md) for the current milestone details.
 
 ## Quick start
 

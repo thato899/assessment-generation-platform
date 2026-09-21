@@ -180,3 +180,9 @@ each generated family to one canonical `QuestionPart`, reads every numeric
 prompts and learner-safe scenario metadata, and optionally attaches an Issue
 #77 `VisualReference`. It does not calculate physics, mutate authored
 scenarios, add API routing, or implement conceptual questions.
+
+Issue #82 adds the sibling conceptual M5 question generator. It maps a bounded
+17-template inventory to one canonical `QuestionPart` with semantic token
+`ExpectedAnswer` values and declarative `MarkingScheme` criteria. It is
+context-free, deterministic, solver-free, and contains no learner-response
+evaluation, API routing, numerical equations, or automatic marking.

@@ -188,6 +188,19 @@ from .work_energy_power import (
 from .work_energy_power import (
     UnknownValue as WorkEnergyUnknownValue,
 )
+from .work_energy_power_conceptual_questions import (
+    GENERATOR_ID as WORK_ENERGY_CONCEPTUAL_GENERATOR_ID,
+)
+from .work_energy_power_conceptual_questions import (
+    GENERATOR_VERSION as WORK_ENERGY_CONCEPTUAL_GENERATOR_VERSION,
+)
+from .work_energy_power_conceptual_questions import (
+    WorkEnergyConceptualGenerator,
+    WorkEnergyConceptualOptions,
+    WorkEnergyConceptualQuestionGenerator,
+    WorkEnergyConceptualQuestionOptions,
+    WorkEnergyConceptualTemplate,
+)
 from .work_energy_power_generation import (
     DEFAULT_WORK_ENERGY_GENERATION_POLICY,
     GeneratedMechanicalEnergyProblem,
@@ -418,4 +431,11 @@ __all__ = [
     "WorkEnergyCalculationTemplate",
     "WorkEnergyQuestionGenerator",
     "WorkEnergyQuestionOptions",
+    "WORK_ENERGY_CONCEPTUAL_GENERATOR_ID",
+    "WORK_ENERGY_CONCEPTUAL_GENERATOR_VERSION",
+    "WorkEnergyConceptualGenerator",
+    "WorkEnergyConceptualOptions",
+    "WorkEnergyConceptualQuestionGenerator",
+    "WorkEnergyConceptualQuestionOptions",
+    "WorkEnergyConceptualTemplate",
 ]
