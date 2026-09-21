@@ -125,6 +125,10 @@ framework-independent authored M5 domain. #75 onward remain backlog.
 - PR #86 merged Issue #73 at `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`;
   Issue #73 is closed. Issue #74 domain verification is in progress on
   `feature/issue-74-work-energy-power-domain`.
+- Issue #74 verification: 19 focused domain tests and 954 full-suite tests
+  pass with 92% total coverage. Ruff, mypy, wheel build, pip check, and
+  `git diff --check` pass. The authored domain contains no solver equations,
+  generation, rendering, question, or API code.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
