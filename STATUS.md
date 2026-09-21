@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 
 ## Current milestone
 
-M4 - Newton's Laws - Issue #61 in progress
+M4 - Newton's Laws - Issue #62 final verification in progress
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -18,7 +18,9 @@ Issue #57 is merged and closed at `70b212c5d416a36d535c389a056f79a95c25761e`;
 Issue #58 is merged and closed at `c3ee3b9e707ea04b1f73826b5cb8f6b008cf5e21`;
 Issue #59 is merged and closed at `5025c3730e4af6e46e3851f468215c501d490f30`;
 Issue #60 is merged and closed at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`;
-Issue #61 is active on `feature/issue-61-newton-api-integration`; #62 remains deferred.
+Issue #61 is merged and closed at `7a3d8b835df770166f69c62a722ab63508aabb6f`;
+Issue #62 is active on `feature/issue-62-newton-m4-verification` for final
+coverage and readiness verification.
 
 ## Completed
 
@@ -52,21 +54,24 @@ Issue #61 is active on `feature/issue-61-newton-api-integration`; #62 remains de
 - Issue #57 deterministic seeded Newton scenario generation is merged and
   closed. Issue #58 deterministic Newton SVG rendering is merged and closed.
   Issue #59 solver-backed calculation questions and Issue #60 conceptual questions
-  are merged and closed; Issue #61 application/API integration is active; #62 remains backlog.
+  are merged and closed; Issue #61 application/API integration is merged and
+  closed; Issue #62 final verification is active.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete implementation and open the Issue #61 application/API integration PR.
-  Do not merge it in this execution and do not begin #62.
+- Complete the Issue #62 verification, open its review PR, and leave it
+  unmerged pending review. Do not begin M5 or later work.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
 
-- Newton generation is now available through the existing v1 application/API route
-  for the exact Grade 11 `newtons-laws` route. Issue #62 remains deferred.
+- Newton generation is available through the existing v1 application/API route
+  for the exact Grade 11 `newtons-laws` route. Local `pip-audit --local` reports
+  pre-existing advisories in environment packages; repository CI is the
+  authoritative dependency gate.
 
 ## Test/CI status
 
@@ -93,8 +98,14 @@ Issue #61 is active on `feature/issue-61-newton-api-integration`; #62 remains de
 - Issue #61 focused application/API verification: 60 tests passed with 97% combined
   application/API coverage; full suite 933 passed with 93% total coverage. Ruff,
   mypy, wheel build, pip check and `git diff --check` passed locally.
-- PR #71 CI quality and dependency-audit checks passed; the PR remains open and
-  unmerged for review.
+- PR #71 merged Issue #61 at `7a3d8b835df770166f69c62a722ab63508aabb6f`.
+- Issue #62 verification: Newton/M4 focused suites 388 passed, projectile 161
+  passed, Momentum 351 passed, and full suite 933 passed with 93% total
+  coverage; application/API coverage is 97%. Ruff, mypy, wheel build, pip
+  check, and `git diff --check` passed locally. The local dependency audit
+  reports pre-existing package advisories; the #62 PR CI audit remains the
+  authoritative repository result. PR #72 quality and dependency-audit checks
+  passed; the PR remains open and unmerged for review.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -155,8 +166,10 @@ Issue #61 is active on `feature/issue-61-newton-api-integration`; #62 remains de
   PR #68 merged Issue #58 at `c3ee3b9e707ea04b1f73826b5cb8f6b008cf5e21`.
   PR #69 merged at `5025c3730e4af6e46e3851f468215c501d490f30`; Issue #59 is closed.
   PR #70 merged at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`; Issue #60 is closed.
-  PR #71 is open with CI passed and `status:in-review`; Issue #61 is active;
-  #62 remains backlog.
+  PR #71 merged at `7a3d8b835df770166f69c62a722ab63508aabb6f`; Issue #61 is
+  closed. Issue #62 is active on `feature/issue-62-newton-m4-verification`;
+  PR #72 is open with `status:in-review` and both CI checks passed; it is
+  intentionally unmerged.
 - Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
   is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.

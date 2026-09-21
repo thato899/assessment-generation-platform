@@ -2,12 +2,18 @@
 
 ## Unreleased
 
+- Add Issue #62 final M4 Newton's Laws CAPS coverage and readiness verification.
+  Record the #54–#61 evidence matrix, bounded physics capabilities, explicit
+  partial/deferred areas, determinism/sign/solvability/safety/regression audits,
+  quality results, and the dependency-audit baseline. No runtime scope is added;
+  M5 remains deferred pending review of the #62 PR.
+
 - Add Issue #61 application/API orchestration for the exact Grade 11 Newton
   route through the existing v1 assessment endpoint. Preserve request/response
   DTOs, deterministic seed and difficulty semantics, internal conceptual versus
   calculation selection, canonical Assessments, teacher memorandum separation,
-  learner-safe projection, and stable sanitized errors. Issue #62 remains
-  deferred.
+  learner-safe projection, and stable sanitized errors. Issue #62 owns final
+  verification.
 
 - Add Issue #60 deterministic Grade 11 Newton conceptual templates with
   machine-readable concept tokens, reconciled declarative rubrics, stable IDs,
@@ -19,12 +25,12 @@
 - Add Issue #58 deterministic, learner-safe Newton force and free-body SVG
   rendering with authored ownership, Cartesian/surface direction mapping,
   stable accessible IDs, escaping, fixed hidden-value geometry, and no physics
-  calculations. Issues #59 and #60 are complete; application/API integration is active in #61.
+  calculations. Issues #59 and #60 are complete; application/API integration is merged in #61.
 
 - Add Issue #59 solver-backed Newton calculation question generation with
   canonical assessment parts, structured numeric answers, reconciled marking
   schemes, deterministic IDs/provenance, explicit givens, and optional safe
-  SVG visuals. Application/API routing is active in #61; automatic marking and printing remain deferred to #62.
+  SVG visuals. Application/API routing is merged in #61; automatic marking and printing remain outside #62.
 
 - Add Issue #57 deterministic Newton scenario generation with versioned typed
   policy/input/output models, local seed isolation, stable provenance and
