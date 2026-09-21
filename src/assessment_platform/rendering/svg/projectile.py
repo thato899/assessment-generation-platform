@@ -16,6 +16,7 @@ from assessment_platform.domains.physical_sciences.mechanics.vertical_projectile
     TrajectoryEvent,
     VerticalProjectileSolution,
 )
+from assessment_platform.rendering.svg.document import SvgDocument
 
 
 @dataclass(frozen=True, slots=True)
@@ -31,13 +32,6 @@ class ProjectileDiagramOptions:
     def __post_init__(self) -> None:
         if self.width < 320 or self.height < 240:
             raise ValueError("diagram dimensions are too small")
-
-
-@dataclass(frozen=True, slots=True)
-class SvgDocument:
-    markup: str
-    width: int
-    height: int
 
 
 class ProjectileSvgRenderer:

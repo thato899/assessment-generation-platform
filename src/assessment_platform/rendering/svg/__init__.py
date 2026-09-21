@@ -1,5 +1,6 @@
 """Deterministic SVG renderers."""
 
+from .document import SvgDocument
 from .momentum import MomentumDiagramOptions, MomentumSvgRenderer
 from .newton import (
     NewtonDiagramKind,
@@ -8,7 +9,13 @@ from .newton import (
     NewtonSvgRenderer,
     NewtonVisibilityOptions,
 )
-from .projectile import ProjectileDiagramOptions, ProjectileSvgRenderer, SvgDocument
+from .projectile import ProjectileDiagramOptions, ProjectileSvgRenderer
+from .work_energy_power import (
+    WorkEnergyDiagramKind,
+    WorkEnergyRenderOptions,
+    WorkEnergySvgRenderer,
+    WorkEnergyVisibilityOptions,
+)
 
 __all__ = [
     "MomentumDiagramOptions",
@@ -21,4 +28,8 @@ __all__ = [
     "ProjectileDiagramOptions",
     "ProjectileSvgRenderer",
     "SvgDocument",
+    "WorkEnergyDiagramKind",
+    "WorkEnergyRenderOptions",
+    "WorkEnergySvgRenderer",
+    "WorkEnergyVisibilityOptions",
 ]

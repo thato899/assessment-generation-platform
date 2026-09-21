@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Implement Issue #77's safe deterministic Work, Energy & Power technical SVG
+  renderer. Add explicit authored diagram kinds, allowlisted visibility,
+  fixed-magnitude geometry, accessibility metadata, XML escaping, ID
+  sanitization, generated-family coverage, and no-visual classification for
+  average power. Keep solver, question, conceptual, API, and image-generation
+  work outside the renderer boundary.
+
 - Implement Issue #74's immutable, framework-independent Work, Energy & Power
   authored domain. Add local semantic value objects, explicit unknowns, ordered
   work contributions, along-plane inputs, mass/speed and reference-level
@@ -22,7 +29,8 @@
   answer-free IDs and provenance, all 13 solver-backed authored families,
   bounded retry handling, authored-unknown preservation, and generation
   boundary tests. Rendering, questions, conceptual work, and API integration
-  remain deferred.
+  remain deferred. PR #89 merged Issue #76 at
+  `2f0d3cb801bd8d29abca3bfa6d2f871bbe1f25bf`.
 
 - Complete M4 Newton's Laws after Issue #62 verification merged at
   `20b763ccde63ede025d97c3ee2aa772400e1b9f5`. Add the planning-only M5 Work,

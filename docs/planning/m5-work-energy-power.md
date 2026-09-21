@@ -1,5 +1,8 @@
 ﻿# M5 Work, Energy & Power planning
 
+Issue #77 is the active authored-only technical SVG renderer. Issue #78 remains deferred until #77
+is reviewed and merged.
+
 ## Planning status
 
 M4 Newton's Laws is complete after PR #72 merged at

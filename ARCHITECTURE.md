@@ -166,3 +166,10 @@ then delegates every family to the #75 solver before returning a frozen wrapper.
 It preserves authored unknowns and imports no renderer, question, API, or
 cross-domain solver. See
 `docs/domains/physical-sciences/work-energy-power-scenario-generation.md`.
+
+Issue #77 adds `rendering.svg.work_energy_power` as an authored-only
+presentation boundary. It consumes `WorkEnergyScenario` facts, uses fixed
+schematic geometry, escapes labels, sanitizes SVG IDs, and emits no solver,
+generator, question, API, or external-resource content. `SvgDocument` is a
+small shared return contract so this renderer does not import another
+subject's solver module.

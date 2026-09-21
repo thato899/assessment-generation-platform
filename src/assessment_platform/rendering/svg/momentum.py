@@ -20,7 +20,7 @@ from assessment_platform.domains.physical_sciences.mechanics.momentum_interactio
     KnownFinalVelocityConstraint,
     MomentumInteraction,
 )
-from assessment_platform.rendering.svg.projectile import SvgDocument
+from assessment_platform.rendering.svg.document import SvgDocument
 
 
 @dataclass(frozen=True, slots=True)
