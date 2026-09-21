@@ -122,15 +122,28 @@ no equations, mutable scenario state, framework dependency, or new API shape.
 The evidence matrix and readiness decision live in
 `docs/verification/m4-newtons-laws-caps-coverage.md`.
 
-M5 Work, Energy & Power is planning-only after M4. Its future domain will own
-authored scalar force/displacement relationships, energy states, and power
+M5 Work, Energy & Power follows M4 as a separate domain. Its #74 authored
+package owns scalar force/displacement relationships, energy states, and power
 inputs without depending on Newton question generation or application code.
 The planning contract is recorded in
-`docs/domains/physical-sciences/work-energy-power-scope.md`; no M5 runtime layer
-exists yet.
+`docs/domains/physical-sciences/work-energy-power-scope.md`, and the authored
+domain contract is recorded in
+`docs/domains/physical-sciences/work-energy-power-domain.md`. Numerical solving
+remains deferred to #75.
 
 Issue #73 is the curriculum boundary for M5. It enriches the existing immutable
 `CurriculumTopic` for `work-energy-and-power` with CAPS concepts, bounded
-curriculum constraints, and Grade 12 Term 2/10-hour metadata. It adds no
-Work/Energy domain objects or numerical behavior; #74 owns authored domain
-representations.
+curriculum constraints, and Grade 12 Term 2/10-hour metadata. PR #86 merged it
+at `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34` and closed #73.
+
+Issue #74 adds the framework-independent `mechanics.work_energy_power` authored
+domain. Its frozen, slotted local value objects preserve force/displacement/
+angle contributions, scalar along-plane inputs, mass/speed states, explicit
+reference-level heights, authored near-Earth fields, conservative metadata,
+work-energy and mechanical-energy contexts, contact applicability, and the
+three approved power-input families. `UnknownValue.UNKNOWN` preserves
+underdetermined authored facts. The package performs structural validation only
+and imports no FastAPI, Pydantic, application, solver, generator, renderer,
+question, or API modules. See
+`docs/domains/physical-sciences/work-energy-power-domain.md`. #75 owns all
+numerical relationships and solvability decisions.

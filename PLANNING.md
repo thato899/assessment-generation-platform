@@ -39,9 +39,10 @@ merged and closed at `5568b52`; Issue #57 is merged and closed at `70b212c`;
 Issue #58 is merged and closed at `c3ee3b9`; Issue #59 is merged and closed at `5025c37`;
 Issue #60 is merged and closed at `f0e5a46`; Issue #61 is merged and closed at
 `7a3d8b8`; Issue #62 is merged and closed at
-`20b763ccde63ede025d97c3ee2aa772400e1b9f5`. M4 is complete. Issue #73 is
-active on `feature/issue-73-work-energy-power-curriculum` for curriculum
-metadata and scope-contract work; #74 onward remain backlog.
+`20b763ccde63ede025d97c3ee2aa772400e1b9f5`. M4 is complete. PR #86 merged
+Issue #73 at `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; Issue #74 is active on
+`feature/issue-74-work-energy-power-domain` for authored domain work, and #75
+onward remain backlog.
 
 ## Completed M3 scope
 
@@ -144,18 +145,20 @@ questions, API routing, determinism, sign/vector semantics, solvability,
 answer-leakage, security, regressions, and quality gates. The verification
 records explicit partial/deferred capabilities and the local dependency-audit
 baseline. The bounded M4 scope was ready for completion and is now complete
-after merge of the #62 verification PR; M5 remains planning-only.
+after merge of the #62 verification PR; M5 implementation is now proceeding
+through Issue #74 while numerical solving remains deferred to #75.
 
 ## M5 Work, Energy & Power planning
 
-M5 is a Grade 12 CAPS Mechanics planning-only milestone. The stable topic ID
+M5 is a Grade 12 CAPS Mechanics milestone. The stable topic ID
 is the existing `work-energy-and-power` curriculum entry. The scope contract,
 representation decisions, reuse boundaries, issue sequence, dependency graph,
 and definition of done are recorded in
 [docs/planning/m5-work-energy-power.md](docs/planning/m5-work-energy-power.md)
 and [docs/domains/physical-sciences/work-energy-power-scope.md](docs/domains/physical-sciences/work-energy-power-scope.md).
-No production M5 physics or API work has started; #73 is limited to curriculum
-metadata and documentation.
+Issue #73 is merged. Issue #74 owns the immutable authored domain and its
+structural tests; no numerical solver, generation, rendering, questions, or
+API work has started.
 
 ## Deferred / future enhancements
 
