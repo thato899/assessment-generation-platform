@@ -40,9 +40,9 @@ Issue #58 is merged and closed at `c3ee3b9`; Issue #59 is merged and closed at `
 Issue #60 is merged and closed at `f0e5a46`; Issue #61 is merged and closed at
 `7a3d8b8`; Issue #62 is merged and closed at
 `20b763ccde63ede025d97c3ee2aa772400e1b9f5`. M4 is complete. PR #86 merged
-Issue #73 at `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; Issue #74 is active on
-`feature/issue-74-work-energy-power-domain` for authored domain work, and #75
-onward remain backlog.
+Issue #73 at `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged Issue #74
+at `9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 is active on
+`feature/issue-75-work-energy-power-solver`, and #76 onward remain backlog.
 
 ## Completed M3 scope
 
@@ -146,7 +146,7 @@ answer-leakage, security, regressions, and quality gates. The verification
 records explicit partial/deferred capabilities and the local dependency-audit
 baseline. The bounded M4 scope was ready for completion and is now complete
 after merge of the #62 verification PR; M5 implementation is now proceeding
-through Issue #74 while numerical solving remains deferred to #75.
+through Issue #75 while generation and later layers remain deferred.
 
 ## M5 Work, Energy & Power planning
 
@@ -156,9 +156,9 @@ representation decisions, reuse boundaries, issue sequence, dependency graph,
 and definition of done are recorded in
 [docs/planning/m5-work-energy-power.md](docs/planning/m5-work-energy-power.md)
 and [docs/domains/physical-sciences/work-energy-power-scope.md](docs/domains/physical-sciences/work-energy-power-scope.md).
-Issue #73 is merged. Issue #74 owns the immutable authored domain and its
-structural tests; no numerical solver, generation, rendering, questions, or
-API work has started.
+Issues #73 and #74 are merged. Issue #75 owns the deterministic numerical
+solver and its validation; no generation, rendering, questions, or API work
+has started.
 
 ## Deferred / future enhancements
 

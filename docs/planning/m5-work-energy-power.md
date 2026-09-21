@@ -5,9 +5,10 @@
 M4 Newton's Laws is complete after PR #72 merged at
 `20b763ccde63ede025d97c3ee2aa772400e1b9f5`; Issue #62 is closed. M5
 planning is complete through PR #85, and the #73 curriculum contract merged at
-PR #86 (`17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`). Issue #74 now owns the
-framework-independent authored domain. No solver, generator, renderer,
-question, or API implementation is included.
+PR #86 (`17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`). Issue #74 owns the
+framework-independent authored domain and merged via PR #87 at
+`9fb5da21a41ec8385dffc20c4971e968efdad82e`. Issue #75 now owns the numerical
+solver; generation, renderer, question, and API implementation remain deferred.
 
 The M5 GitHub milestone `M5 - Work, Energy & Power` exists. The proposed issue
 sequence below is planned on top of the existing M4 pipeline and is tracked by
@@ -115,6 +116,9 @@ reused.
 
 Momentum and projectile domain models remain separate. No shared abstraction is
 created merely because two classes have similar names.
+
+The current solver contract is documented in
+[work-energy-power-solver.md](../domains/physical-sciences/work-energy-power-solver.md).
 
 ## Proposed issue sequence
 

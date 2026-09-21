@@ -10,6 +10,13 @@
   documentation. No equations, solver, generation, rendering, questions, or
   API code are included.
 
+- Implement Issue #75's deterministic Work, Energy & Power solver with checked
+  arithmetic, exact cardinal-angle handling, explicit failure reasons,
+  immutable work/energy/power results, bounded theorem unknown solving,
+  independent result validation, and no Newton/Momentum/Projectile or API
+  coupling. Generation, rendering, questions, and API integration remain
+  deferred.
+
 - Complete M4 Newton's Laws after Issue #62 verification merged at
   `20b763ccde63ede025d97c3ee2aa772400e1b9f5`. Add the planning-only M5 Work,
   Energy & Power scope contract, Grade 12 CAPS basis, architecture boundary,
