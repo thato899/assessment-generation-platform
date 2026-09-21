@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Begin Issue #84 final verification for the bounded M5 Work, Energy & Power
+  scope. Add the CAPS coverage matrix, implementation-chain evidence,
+  determinism, numerical-authority, solvability, immutability, learner-safety,
+  renderer, security, regression, and readiness audits without adding runtime
+  physics or API capability.
+
+
 - Implement Issue #83's bounded Work, Energy & Power application/API
   integration through the existing v1 assessment-generation route. Add the
   exact Grade 12 route, deterministic even-seed conceptual versus odd-seed

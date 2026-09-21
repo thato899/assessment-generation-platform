@@ -1,5 +1,8 @@
 # Assessment generation API v1
 
+The bounded M5 route is covered by the final evidence matrix in
+[`docs/verification/m5-work-energy-power-caps-coverage.md`](../verification/m5-work-energy-power-caps-coverage.md).
+
 The versioned boundary is `POST /api/v1/assessments/generate`. It supports one
 deterministic learner-safe question for each approved CAPS Physical Sciences
 route: Grade 12 vertical projectile motion, Momentum & Impulse, Work, Energy &

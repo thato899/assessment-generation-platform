@@ -72,7 +72,7 @@ visual labels. Memorandum data is available only through the trusted
 application-side `memorandum_for` operation pending a separately authorized
 teacher contract.
 
-The service uses the explicit request seed or deterministic default seed `0`.
+Issue #83 is merged; the service uses the explicit request seed or deterministic default seed `0`.
 The scenario factory and question generator retain their own versioned
 provenance, so reproducibility is guaranteed for the current engine and policy
 versions; changing those versions requires a deliberate reproducibility

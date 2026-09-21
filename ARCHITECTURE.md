@@ -193,3 +193,11 @@ exact grade/topic route and deterministic even-seed conceptual versus odd-seed
 calculation selection; M5 factories and generators retain domain ownership.
 The generic learner projection remains answer-free, and no new endpoint,
 version, memo route, or solver route is introduced.
+
+Issue #84 is a verification and governance boundary, not a runtime layer. It
+maps the approved Grade 12 CAPS Work, Energy & Power requirements to the
+merged curriculum, authored domain, solver, generation, renderer, question,
+conceptual, and application/API evidence. It adds focused regression and
+learner-safety checks plus the final matrix at
+`docs/verification/m5-work-energy-power-caps-coverage.md`; it adds no equations,
+mutable state, framework dependency, or API shape.
