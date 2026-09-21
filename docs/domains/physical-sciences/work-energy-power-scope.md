@@ -160,3 +160,7 @@ Newton application routing, or Newton solver internals. If a work problem needs
 force information, the scenario authors the scalar force/work contribution or
 a future shared mechanics capability is introduced as an explicitly reviewed
 boundary; no hidden cross-domain calculation is allowed.
+
+The implemented #74 authored representation is documented in
+[work-energy-power-domain.md](work-energy-power-domain.md). It uses local M5
+semantic value objects and leaves all numerical relationships to #75.

@@ -3,9 +3,11 @@
 ## Planning status
 
 M4 Newton's Laws is complete after PR #72 merged at
-`20b763ccde63ede025d97c3ee2aa772400e1b9f5`; Issue #62 is closed. M5 is now
-planning-only. No M5 production domain, solver, generator, renderer, question,
-or API implementation is included in this branch.
+`20b763ccde63ede025d97c3ee2aa772400e1b9f5`; Issue #62 is closed. M5
+planning is complete through PR #85, and the #73 curriculum contract merged at
+PR #86 (`17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`). Issue #74 now owns the
+framework-independent authored domain. No solver, generator, renderer,
+question, or API implementation is included.
 
 The M5 GitHub milestone `M5 - Work, Energy & Power` exists. The proposed issue
 sequence below is planned on top of the existing M4 pipeline and is tracked by
@@ -84,7 +86,7 @@ existing application/API route
 final CAPS coverage verification
 ```
 
-The domain and solver remain framework-independent. Application/API layers
+The #74 domain and later solver remain framework-independent. Application/API layers
 orchestrate and project learner-safe data; they do not calculate work, energy,
 or power. Generation does not copy equations. Rendering consumes authored
 values and does not infer physics.
@@ -106,12 +108,10 @@ Reuse from the platform core:
 - generic validation, deterministic-ID, curriculum-reference, and SVG safety
   helpers where their contracts are subject-independent.
 
-Reuse from Newton only after invariant review:
-
-- compatible scalar SI value objects such as mass, distance, time, force, and
-  energy units if they are semantically exact;
-- no Newton force ownership, contact solver, string solver, question generator,
-  or application route.
+Issue #74 uses local M5 value objects because the existing Newton and Momentum
+quantities have different semantic invariants. Newton force ownership, contact
+solving, string solving, question generation, and application routing are not
+reused.
 
 Momentum and projectile domain models remain separate. No shared abstraction is
 created merely because two classes have similar names.
