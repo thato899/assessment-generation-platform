@@ -128,3 +128,9 @@ inputs without depending on Newton question generation or application code.
 The planning contract is recorded in
 `docs/domains/physical-sciences/work-energy-power-scope.md`; no M5 runtime layer
 exists yet.
+
+Issue #73 is the curriculum boundary for M5. It enriches the existing immutable
+`CurriculumTopic` for `work-energy-and-power` with CAPS concepts, bounded
+curriculum constraints, and Grade 12 Term 2/10-hour metadata. It adds no
+Work/Energy domain objects or numerical behavior; #74 owns authored domain
+representations.

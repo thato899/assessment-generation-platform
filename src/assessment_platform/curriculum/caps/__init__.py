@@ -3,6 +3,7 @@ from assessment_platform.curriculum.caps.physical_sciences import (
     GRADE_11,
     GRADE_12,
     NEWTONS_LAWS_TOPIC_ID,
+    WORK_ENERGY_POWER_TOPIC_ID,
     CapsCurriculum,
     CurriculumTopic,
     Domain,
@@ -17,5 +18,6 @@ __all__ = [
     "GRADE_11",
     "GRADE_12",
     "NEWTONS_LAWS_TOPIC_ID",
+    "WORK_ENERGY_POWER_TOPIC_ID",
     "get_caps_physical_sciences",
 ]

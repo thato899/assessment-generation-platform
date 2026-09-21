@@ -22,8 +22,9 @@ Issue #59 is merged and closed at `5025c3730e4af6e46e3851f468215c501d490f30`;
 Issue #60 is merged and closed at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`;
 Issue #61 is merged and closed at `7a3d8b835df770166f69c62a722ab63508aabb6f`;
 Issue #62 is merged and closed at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`.
-M4 is complete. M5 planning is active on
-`docs/m5-work-energy-power-planning`; no M5 implementation has started.
+M4 is complete. Issue #73 is active on
+`feature/issue-73-work-energy-power-curriculum`; it enriches only the M5
+curriculum metadata and scope contract. #74 onward remain backlog.
 
 ## Completed
 
@@ -58,15 +59,16 @@ M4 is complete. M5 planning is active on
   closed. Issue #58 deterministic Newton SVG rendering is merged and closed.
   Issue #59 solver-backed calculation questions and Issue #60 conceptual questions
   are merged and closed; Issue #61 application/API integration and Issue #62
-  final verification are merged and closed. M4 is complete; M5 is planning-only.
+  final verification are merged and closed. M4 is complete; Issue #73 is the
+  active M5 curriculum-contract slice and #74 onward remain backlog.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete and review the M5 planning PR. Do not begin the first M5
-  implementation issue in this execution.
+- Complete Issue #73, open its review PR, and leave it unmerged. Do not begin
+  Issue #74 in this execution.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -74,7 +76,8 @@ M4 is complete. M5 planning is active on
 - Newton generation is available through the existing v1 application/API route
   for the exact Grade 11 `newtons-laws` route. Local `pip-audit --local` reports
   pre-existing advisories in environment packages; repository CI is the
-  authoritative dependency gate. M5 has no production implementation yet.
+  authoritative dependency gate. M5 has no physics implementation yet; #73 is
+  limited to curriculum metadata and documentation.
 
 ## Test/CI status
 
@@ -112,6 +115,12 @@ M4 is complete. M5 planning is active on
 - PR #72 merged Issue #62 at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`;
   Issue #62 is closed. Main CI quality and dependency-audit checks passed for
   the merge commit.
+- Issue #73 curriculum verification: 8 focused curriculum tests and 935 full
+  tests pass with 93% total coverage; Ruff, mypy, wheel build, pip check, and
+  `git diff --check` pass. The M5 topic constant, Grade 12/Mechanics/Term
+  2/10-hour metadata, CAPS concepts, constraints, source traceability, and
+  explicit spring/efficiency boundaries are implemented on
+  `feature/issue-73-work-energy-power-curriculum`.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -175,7 +184,9 @@ M4 is complete. M5 planning is active on
   PR #71 merged at `7a3d8b835df770166f69c62a722ab63508aabb6f`; Issue #61 is
   closed. PR #72 merged at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`; Issue
   #62 is closed. Milestone `M5 - Work, Energy & Power` (#7) is open and the
-  planning branch is `docs/m5-work-energy-power-planning`.
+  planning branch `docs/m5-work-energy-power-planning` merged via PR #85 at
+  `a0e0dd4cf75156f53a5c4adc148c03e0e6badfdf`. Issue #73 is active on
+  `feature/issue-73-work-energy-power-curriculum`; #74 onward remain backlog.
 - Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
   is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.

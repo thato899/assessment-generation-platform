@@ -39,8 +39,9 @@ merged and closed at `5568b52`; Issue #57 is merged and closed at `70b212c`;
 Issue #58 is merged and closed at `c3ee3b9`; Issue #59 is merged and closed at `5025c37`;
 Issue #60 is merged and closed at `f0e5a46`; Issue #61 is merged and closed at
 `7a3d8b8`; Issue #62 is merged and closed at
-`20b763ccde63ede025d97c3ee2aa772400e1b9f5`. M4 is complete. M5 planning is
-active on `docs/m5-work-energy-power-planning`; implementation has not started.
+`20b763ccde63ede025d97c3ee2aa772400e1b9f5`. M4 is complete. Issue #73 is
+active on `feature/issue-73-work-energy-power-curriculum` for curriculum
+metadata and scope-contract work; #74 onward remain backlog.
 
 ## Completed M3 scope
 
@@ -153,7 +154,8 @@ representation decisions, reuse boundaries, issue sequence, dependency graph,
 and definition of done are recorded in
 [docs/planning/m5-work-energy-power.md](docs/planning/m5-work-energy-power.md)
 and [docs/domains/physical-sciences/work-energy-power-scope.md](docs/domains/physical-sciences/work-energy-power-scope.md).
-No production M5 physics or API work has started.
+No production M5 physics or API work has started; #73 is limited to curriculum
+metadata and documentation.
 
 ## Deferred / future enhancements
 

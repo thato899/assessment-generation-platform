@@ -8,6 +8,11 @@
   issue sequence, and definition of done. No M5 production implementation is
   included.
 
+- Enrich the existing CAPS `work-energy-and-power` Grade 12 curriculum topic
+  with source-aligned concepts, constraints, Term 2/10-hour assessment
+  metadata, a stable exported topic constant, and explicit non-goals for the
+  active Issue #73 curriculum-contract slice. No M5 physics runtime is added.
+
 - Add Issue #62 final M4 Newton's Laws CAPS coverage and readiness verification.
   Record the #54–#61 evidence matrix, bounded physics capabilities, explicit
   partial/deferred areas, determinism/sign/solvability/safety/regression audits,
