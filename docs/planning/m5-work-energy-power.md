@@ -2,8 +2,9 @@
 
 Issue #77 is merged as the authored-only technical SVG renderer, Issue #78 is
 merged as the solver-backed calculation-question generator, and Issue #82 is
-merged as the conceptual-question and rubric layer. Issue #83 is the active
-application/API integration; #84 remains deferred.
+merged as the conceptual-question and rubric layer. Issue #83 is merged at
+`98fca9e5a80b1152a570a0baaf41f51dfb452532`; Issue #84 owns active final
+verification.
 
 ## Planning status
 
@@ -16,13 +17,14 @@ framework-independent authored domain and merged via PR #87 at
 solver and merged via PR #88 at `4b7bc2220ea962f6f115232729a5e0ccb52d4856`.
 Issue #76 owns deterministic scenario generation, Issue #77 owns the merged
 technical renderer, Issue #78 owns the merged calculation-question layer, and
-Issue #82 owns the merged conceptual-question layer. Issue #83 owns the active
-application/API integration.
+Issue #82 owns the merged conceptual-question layer. Issue #83 owns the merged
+application/API integration at `98fca9e5a80b1152a570a0baaf41f51dfb452532`.
+Issue #84 owns final verification.
 
 The M5 GitHub milestone `M5 - Work, Energy & Power` exists. The proposed issue
 sequence below is planned on top of the existing M4 pipeline and is tracked by
-separate implementation issues. Issue #83 is the active implementation and
-review item for the existing application/API route integration.
+separate implementation issues. Issue #83 is merged; Issue #84 is the active
+final verification item for the existing application/API route integration.
 
 ## Authoritative CAPS basis and placement
 
@@ -279,6 +281,6 @@ M5 is complete only when:
   remaining limitations.
 
 M5 planning remains the scope and dependency reference. Numerical solving,
-generation, rendering, calculation questions, and conceptual rubrics are
-merged through Issue #82; Issue #83 is active and later issues remain deferred
-until that review is complete.
+generation, rendering, calculation questions, conceptual rubrics, and the
+existing application/API integration are merged through Issue #83. Issue #84
+is the active final evidence item; M6 and later work remain deferred.

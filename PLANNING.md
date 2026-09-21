@@ -8,7 +8,7 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 - **M1** Assessment Core — stable models, validation, seeds, contract tests.
 - **M2** Physical Sciences: Vertical Projectile Motion — scenario, solver, renderer, questions, rubric.
 - **M3** Momentum & Impulse (complete); **M4** Newton's Laws (complete);
-  **M5** Work, Energy & Power (active generation).
+  **M5** Work, Energy & Power (final verification).
 - **M6** Mathematics Foundation; **M7** Mathematics: Functions.
 
 ## M3 preparation: Momentum & Impulse
@@ -46,8 +46,9 @@ at `9fb5da21a41ec8385dffc20c4971e968efdad82e`; PR #88 merged Issue #75 at
 `2f0d3cb801bd8d29abca3bfa6d2f871bbe1f25bf`; PR #90 merged Issue #77 at
 `045a4c587b43d939e3dc70296e95d5bd3a708b04`; PR #91 merged Issue #78 at
 `fccc3713ce2ed0827194ed077e67f95eb254522d`; PR #92 merged Issue #82 at
-`0683927498e1720256431c040381016a65bebda4`; Issue #83 is active on
-`feature/issue-83-work-energy-power-api-integration`, and #84 remains backlog.
+`0683927498e1720256431c040381016a65bebda4`; PR #93 merged Issue #83 at
+`98fca9e5a80b1152a570a0baaf41f51dfb452532`. Issue #84 is the active final
+verification item on `feature/issue-84-work-energy-power-m5-verification`.
 
 ## Completed M3 scope
 
@@ -165,8 +166,9 @@ Issues #73 and #74 are merged. Issue #75 owns the deterministic numerical
 solver and its validation; Issue #76 owns the merged bounded generation
 factory; Issue #77 owns the merged authored-only SVG renderer; Issue #78 owns
 the merged calculation-question generator; Issue #82 owns the merged
-conceptual-question and rubric layer; Issue #83 owns the active application/API
-integration. Final verification remains deferred.
+conceptual-question and rubric layer. Issue #83 owns the merged application/API
+integration at `98fca9e5a80b1152a570a0baaf41f51dfb452532`. Issue #84 owns
+active final verification.
 
 ## Deferred / future enhancements
 
