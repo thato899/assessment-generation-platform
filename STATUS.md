@@ -93,6 +93,8 @@ Issue #61 is active on `feature/issue-61-newton-api-integration`; #62 remains de
 - Issue #61 focused application/API verification: 60 tests passed with 97% combined
   application/API coverage; full suite 933 passed with 93% total coverage. Ruff,
   mypy, wheel build, pip check and `git diff --check` passed locally.
+- PR #71 CI quality and dependency-audit checks passed; the PR remains open and
+  unmerged for review.
 - Issue #56 focused verification: 82 Newton solver tests and 832 full-suite
   tests passed locally; Ruff, mypy, and wheel build passed. PR #66 merged at
   `5568b527bdba75bd46f11ab7bdc2014289c836a4`.
@@ -153,7 +155,8 @@ Issue #61 is active on `feature/issue-61-newton-api-integration`; #62 remains de
   PR #68 merged Issue #58 at `c3ee3b9e707ea04b1f73826b5cb8f6b008cf5e21`.
   PR #69 merged at `5025c3730e4af6e46e3851f468215c501d490f30`; Issue #59 is closed.
   PR #70 merged at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`; Issue #60 is closed.
-  Issue #61 is active on its feature branch; #62 remains backlog.
+  PR #71 is open with CI passed and `status:in-review`; Issue #61 is active;
+  #62 remains backlog.
 - Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
   is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.
