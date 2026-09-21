@@ -3,8 +3,8 @@
 Issue #77 is merged as the authored-only technical SVG renderer, Issue #78 is
 merged as the solver-backed calculation-question generator, and Issue #82 is
 merged as the conceptual-question and rubric layer. Issue #83 is merged at
-`98fca9e5a80b1152a570a0baaf41f51dfb452532`; Issue #84 owns active final
-verification.
+`98fca9e5a80b1152a570a0baaf41f51dfb452532`; Issue #84 final verification
+merged at `cbe63b21aea6243546973bc1f595a612983d6ff0`.
 
 ## Planning status
 
@@ -19,12 +19,13 @@ Issue #76 owns deterministic scenario generation, Issue #77 owns the merged
 technical renderer, Issue #78 owns the merged calculation-question layer, and
 Issue #82 owns the merged conceptual-question layer. Issue #83 owns the merged
 application/API integration at `98fca9e5a80b1152a570a0baaf41f51dfb452532`.
-Issue #84 owns final verification.
+Issue #84 owns final verification, merged at
+`cbe63b21aea6243546973bc1f595a612983d6ff0`.
 
 The M5 GitHub milestone `M5 - Work, Energy & Power` exists. The proposed issue
 sequence below is planned on top of the existing M4 pipeline and is tracked by
-separate implementation issues. Issue #83 is merged; Issue #84 is the active
-final verification item for the existing application/API route integration.
+separate implementation issues. Issues #83 and #84 are merged; M5 final
+verification is complete for the existing application/API route integration.
 
 ## Authoritative CAPS basis and placement
 
@@ -282,5 +283,6 @@ M5 is complete only when:
 
 M5 planning remains the scope and dependency reference. Numerical solving,
 generation, rendering, calculation questions, conceptual rubrics, and the
-existing application/API integration are merged through Issue #83. Issue #84
-is the active final evidence item; M6 and later work remain deferred.
+existing application/API integration and final verification are merged through
+Issue #84. M5 is complete within the approved bound; M6 and later work remain
+deferred.

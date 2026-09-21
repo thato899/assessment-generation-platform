@@ -7,11 +7,11 @@ after Issue #83 merged. It adds evidence and regression checks only; it does
 not add physics capability, a solver operation, a generation family, a renderer
 family, an API route, or marking behavior.
 
-The verification branch is
-`feature/issue-84-work-energy-power-m5-verification`. Issue #84 is in progress
-while this review PR is prepared. M5 is **ready for completion pending merge of
-the Issue #84 verification PR** if the review remains clean. This document does
-not claim universal Work, Energy & Power coverage.
+The verification was prepared on
+`feature/issue-84-work-energy-power-m5-verification` and merged through PR #94
+at `cbe63b21aea6243546973bc1f595a612983d6ff0`. Issue #84 is closed and M5 is
+**complete within the approved bounded scope**. This document does not claim
+universal Work, Energy & Power coverage.
 
 ## Authoritative curriculum basis
 
@@ -35,7 +35,7 @@ forces, and power. The repository topic identifier is
 | Calculation questions | #78 / PR #91 | `fccc3713ce2ed0827194ed077e67f95eb254522d` |
 | Conceptual questions and rubrics | #82 / PR #92 | `0683927498e1720256431c040381016a65bebda4` |
 | Existing application/API integration | #83 / PR #93 | `98fca9e5a80b1152a570a0baaf41f51dfb452532` |
-| Final verification | #84 / this PR | pending |
+| Final verification | #84 / PR #94 | `cbe63b21aea6243546973bc1f595a612983d6ff0` |
 
 The resulting path is CAPS metadata → immutable authored domain → deterministic
 solver → deterministic scenario factory → safe technical SVG → solver-backed
@@ -350,4 +350,4 @@ calculation questions, conceptual rubrics, and the existing v1 application/API
 route. Deferred capabilities are explicit, and no blocking M5 implementation
 gap was found.
 
-**M5 is ready for completion pending merge of the Issue #84 verification PR.**
+**M5 is complete within the approved bounded scope.**
