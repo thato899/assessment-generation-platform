@@ -8,8 +8,9 @@ Issue #56 deterministic solver is merged and closed at `5568b52`. Issue #57
 deterministic scenario generation is merged and closed at `70b212c`. Issue #58
 deterministic SVG rendering is merged and closed at `c3ee3b9`. Issue #59 calculation-question generation is merged and closed at `5025c37`.
 Issue #60 conceptual-question generation is merged and closed at `f0e5a46`.
-Issue #61 application/API integration is active on its feature branch; Issue #62
-remains backlog.
+Issue #61 application/API integration is merged and closed at
+`7a3d8b835df770166f69c62a722ab63508aabb6f`; Issue #62 is active on its feature
+branch for final verification.
 The repository roadmap identifies M4 as Newton's Laws, while the official DBE
 CAPS Physical Sciences document places the core Newton's Laws content in the
 Grade 11 sequence and refers to Grade 12 consolidation and integrated
@@ -54,8 +55,8 @@ must not duplicate Newton equations.
 | 5 | #58 | Implement safe deterministic force/free-body SVG renderer | #55, #56, #57 | complete |
 | 6 | #59 | Implement solver-backed calculation question generator | #55–#58 | complete |
 | 7 | #60 | Implement conceptual templates and machine-readable rubrics | #54, #59 | complete |
-| 8 | #61 | Integrate Newton generation into the existing application/API | #54, #57–#60 | in progress |
-| 9 | #62 | Verify CAPS coverage, regressions, and M4 readiness | #54–#61 | backlog |
+| 8 | #61 | Integrate Newton generation into the existing application/API | #54, #57–#60 | complete |
+| 9 | #62 | Verify CAPS coverage, regressions, and M4 readiness | #54–#61 | in progress |
 
 ## Dependency graph
 
@@ -108,8 +109,12 @@ Issue #59 is the numeric-question boundary after rendering. It packages only
 successful #56 solver results into canonical assessment parts, preserves
 authored unknowns and signs, reconciles marking criteria with part marks, and
 may attach #58 learner-safe SVG. Conceptual templates are complete in #60; #61 owns
-application/API routing, while automatic marking, printing and final verification
-remain deferred to #62.
+application/API routing, while automatic marking and printing remain outside this
+milestone and final verification is owned by active #62.
+
+Issue #62 records the final evidence matrix and readiness decision in
+[docs/verification/m4-newtons-laws-caps-coverage.md](../verification/m4-newtons-laws-caps-coverage.md).
+It adds no runtime layer and does not broaden the approved physics scope.
 
 ## Planned calculation families
 

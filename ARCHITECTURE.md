@@ -95,7 +95,7 @@ to canonical `QuestionPart`, `ResponseSpecification`, `ExpectedAnswer`,
 expose authored givens and sign conventions while preserving unknown inputs;
 question IDs and provenance contain no answers. Newton III validation has no
 numeric question template, conceptual templates are owned by merged #60, and
-application/API routing is owned by active #61; automatic marking and printing
+application/API routing is owned by merged #61; automatic marking and printing
 remain outside this layer.
 
 M4 Issue #60 adds `NewtonConceptualQuestionGenerator` as the conceptual
@@ -112,3 +112,12 @@ deterministically from the effective seed, and composes the existing canonical
 `Assessment`. The v1 request and learner response DTOs are unchanged; answer,
 rubric, memo, scenario, provenance, solver state, and hidden SVG data remain
 outside learner projection. Final CAPS verification remains #62.
+
+M4 Issue #62 is a verification and governance boundary, not a runtime layer.
+It maps the approved CAPS requirements to the existing curriculum, immutable
+domain, solver, generation, renderer, question, and API evidence; audits
+determinism, signed vectors, solvability, learner safety, security, and
+regressions; and records explicit partial/deferred capabilities. It introduces
+no equations, mutable scenario state, framework dependency, or new API shape.
+The evidence matrix and readiness decision live in
+`docs/verification/m4-newtons-laws-caps-coverage.md`.
