@@ -7,8 +7,8 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 - **M0** Repository & Architecture Bootstrap — governance, API shell, CI.
 - **M1** Assessment Core — stable models, validation, seeds, contract tests.
 - **M2** Physical Sciences: Vertical Projectile Motion — scenario, solver, renderer, questions, rubric.
-- **M3** Momentum & Impulse (complete); **M4** Newton's Laws (#62 verification in progress);
-  **M5** Work, Energy & Power.
+- **M3** Momentum & Impulse (complete); **M4** Newton's Laws (complete);
+  **M5** Work, Energy & Power (planning).
 - **M6** Mathematics Foundation; **M7** Mathematics: Functions.
 
 ## M3 preparation: Momentum & Impulse
@@ -38,7 +38,9 @@ is merged and closed. Issue #55 is merged and closed at `2f6adeb`; Issue #56 is
 merged and closed at `5568b52`; Issue #57 is merged and closed at `70b212c`;
 Issue #58 is merged and closed at `c3ee3b9`; Issue #59 is merged and closed at `5025c37`;
 Issue #60 is merged and closed at `f0e5a46`; Issue #61 is merged and closed at
-`7a3d8b8`; Issue #62 is active on its feature branch for final verification.
+`7a3d8b8`; Issue #62 is merged and closed at
+`20b763ccde63ede025d97c3ee2aa772400e1b9f5`. M4 is complete. M5 planning is
+active on `docs/m5-work-energy-power-planning`; implementation has not started.
 
 ## Completed M3 scope
 
@@ -65,7 +67,8 @@ records ownership, unknown values, assumptions and the boundary with derived
 results. [PR #65](https://github.com/thato899/assessment-generation-platform/pull/65)
 merged at `2f6adeb8d8df5e1b3faa9ef30c9fae4830f158f`; #55 is closed. No
 generator, renderer, question or API implementation is included.
-#57-#60 are complete; #61 is merged and closed; #62 owns final verification.
+#57-#62 are complete; M4 final verification is merged. M5 planning is the next
+authorized activity.
 
 ## M4 Issue #56 authoritative solver
 
@@ -76,7 +79,7 @@ weight from authored fields, contact/normal/friction, straight light-string,
 third-law numerical validation, and scalar universal-gravity magnitude. It
 rejects underdetermined, inconsistent, unsupported, and numerical-range cases
 explicitly. The focused solver suite has 82 tests and the full suite passes
-locally. #56-#61 are complete; #62 is the active verification issue.
+locally. #56-#62 are complete; M5 planning follows the completed M4 sequence.
 
 ## M4 Issue #57 scenario generation
 
@@ -86,7 +89,7 @@ shared `GenerationProvenance` preserve replayability. Each advertised family
 is accepted by the Issue #56 solver before return, while authored unknowns stay
 in the scenario. #57 is complete at merge `70b212c`; #58 is complete at merge
 `c3ee3b9`; #59 owns numeric calculation questions and #60 owns conceptual questions;
-#61 owns application/API integration and #62 owns final verification.
+#61 owns application/API integration and #62 completed final verification.
 
 ## M4 Issue #58 Newton SVG rendering
 
@@ -98,7 +101,7 @@ system boundaries. Hidden values use fixed arrow geometry and are absent from
 all SVG text and metadata. The renderer does not calculate forces, acceleration,
 weight, friction, tension or gravitation and does not call the solver. #58 is complete at merge `c3ee3b9`; #59 owns solver-backed numeric calculation
 questions, #60 owns conceptual questions, and #61 owns application/API integration;
-#62 owns final verification.
+#62 completed final verification; M5 planning is documented separately.
 
 ## M4 Issue #59 Newton calculation questions
 
@@ -119,7 +122,7 @@ friction, systems and force diagrams, strings, gravitation, weightlessness, and
 model assumptions. It may attach an existing #58 visual for authored context,
 but performs no numeric physics, automatic marking, API routing, or PDF output.
 The conceptual generator is merged at `f0e5a46`; #61 application/API integration
-is merged and #62 owns final verification.
+and #62 final verification are merged.
 
 ## M4 Issue #61 Newton application/API integration
 
@@ -128,8 +131,8 @@ assessment endpoint. The exact Grade 11 `newtons-laws` route delegates to the
 merged factory and calculation/conceptual generators, selects the path from the
 effective seed, preserves difficulty and visual preferences, and returns the
 existing canonical `Assessment`. The learner projection remains unchanged and
-answer/rubric/memo/scenario/provenance data stay internal. #62 owns final CAPS
-coverage and M4 readiness verification. Its evidence matrix is recorded in
+answer/rubric/memo/scenario/provenance data stay internal. #62 completed final
+CAPS coverage and M4 readiness verification. Its evidence matrix is recorded in
 [docs/verification/m4-newtons-laws-caps-coverage.md](docs/verification/m4-newtons-laws-caps-coverage.md).
 
 ## M4 Issue #62 final verification
@@ -139,8 +142,18 @@ solver behavior, generated families, diagrams, calculation and conceptual
 questions, API routing, determinism, sign/vector semantics, solvability,
 answer-leakage, security, regressions, and quality gates. The verification
 records explicit partial/deferred capabilities and the local dependency-audit
-baseline. The bounded M4 scope is ready for completion pending review and merge
-of the #62 verification PR; M5 remains deferred.
+baseline. The bounded M4 scope was ready for completion and is now complete
+after merge of the #62 verification PR; M5 remains planning-only.
+
+## M5 Work, Energy & Power planning
+
+M5 is a Grade 12 CAPS Mechanics planning-only milestone. The stable topic ID
+is the existing `work-energy-and-power` curriculum entry. The scope contract,
+representation decisions, reuse boundaries, issue sequence, dependency graph,
+and definition of done are recorded in
+[docs/planning/m5-work-energy-power.md](docs/planning/m5-work-energy-power.md)
+and [docs/domains/physical-sciences/work-energy-power-scope.md](docs/domains/physical-sciences/work-energy-power-scope.md).
+No production M5 physics or API work has started.
 
 ## Deferred / future enhancements
 

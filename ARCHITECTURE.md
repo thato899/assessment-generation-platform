@@ -111,7 +111,7 @@ factory and question generators, selects conceptual versus calculation output
 deterministically from the effective seed, and composes the existing canonical
 `Assessment`. The v1 request and learner response DTOs are unchanged; answer,
 rubric, memo, scenario, provenance, solver state, and hidden SVG data remain
-outside learner projection. Final CAPS verification remains #62.
+outside learner projection. Final CAPS verification is complete in #62.
 
 M4 Issue #62 is a verification and governance boundary, not a runtime layer.
 It maps the approved CAPS requirements to the existing curriculum, immutable
@@ -121,3 +121,10 @@ regressions; and records explicit partial/deferred capabilities. It introduces
 no equations, mutable scenario state, framework dependency, or new API shape.
 The evidence matrix and readiness decision live in
 `docs/verification/m4-newtons-laws-caps-coverage.md`.
+
+M5 Work, Energy & Power is planning-only after M4. Its future domain will own
+authored scalar force/displacement relationships, energy states, and power
+inputs without depending on Newton question generation or application code.
+The planning contract is recorded in
+`docs/domains/physical-sciences/work-energy-power-scope.md`; no M5 runtime layer
+exists yet.
