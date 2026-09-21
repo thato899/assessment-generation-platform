@@ -30,7 +30,7 @@ CAPS states that Grade 12 Mechanics covers work, the work-energy theorem,
 conservation of energy with non-conservative forces present, and power. The
 term schedule specifies the bounded requirements below.
 
-## Approved scope
+## Required CAPS scope
 
 ### Work
 

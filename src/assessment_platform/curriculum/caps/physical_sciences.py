@@ -13,6 +13,7 @@ PHYSICAL_SCIENCES: Final[Subject] = Subject("physical-sciences")
 GRADE_11: Final[Grade] = Grade(11)
 GRADE_12: Final[Grade] = Grade(12)
 NEWTONS_LAWS_TOPIC_ID: Final[str] = "newtons-laws"
+WORK_ENERGY_POWER_TOPIC_ID: Final[str] = "work-energy-and-power"
 
 
 @dataclass(frozen=True, slots=True)
@@ -90,15 +91,44 @@ _TOPICS: tuple[CurriculumTopic, ...] = (
         ("Grade 12", "Mechanics", "5 hours"),
     ),
     CurriculumTopic(
-        "work-energy-and-power",
+        WORK_ENERGY_POWER_TOPIC_ID,
         "Work, Energy & Power",
         CurriculumReference(CAPS, phase="FET", grade=GRADE_12, subject=PHYSICAL_SCIENCES,
-                            topic=Topic("work-energy-and-power")),
+                            topic=Topic(WORK_ENERGY_POWER_TOPIC_ID)),
         MECHANICS,
-        ("work", "work-energy theorem",
-         "conservation of energy with non-conservative forces present", "power"),
-        (),
-        ("Grade 12", "Mechanics"),
+        (
+            "work as a scalar quantity",
+            "work from a force-displacement relationship",
+            "positive, negative and zero work",
+            "individual work contributions and scalar net work",
+            "resultant force along a plane and displacement along the plane",
+            "work-energy theorem",
+            "kinetic-energy change from net work",
+            "horizontal and inclined-plane applications",
+            "frictionless and rough-plane applications",
+            "conservative and non-conservative forces",
+            "mechanical-energy conservation when only conservative forces act",
+            "mechanical energy changes with non-conservative forces while total "
+            "system energy remains conserved",
+            "gravitational force as a conservative force",
+            "air resistance, friction, tension and applied force as non-conservative examples",
+            "power as the rate of doing work",
+            "average power",
+            "constant-speed rough horizontal and inclined-plane power",
+            "minimum power to pump water from a borehole",
+        ),
+        (
+            "Grade 12 Physics Mechanics Work, Energy & Power in Term 2",
+            "work is scalar and net work is the scalar sum of individual contributions",
+            "force-displacement angle and along-plane resultant relationships",
+            "horizontal and inclined planes, both frictionless and rough",
+            "contact-force work depends on remaining in contact over the displacement",
+            "mechanical energy is distinguished from total system energy when "
+            "non-conservative forces act",
+            "constant-speed power on rough horizontal and inclined planes",
+            "minimum electric-motor power for a borehole depth and pumping rate",
+        ),
+        ("Grade 12", "Physics", "Mechanics", "Term 2", "10 hours"),
     ),
 )
 
