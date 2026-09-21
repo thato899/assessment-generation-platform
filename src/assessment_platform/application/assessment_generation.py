@@ -19,6 +19,7 @@ from assessment_platform.curriculum.caps.physical_sciences import (
     GRADE_11,
     GRADE_12,
     PHYSICAL_SCIENCES,
+    WORK_ENERGY_POWER_TOPIC_ID,
     CurriculumTopic,
     get_caps_physical_sciences,
 )
@@ -28,6 +29,13 @@ from assessment_platform.domains.physical_sciences.mechanics import (
     MomentumProblemFactory,
     MomentumProblemGenerationInput,
     MomentumQuestionGenerator,
+    WorkEnergyCalculationQuestionGenerator,
+    WorkEnergyConceptualQuestionGenerator,
+    WorkEnergyConceptualQuestionOptions,
+    WorkEnergyConceptualTemplate,
+    WorkEnergyGenerationInput,
+    WorkEnergyProblemFactory,
+    WorkEnergyQuestionOptions,
 )
 from assessment_platform.domains.physical_sciences.mechanics import (
     vertical_projectile_question_generator as question_generator_module,
@@ -69,6 +77,7 @@ SUPPORTED_ROUTES = frozenset(
         (GRADE_12.value, VERTICAL_PROJECTILE_TOPIC_ID),
         (GRADE_12.value, MOMENTUM_TOPIC_ID),
         (GRADE_11.value, NEWTON_TOPIC_ID),
+        (GRADE_12.value, WORK_ENERGY_POWER_TOPIC_ID),
     }
 )
 NEWTON_CALCULATION_FAMILIES = tuple(
@@ -119,6 +128,7 @@ class AssessmentGenerationService:
             [VerticalProjectileScenario], VerticalProjectileSolver
         ] = VerticalProjectileSolver,
         newton_factory: NewtonProblemFactory | None = None,
+        work_energy_factory: WorkEnergyProblemFactory | None = None,
     ) -> None:
         self._curriculum = curriculum or get_caps_physical_sciences()
         self._scenario_factory = (
@@ -129,6 +139,7 @@ class AssessmentGenerationService:
         )
         self._solver_factory = solver_factory
         self._newton_factory = newton_factory or NewtonProblemFactory()
+        self._work_energy_factory = work_energy_factory or WorkEnergyProblemFactory()
 
     def generate(self, request: AssessmentRequest) -> Assessment:
         self._validate_request(request)
@@ -137,6 +148,8 @@ class AssessmentGenerationService:
             return self._generate_newton(request, effective_seed)
         if request.topic.value == MOMENTUM_TOPIC_ID:
             return self._generate_momentum(request, effective_seed)
+        if request.topic.value == WORK_ENERGY_POWER_TOPIC_ID:
+            return self._generate_work_energy_power(request, effective_seed)
         topic = self._topic(VERTICAL_PROJECTILE_TOPIC_ID)
 
         try:
@@ -297,6 +310,44 @@ class AssessmentGenerationService:
             questions=(question,),
             seed=effective_seed,
         )
+
+    def _generate_work_energy_power(
+        self, request: AssessmentRequest, effective_seed: GenerationSeed
+    ) -> Assessment:
+        try:
+            topic = self._topic(WORK_ENERGY_POWER_TOPIC_ID)
+            if effective_seed.value % 2 == 0:
+                templates = tuple(WorkEnergyConceptualTemplate)
+                template = templates[effective_seed.value % len(templates)]
+                question = WorkEnergyConceptualQuestionGenerator(
+                    topic,
+                    WorkEnergyConceptualQuestionOptions(
+                        include_visuals=request.include_visuals
+                    ),
+                ).generate(template, effective_seed)
+            else:
+                problem = self._work_energy_factory.generate(
+                    WorkEnergyGenerationInput(
+                        seed=effective_seed,
+                        difficulty=request.difficulty,
+                        family=None,
+                    )
+                )
+                question = WorkEnergyCalculationQuestionGenerator(
+                    topic,
+                    WorkEnergyQuestionOptions(include_visuals=request.include_visuals),
+                ).generate(problem)
+        except Exception as error:
+            raise GenerationApplicationError(
+                "generation_failed",
+                "The assessment could not be generated for this configuration.",
+            ) from error
+        if not isinstance(question, Question):
+            raise GenerationApplicationError(
+                "generation_failed",
+                "The generation engine returned an invalid assessment question.",
+            )
+        return self._assessment(request, topic, question, effective_seed)
 
     @staticmethod
     def memorandum_for(assessment: Assessment) -> tuple[MemoEntry, ...]:

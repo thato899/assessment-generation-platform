@@ -25,6 +25,8 @@ from assessment_platform.domains.physical_sciences.mechanics import (
     NewtonProblemFactory,
     ScenarioGenerationInput,
     VerticalProjectileScenarioFactory,
+    WorkEnergyGenerationInput,
+    WorkEnergyProblemFactory,
 )
 from assessment_platform.domains.physical_sciences.mechanics import (
     vertical_projectile_question_generator as question_generator_module,
@@ -81,6 +83,28 @@ def newton_request(
     return AssessmentRequest(**values)  # type: ignore[arg-type]
 
 
+def work_energy_request(
+    *,
+    seed: int | None = 0,
+    difficulty: Difficulty = Difficulty.MODERATE,
+    include_visuals: bool = True,
+    **overrides: object,
+) -> AssessmentRequest:
+    values: dict[str, object] = {
+        "curriculum": "CAPS",
+        "subject": Subject("physical-sciences"),
+        "grade": Grade(12),
+        "topic": Topic("work-energy-and-power"),
+        "assessment_type": AssessmentType.QUESTION,
+        "question_count": 1,
+        "difficulty": difficulty,
+        "include_visuals": include_visuals,
+        "seed": GenerationSeed(seed) if seed is not None else None,
+    }
+    values.update(overrides)
+    return AssessmentRequest(**values)  # type: ignore[arg-type]
+
+
 class SpyFactory:
     def __init__(self) -> None:
         self.delegate = VerticalProjectileScenarioFactory()
@@ -116,6 +140,16 @@ class SpyNewtonFactory:
         self.requests: list[NewtonGenerationInput] = []
 
     def generate(self, generation_input: NewtonGenerationInput):
+        self.requests.append(generation_input)
+        return self.delegate.generate(generation_input)
+
+
+class SpyWorkEnergyFactory:
+    def __init__(self) -> None:
+        self.delegate = WorkEnergyProblemFactory()
+        self.requests: list[WorkEnergyGenerationInput] = []
+
+    def generate(self, generation_input: WorkEnergyGenerationInput):
         self.requests.append(generation_input)
         return self.delegate.generate(generation_input)
 
@@ -227,6 +261,89 @@ def test_newton_seed_policy_selects_conceptual_for_even_and_calculation_for_odd(
     assert calculation.questions[0].identifier.startswith("newton-question-")
     assert not conceptual.questions[0].visuals
     assert not calculation.questions[0].visuals
+
+
+def test_work_energy_route_is_canonical_even_seed_conceptual_and_memo_safe() -> None:
+    service = AssessmentGenerationService()
+    assessment = service.generate(work_energy_request(seed=0, include_visuals=True))
+
+    assert assessment.identifier == f"assessment-v1-{assessment.questions[0].identifier}"
+    assert assessment.curriculum.grade == Grade(12)
+    assert assessment.curriculum.topic == Topic("work-energy-and-power")
+    assert assessment.assessment_type is AssessmentType.QUESTION
+    assert assessment.seed == GenerationSeed(0)
+    assert assessment.questions[0].identifier.startswith("wep-conceptual-v1-")
+    assert assessment.questions[0].visuals == ()
+    entries = service.memorandum_for(assessment)
+    assert tuple(entry.question_part_id.value for entry in entries) == tuple(
+        part.identifier for part in assessment.questions[0].parts
+    )
+
+
+def test_work_energy_odd_seed_uses_factory_owned_calculation_selection() -> None:
+    factory = SpyWorkEnergyFactory()
+    assessment = AssessmentGenerationService(work_energy_factory=factory).generate(
+        work_energy_request(seed=1, difficulty=Difficulty.ADVANCED, include_visuals=False)
+    )
+
+    assert assessment.questions[0].identifier.startswith("wep-question-v1-")
+    assert assessment.questions[0].visuals == ()
+    assert factory.requests[0].seed == GenerationSeed(1)
+    assert factory.requests[0].difficulty is Difficulty.ADVANCED
+    assert factory.requests[0].family is None
+
+
+@pytest.mark.parametrize("difficulty", list(Difficulty))
+def test_work_energy_route_accepts_each_public_difficulty(difficulty: Difficulty) -> None:
+    service = AssessmentGenerationService()
+    assessment = service.generate(work_energy_request(seed=1, difficulty=difficulty))
+
+    assert assessment.curriculum.topic == Topic("work-energy-and-power")
+    assert assessment.questions[0].identifier.startswith("wep-question-v1-")
+
+
+def test_work_energy_omitted_seed_is_even_conceptual_and_replayable() -> None:
+    service = AssessmentGenerationService()
+    first = service.generate(work_energy_request(seed=None))
+    second = service.generate(work_energy_request(seed=None))
+
+    assert first == second
+    assert first.seed == DEFAULT_GENERATION_SEED
+    assert first.questions[0].identifier.startswith("wep-conceptual-v1-")
+
+
+def test_work_energy_visual_preferences_and_average_power_no_visual_policy() -> None:
+    service = AssessmentGenerationService()
+    with_visuals = service.generate(work_energy_request(seed=1, include_visuals=True))
+    without_visuals = service.generate(work_energy_request(seed=1, include_visuals=False))
+    average_power = service.generate(work_energy_request(seed=19, include_visuals=True))
+
+    assert with_visuals.questions[0].visuals
+    assert without_visuals.questions[0].visuals == ()
+    assert average_power.questions[0].identifier.startswith("wep-question-v1-")
+    assert average_power.questions[0].visuals == ()
+
+
+def test_work_energy_failures_are_mapped_without_private_details() -> None:
+    class BrokenFactory:
+        def generate(self, _request: WorkEnergyGenerationInput):
+            raise ValueError("private work-energy scenario detail")
+
+    with pytest.raises(GenerationApplicationError) as error:
+        AssessmentGenerationService(work_energy_factory=BrokenFactory()).generate(
+            work_energy_request(seed=1)
+        )
+
+    assert error.value.code == "generation_failed"
+    assert "private" not in error.value.message
+
+
+def test_work_energy_route_does_not_mutate_global_random_state() -> None:
+    random.seed(20260921)
+    before = random.getstate()
+    AssessmentGenerationService().generate(work_energy_request(seed=1))
+    AssessmentGenerationService().generate(work_energy_request(seed=0))
+    assert random.getstate() == before
 
 
 def test_newton_omitted_seed_defaults_deterministically_and_memorandum_matches_parts() -> None:

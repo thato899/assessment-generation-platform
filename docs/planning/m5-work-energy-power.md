@@ -1,8 +1,9 @@
 ﻿# M5 Work, Energy & Power planning
 
-Issue #77 is merged as the authored-only technical SVG renderer, and Issue #78
-is merged as the solver-backed calculation-question generator. Issue #82 is the
-active conceptual-question and rubric layer; #83 remains deferred.
+Issue #77 is merged as the authored-only technical SVG renderer, Issue #78 is
+merged as the solver-backed calculation-question generator, and Issue #82 is
+merged as the conceptual-question and rubric layer. Issue #83 is the active
+application/API integration; #84 remains deferred.
 
 ## Planning status
 
@@ -15,12 +16,13 @@ framework-independent authored domain and merged via PR #87 at
 solver and merged via PR #88 at `4b7bc2220ea962f6f115232729a5e0ccb52d4856`.
 Issue #76 owns deterministic scenario generation, Issue #77 owns the merged
 technical renderer, Issue #78 owns the merged calculation-question layer, and
-Issue #82 owns the active conceptual-question layer. API work remains deferred.
+Issue #82 owns the merged conceptual-question layer. Issue #83 owns the active
+application/API integration.
 
 The M5 GitHub milestone `M5 - Work, Energy & Power` exists. The proposed issue
 sequence below is planned on top of the existing M4 pipeline and is tracked by
-separate implementation issues. Issue #82 is the active implementation and
-review item for conceptual questions and declarative rubrics.
+separate implementation issues. Issue #83 is the active implementation and
+review item for the existing application/API route integration.
 
 ## Authoritative CAPS basis and placement
 
@@ -231,12 +233,13 @@ is planned.
 
 ## API integration plan
 
-Reuse `POST /api/v1/assessments/generate`; do not add an M5-specific endpoint or
-API version. After scope and implementation issues are complete, the likely
-route is Grade 12 plus the existing `work-energy-and-power` topic identifier.
-The exact route, assessment-type policy, seed behavior, difficulty handling,
-and learner projection must be specified in the API issue after the domain and
-question contracts exist. No API code changes are part of this planning branch.
+Issue #83 reuses `POST /api/v1/assessments/generate`; it adds no M5-specific
+endpoint or API version. The exact Grade 12 `work-energy-and-power` route uses
+even effective seeds for context-free conceptual questions and odd effective
+seeds for factory-selected calculation questions. Difficulty reaches the
+calculation factory unchanged, the generic learner projection remains
+answer-free, and the omitted seed remains `0`. No memo, answer, solver, PDF,
+or marking endpoint is added.
 
 ## Risks and deferred items
 
@@ -276,6 +279,6 @@ M5 is complete only when:
   remaining limitations.
 
 M5 planning remains the scope and dependency reference. Numerical solving,
-generation, rendering, and calculation questions are merged through Issue #78;
-Issue #82 is active and later issues remain deferred until that review is
-complete.
+generation, rendering, calculation questions, and conceptual rubrics are
+merged through Issue #82; Issue #83 is active and later issues remain deferred
+until that review is complete.

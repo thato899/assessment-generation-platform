@@ -41,6 +41,22 @@ NEWTON_REQUEST = {
     "seed": 0,
 }
 
+WORK_ENERGY_REQUEST = {
+    **VALID_REQUEST,
+    "topic": "work-energy-and-power",
+    "seed": 0,
+}
+
+
+def _recursive_keys(value):
+    if isinstance(value, dict):
+        yield from value.keys()
+        for child in value.values():
+            yield from _recursive_keys(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from _recursive_keys(child)
+
 
 def test_exact_grade_topic_routing_matrix() -> None:
     cases = (
@@ -48,6 +64,9 @@ def test_exact_grade_topic_routing_matrix() -> None:
         (12, "newtons-laws", 422, "unsupported_topic"),
         (12, "vertical-projectile-motion-1d", 200, None),
         (12, "momentum-and-impulse", 200, None),
+        (12, "work-energy-and-power", 200, None),
+        (11, "work-energy-and-power", 422, "unsupported_topic"),
+        (10, "work-energy-and-power", 422, "unsupported_grade"),
         (11, "vertical-projectile-motion-1d", 422, "unsupported_topic"),
         (11, "momentum-and-impulse", 422, "unsupported_topic"),
         (10, "newtons-laws", 422, "unsupported_grade"),
@@ -63,6 +82,86 @@ def test_exact_grade_topic_routing_matrix() -> None:
         else:
             assert response.json()["error"]["code"] == code
             assert "questions" not in response.json()
+
+
+def test_work_energy_conceptual_generation_is_deterministic_and_token_safe() -> None:
+    first = client.post("/api/v1/assessments/generate", json=WORK_ENERGY_REQUEST)
+    second = client.post("/api/v1/assessments/generate", json=WORK_ENERGY_REQUEST)
+
+    assert first.status_code == second.status_code == 200
+    assert first.json() == second.json()
+    body = first.json()
+    assert body["api_version"] == "v1"
+    assert body["grade"] == 12
+    assert body["topic"] == "work-energy-and-power"
+    assert body["effective_seed"] == 0
+    assert body["questions"][0]["question_id"].startswith("wep-conceptual-v1-")
+    assert body["visuals"] == []
+    forbidden = {
+        "expected_answer",
+        "marking_scheme",
+        "rubric",
+        "criteria",
+        "memo",
+        "memorandum",
+        "solution",
+        "solver",
+        "scenario",
+        "provenance",
+        "concepts",
+        "correct_choice",
+        "worked_solution",
+    }
+    assert not forbidden & set(_recursive_keys(body))
+
+    internal = AssessmentGenerationService().generate(
+        AssessmentRequest(
+            "CAPS",
+            Subject("physical-sciences"),
+            Grade(12),
+            Topic("work-energy-and-power"),
+            AssessmentType.QUESTION,
+            1,
+            Difficulty.MODERATE,
+            True,
+            GenerationSeed(0),
+        )
+    )
+    tokens = internal.questions[0].parts[0].expected_answer.value
+    assert all(token not in first.text for token in tokens)
+    assert internal.memorandum
+
+
+def test_work_energy_calculation_generation_is_learner_safe_and_visual_capable() -> None:
+    payload = {**WORK_ENERGY_REQUEST, "seed": 1, "include_visuals": True}
+    response = client.post("/api/v1/assessments/generate", json=payload)
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["questions"][0]["question_id"].startswith("wep-question-v1-")
+    assert body["questions"][0]["parts"][0]["response_specification"]["kind"] == "calculation"
+    assert body["visuals"]
+    assert not {"expected_answer", "marking_scheme", "scenario", "provenance"} & set(
+        _recursive_keys(body)
+    )
+
+    without_visuals = client.post(
+        "/api/v1/assessments/generate",
+        json={**payload, "include_visuals": False},
+    )
+    assert without_visuals.status_code == 200
+    assert without_visuals.json()["visuals"] == []
+
+
+def test_work_energy_average_power_may_legitimately_have_no_visual() -> None:
+    response = client.post(
+        "/api/v1/assessments/generate",
+        json={**WORK_ENERGY_REQUEST, "seed": 19, "include_visuals": True},
+    )
+
+    assert response.status_code == 200
+    assert response.json()["questions"][0]["question_id"].startswith("wep-question-v1-")
+    assert response.json()["visuals"] == []
 
 
 def test_newton_generation_is_canonical_deterministic_and_learner_safe() -> None:

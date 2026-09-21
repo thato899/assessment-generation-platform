@@ -1,8 +1,9 @@
 # Assessment generation API v1
 
-The versioned boundary is `POST /api/v1/assessments/generate`. The first
-production generation path supports one deterministic learner-safe question
-for CAPS Grade 12 Physical Sciences vertical projectile motion.
+The versioned boundary is `POST /api/v1/assessments/generate`. It supports one
+deterministic learner-safe question for each approved CAPS Physical Sciences
+route: Grade 12 vertical projectile motion, Momentum & Impulse, Work, Energy &
+Power, and Grade 11 Newton's Laws.
 
 ## Supported capability
 
@@ -11,10 +12,15 @@ for CAPS Grade 12 Physical Sciences vertical projectile motion.
 | `curriculum` | `CAPS` |
 | `subject` | `physical-sciences` |
 | `grade` | `12` |
-| `topic` | `vertical-projectile-motion-1d` |
+| `topic` | one of the approved topic IDs in the route matrix below |
 | `assessment_type` | `question` |
 | `question_count` | `1` |
 | `difficulty` | `introductory`, `moderate`, or `advanced` |
+
+The Work, Energy & Power route uses the exact Grade 12 topic identifier
+`work-energy-and-power`. The supported grade/topic pairs are Grade 12
+`vertical-projectile-motion-1d`, Grade 12 `momentum-and-impulse`, Grade 11
+`newtons-laws`, and Grade 12 `work-energy-and-power`.
 
 The request is mapped to the framework-independent application service. The
 service selects the CAPS topic, passes a typed `ScenarioGenerationInput` to
@@ -27,7 +33,7 @@ canonical `Assessment`.
 The request contains these boundary fields:
 
 - `curriculum`, `subject`, `grade`, and `topic` stable identifiers;
-- `assessment_type`, which must be `question` for this first path;
+- `assessment_type`, which must be `question` for the supported paths;
 - `question_count`, which must be `1`;
 - `difficulty`, mapped directly to the Issue #24 factory profile;
 - `include_visuals`, defaulting to `true`; and
@@ -50,9 +56,18 @@ assessment and question identifiers, prompts, marks, semantic response
 specifications, effective seed, curriculum metadata, and optional visual
 assets. It is a learner-safe projection only.
 
-`include_visuals=true` carries the existing deterministic SVG renderer output
-with numeric event values disabled. `include_visuals=false` returns no visual
-assets.
+For Work, Energy & Power, the effective seed selects the question type
+deterministically: even seeds select a context-free conceptual template and
+odd seeds pass through the scenario factory and calculation question
+generator. Request difficulty is propagated to calculation generation;
+conceptual templates are not difficulty-parameterized. The omitted default
+seed is `0`, so it selects a conceptual question.
+
+`include_visuals=true` carries safe deterministic SVG output only when the
+selected calculation family has a justified Issue #77 diagram. Average power
+intentionally has no visual. Conceptual Work, Energy & Power questions have
+no visuals even when `include_visuals=true`. In all routes,
+`include_visuals=false` returns no visual assets.
 
 The canonical assessment remains complete inside the application boundary,
 including expected answers, marking schemes, question-part IDs, provenance,
@@ -82,9 +97,12 @@ Unexpected generation failures return HTTP 500 with the sanitized
 implementation objects are not exposed.
 
 The previous HTTP 503 `generation_engine_unavailable` response is no longer
-returned for the supported vertical-projectile path. Future engines and
-capabilities remain unsupported and must be added deliberately rather than
-being routed through this first service.
+returned for the supported generation paths. Future engines and capabilities
+remain unsupported and must be added deliberately rather than being routed
+through this service.
 
-No automatic marking, teacher authorization, learner submissions, printable
-documents, LMS integration, or additional subjects/topics are implemented.
+The canonical application assessment retains expected answers, marking
+schemes, provenance, and memorandum derivation for both M5 question types;
+there is no memo endpoint. No automatic marking, teacher authorization,
+learner submissions, printable documents, LMS integration, or additional
+subjects/topics are implemented.
