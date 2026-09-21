@@ -186,3 +186,10 @@ Issue #82 adds the sibling conceptual M5 question generator. It maps a bounded
 `ExpectedAnswer` values and declarative `MarkingScheme` criteria. It is
 context-free, deterministic, solver-free, and contains no learner-response
 evaluation, API routing, numerical equations, or automatic marking.
+
+Issue #83 integrates the complete M5 question pipeline through the existing
+`POST /api/v1/assessments/generate` boundary. The application owns only the
+exact grade/topic route and deterministic even-seed conceptual versus odd-seed
+calculation selection; M5 factories and generators retain domain ownership.
+The generic learner projection remains answer-free, and no new endpoint,
+version, memo route, or solver route is introduced.

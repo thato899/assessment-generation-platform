@@ -45,8 +45,9 @@ at `9fb5da21a41ec8385dffc20c4971e968efdad82e`; PR #88 merged Issue #75 at
 `4b7bc2220ea962f6f115232729a5e0ccb52d4856`. PR #89 merged Issue #76 at
 `2f0d3cb801bd8d29abca3bfa6d2f871bbe1f25bf`; PR #90 merged Issue #77 at
 `045a4c587b43d939e3dc70296e95d5bd3a708b04`; PR #91 merged Issue #78 at
-`fccc3713ce2ed0827194ed077e67f95eb254522d`; Issue #82 is active on
-`feature/issue-82-work-energy-power-conceptual-questions`, and #83 onward remain backlog.
+`fccc3713ce2ed0827194ed077e67f95eb254522d`; PR #92 merged Issue #82 at
+`0683927498e1720256431c040381016a65bebda4`; Issue #83 is active on
+`feature/issue-83-work-energy-power-api-integration`, and #84 remains backlog.
 
 ## Completed M3 scope
 
@@ -163,8 +164,9 @@ and [docs/domains/physical-sciences/work-energy-power-scope.md](docs/domains/phy
 Issues #73 and #74 are merged. Issue #75 owns the deterministic numerical
 solver and its validation; Issue #76 owns the merged bounded generation
 factory; Issue #77 owns the merged authored-only SVG renderer; Issue #78 owns
-the merged calculation-question generator; Issue #82 owns the active
-conceptual-question and rubric layer. API work remains deferred.
+the merged calculation-question generator; Issue #82 owns the merged
+conceptual-question and rubric layer; Issue #83 owns the active application/API
+integration. Final verification remains deferred.
 
 ## Deferred / future enhancements
 

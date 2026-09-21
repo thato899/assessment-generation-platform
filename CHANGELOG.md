@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Implement Issue #83's bounded Work, Energy & Power application/API
+  integration through the existing v1 assessment-generation route. Add the
+  exact Grade 12 route, deterministic even-seed conceptual versus odd-seed
+  calculation orchestration, difficulty propagation, safe failure mapping,
+  canonical assessment/memorandum retention, and learner-safe projection
+  coverage without adding endpoints or API versions.
+
 - Implement Issue #82's context-free Work, Energy & Power conceptual-question
   generator with 17 stable templates, semantic concept-token answers,
   declarative reconciled rubrics, misconception protections, deterministic

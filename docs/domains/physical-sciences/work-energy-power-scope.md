@@ -3,7 +3,7 @@
 Issue #77 adds authored-only technical SVG presentation; see
 [work-energy-power-rendering.md](work-energy-power-rendering.md). Calculation
 questions are merged through #78; conceptual questions and machine-readable
-rubrics are owned by #82.
+rubrics are merged through #82; application/API routing is owned by #83.
 Calculation-question packaging is documented in
 [work-energy-power-question-generation.md](work-energy-power-question-generation.md).
 Conceptual-question packaging is documented in

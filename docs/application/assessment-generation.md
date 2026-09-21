@@ -35,11 +35,27 @@ canonical Question -> canonical Assessment
 learner-safe API projection
 ```
 
-The service supports CAPS, Physical Sciences, Grade 12, and
-`vertical-projectile-motion-1d`. It deliberately supports
+For Grade 12 Work, Energy & Power, exact route validation is followed by
+deterministic seed parity: an even seed invokes the context-free conceptual
+generator, while an odd seed invokes `WorkEnergyProblemFactory` and then the
+calculation question generator. The existing projectile, Momentum, and Newton
+branches retain their established orchestration. The application performs no
+M5 physics calculations.
+
+The service supports the exact approved CAPS grade/topic pairs: Grade 12
+`vertical-projectile-motion-1d`, Grade 12 `momentum-and-impulse`, Grade 11
+`newtons-laws`, and Grade 12 `work-energy-and-power`. It deliberately supports
 `assessment_type=question` and `question_count=1` only because the current
-domain generator returns one scenario-based `Question`; question parts are
-not treated as independent questions.
+domain generators return one canonical `Question`; question parts are not
+treated as independent questions.
+
+For Work, Energy & Power the service owns only deterministic semantic routing.
+An even effective seed selects a `WorkEnergyConceptualTemplate` and invokes
+the context-free conceptual generator. An odd effective seed passes a
+`WorkEnergyGenerationInput` with the request seed and difficulty to the
+injected `WorkEnergyProblemFactory`, which owns family selection, then passes
+the generated problem to `WorkEnergyCalculationQuestionGenerator`. The
+application performs no Work, Energy & Power calculations.
 
 ## Boundaries and safety
 
