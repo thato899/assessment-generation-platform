@@ -1,5 +1,8 @@
 ﻿# Work, Energy & Power scope contract
 
+Issue #77 adds authored-only technical SVG presentation; see
+[work-energy-power-rendering.md](work-energy-power-rendering.md). Question generation remains #78.
+
 ## Curriculum identity
 
 | Field | Value |

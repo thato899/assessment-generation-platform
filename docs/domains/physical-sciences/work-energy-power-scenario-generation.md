@@ -1,5 +1,8 @@
 # Work, Energy & Power scenario generation
 
+Generated authored scenarios may be rendered by the independent Issue #77 SVG presentation layer;
+the renderer does not inspect generator metadata or solver answers.
+
 Issue #76 adds the bounded scenario factory for the authored M5 domain. The
 factory chooses authored facts and delegates every solvability decision and
 numerical result to `mechanics.work_energy_power_solver`. It never copies

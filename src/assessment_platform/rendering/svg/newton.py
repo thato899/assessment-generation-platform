@@ -25,7 +25,7 @@ from assessment_platform.domains.physical_sciences.mechanics.newtons_laws import
     SurfaceDirection,
     UnknownValue,
 )
-from assessment_platform.rendering.svg.projectile import SvgDocument
+from assessment_platform.rendering.svg.document import SvgDocument
 
 
 class NewtonDiagramKind(StrEnum):

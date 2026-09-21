@@ -42,8 +42,9 @@ Issue #60 is merged and closed at `f0e5a46`; Issue #61 is merged and closed at
 `20b763ccde63ede025d97c3ee2aa772400e1b9f5`. M4 is complete. PR #86 merged
 Issue #73 at `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged Issue #74
 at `9fb5da21a41ec8385dffc20c4971e968efdad82e`; PR #88 merged Issue #75 at
-`4b7bc2220ea962f6f115232729a5e0ccb52d4856`. Issue #76 is active on
-`feature/issue-76-work-energy-power-generation`, and #77 onward remain backlog.
+`4b7bc2220ea962f6f115232729a5e0ccb52d4856`. PR #89 merged Issue #76 at
+`2f0d3cb801bd8d29abca3bfa6d2f871bbe1f25bf`; Issue #77 is active on
+`feature/issue-77-work-energy-power-svg-renderer`, and #78 onward remain backlog.
 
 ## Completed M3 scope
 
@@ -158,8 +159,9 @@ and definition of done are recorded in
 [docs/planning/m5-work-energy-power.md](docs/planning/m5-work-energy-power.md)
 and [docs/domains/physical-sciences/work-energy-power-scope.md](docs/domains/physical-sciences/work-energy-power-scope.md).
 Issues #73 and #74 are merged. Issue #75 owns the deterministic numerical
-solver and its validation; Issue #76 owns the active bounded generation
-factory. Rendering, questions, and API work remain deferred.
+solver and its validation; Issue #76 owns the merged bounded generation
+factory; Issue #77 owns the active authored-only SVG renderer. Questions and
+API work remain deferred.
 
 ## Deferred / future enhancements
 
