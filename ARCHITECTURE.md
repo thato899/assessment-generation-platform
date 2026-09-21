@@ -173,3 +173,10 @@ schematic geometry, escapes labels, sanitizes SVG IDs, and emits no solver,
 generator, question, API, or external-resource content. `SvgDocument` is a
 small shared return contract so this renderer does not import another
 subject's solver module.
+
+Issue #78 adds the solver-backed M5 calculation-question generator. It maps
+each generated family to one canonical `QuestionPart`, reads every numeric
+`ExpectedAnswer` from `WorkEnergySolver`, exposes only authored givens in
+prompts and learner-safe scenario metadata, and optionally attaches an Issue
+#77 `VisualReference`. It does not calculate physics, mutate authored
+scenarios, add API routing, or implement conceptual questions.

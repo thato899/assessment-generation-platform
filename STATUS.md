@@ -6,7 +6,7 @@ Last updated: 2026-09-21
 
 M4 - Newton's Laws - COMPLETE
 
-M5 - Work, Energy & Power - ISSUE #77 SVG RENDERING
+M5 - Work, Energy & Power - ISSUE #78 CALCULATION QUESTIONS
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -26,8 +26,9 @@ M4 is complete. PR #86 merged Issue #73 at
 `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged Issue #74 at
 `9fb5da21a41ec8385dffc20c4971e968efdad82e`. PR #88 merged Issue #75 at
 `4b7bc2220ea962f6f115232729a5e0ccb52d4856`; PR #89 merged Issue #76 at
-`2f0d3cb801bd8d29abca3bfa6d2f871bbe1f25bf`. Issue #77 is active on
-`feature/issue-77-work-energy-power-svg-renderer`; #78 onward remain backlog.
+`2f0d3cb801bd8d29abca3bfa6d2f871bbe1f25bf`; PR #90 merged Issue #77 at
+`045a4c587b43d939e3dc70296e95d5bd3a708b04`. Issue #78 is active on
+`feature/issue-78-work-energy-power-calculation-questions`; #82 onward remain backlog.
 
 ## Completed
 
@@ -63,16 +64,16 @@ M4 is complete. PR #86 merged Issue #73 at
   Issue #59 solver-backed calculation questions and Issue #60 conceptual questions
   are merged and closed; Issue #61 application/API integration and Issue #62
   final verification are merged and closed. M4 is complete; Issues #75 and
-  #76 are merged and Issue #77 is the active M5 SVG slice. #78 onward remain
-  backlog.
+  #76 and #77 are merged. Issue #78 is the active M5 calculation-question
+  slice; #82 onward remain backlog.
 
 ## Blocked
 
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- Complete Issue #77, open its review PR, and leave it unmerged. Do not begin
-  Issue #78 in this execution.
+- Complete Issue #78, open its review PR, and leave it unmerged. Do not begin
+  Issue #82 in this execution.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
@@ -81,8 +82,9 @@ M4 is complete. PR #86 merged Issue #73 at
   for the exact Grade 11 `newtons-laws` route. Local `pip-audit --local` reports
   pre-existing advisories in environment packages; repository CI is the
   authoritative dependency gate. M5 later pipeline layers remain deferred to
-  #78 onward; #75 contains the numerical authority, #76 owns deterministic
-  authored scenario generation, and #77 owns authored-only SVG.
+  #82 onward; #75 contains the numerical authority, #76 owns deterministic
+  authored scenario generation, #77 owns authored-only SVG, and #78 owns
+  calculation question packaging.
 
 ## Test/CI status
 
@@ -210,8 +212,9 @@ M4 is complete. PR #86 merged Issue #73 at
   `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged #74 at
   `9fb5da21a41ec8385dffc20c4971e968efdad82e`. PR #88 merged Issue #75 at
   `4b7bc2220ea962f6f115232729a5e0ccb52d4856`; PR #89 merged Issue #76 at
-  `2f0d3cb801bd8d29abca3bfa6d2f871bbe1f25bf`; #77 is active on
-  `feature/issue-77-work-energy-power-svg-renderer`; #78 onward remain backlog.
+  `2f0d3cb801bd8d29abca3bfa6d2f871bbe1f25bf`; PR #90 merged #77 at
+  `045a4c587b43d939e3dc70296e95d5bd3a708b04`; #78 is active on
+  `feature/issue-78-work-energy-power-calculation-questions`; #82 onward remain backlog.
 - Existing Momentum & Impulse and projectile API behavior is preserved; Newton routing
   is now supported only for the exact Grade 11 route.
 - Project board: blocked/not created; verify permissions before creating one.

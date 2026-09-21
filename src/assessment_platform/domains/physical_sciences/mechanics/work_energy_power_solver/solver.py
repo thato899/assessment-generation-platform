@@ -11,6 +11,7 @@ from ..work_energy_power import (
     AlongPlaneWorkInput,
     AveragePowerInput,
     ConstantSpeedPowerInput,
+    Displacement,
     GravitationalFieldMagnitude,
     HeightState,
     KineticEnergy,
@@ -19,7 +20,9 @@ from ..work_energy_power import (
     MechanicalEnergyContext,
     NetWorkInput,
     PumpingPowerInput,
+    RelativeHeight,
     SignedEnergy,
+    SignedForce,
     Speed,
     UnknownValue,
     WorkContribution,
@@ -111,8 +114,6 @@ class WorkEnergySolver:
         force = _known(authored.resultant_force, "along-plane resultant force")
         displacement = _known(authored.displacement, "along-plane displacement")
         value = operation(lambda: force * displacement, "along-plane work overflow")
-        from ..work_energy_power import Displacement, SignedForce
-
         return AlongPlaneWorkResult(
             SignedForce(force), Displacement(displacement), SignedEnergy(value)
         )
@@ -320,8 +321,6 @@ class WorkEnergySolver:
                     "final kinetic energy overflow",
                 )
                 speed = self._target_speed(target, mass, "final speed")
-                from ..work_energy_power import Speed
-
                 final = replace(final, speed=Speed(speed))
                 final_ke = self.kinetic_energy(final).kinetic_energy
             elif initial_speed_unknown:
@@ -339,8 +338,6 @@ class WorkEnergySolver:
                     "initial kinetic energy overflow",
                 )
                 speed = self._target_speed(target, mass, "initial speed")
-                from ..work_energy_power import Speed
-
                 initial = replace(initial, speed=Speed(speed))
                 initial_ke = self.kinetic_energy(initial).kinetic_energy
             elif final_height_unknown:
@@ -361,8 +358,6 @@ class WorkEnergySolver:
                     lambda: target / (float(mass.value) * float(final_field.value)),
                     "final height calculation overflow",
                 )
-                from ..work_energy_power import RelativeHeight
-
                 final_height = replace(final_height, height=RelativeHeight(height))
                 final_pe = self.potential_energy(mass, final_height).potential_energy
             else:
@@ -383,8 +378,6 @@ class WorkEnergySolver:
                     lambda: target / (float(mass.value) * float(initial_field.value)),
                     "initial height calculation overflow",
                 )
-                from ..work_energy_power import RelativeHeight
-
                 initial_height = replace(initial_height, height=RelativeHeight(height))
                 initial_pe = self.potential_energy(mass, initial_height).potential_energy
         else:
@@ -416,6 +409,8 @@ class WorkEnergySolver:
             initial_pe,
             final_pe,
             nonconservative,
+            initial.speed if isinstance(initial.speed, Speed) else None,
+            final.speed if isinstance(final.speed, Speed) else None,
         )
 
     def average_power(self, authored: AveragePowerInput) -> PowerResult:

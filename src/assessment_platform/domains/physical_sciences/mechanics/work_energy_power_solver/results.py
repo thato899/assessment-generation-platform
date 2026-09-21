@@ -176,6 +176,8 @@ class MechanicalEnergyResult:
     initial_potential_energy: SignedEnergy
     final_potential_energy: SignedEnergy
     non_conservative_work: SignedEnergy
+    initial_speed: Speed | None = None
+    final_speed: Speed | None = None
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "initial_state_id", _id(self.initial_state_id, "initial state ID"))
@@ -193,6 +195,10 @@ class MechanicalEnergyResult:
         ):
             if not isinstance(getattr(self, name), SignedEnergy):
                 raise ValueError(f"{name} must be SignedEnergy")
+        for name in ("initial_speed", "final_speed"):
+            value = getattr(self, name)
+            if value is not None and not isinstance(value, Speed):
+                raise ValueError(f"{name} must be Speed or None")
 
 
 @dataclass(frozen=True, slots=True)
