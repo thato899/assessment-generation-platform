@@ -227,7 +227,7 @@ complete.
   PR #70 merged at `f0e5a46e8c6f985945aff4427f79fca1de1b009d`; Issue #60 is closed.
   PR #71 merged at `7a3d8b835df770166f69c62a722ab63508aabb6f`; Issue #61 is
   closed. PR #72 merged at `20b763ccde63ede025d97c3ee2aa772400e1b9f5`; Issue
-  #62 is closed. Milestone `M5 - Work, Energy & Power` (#7) is open and the
+  #62 is closed. Milestone `M5 - Work, Energy & Power` (#7) is closed and the
   planning branch `docs/m5-work-energy-power-planning` merged via PR #85 at
   `a0e0dd4cf75156f53a5c4adc148c03e0e6badfdf`, and PR #86 merged #73 at
   `17e6147c6fd2e60a74e94b9c99d2b8dbc897dd34`; PR #87 merged #74 at
