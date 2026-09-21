@@ -6,6 +6,7 @@ solver, generation, rendering, question, or API code. The merged #75 solver
 derives numerical results from these facts, and the #76 factory creates
 deterministic authored scenarios accepted by that solver.
 Issue #77 renders these authored facts through an independent safe SVG presentation layer.
+Issue #78 packages solver-derived answers without mutating these authored facts.
 
 ## Boundary and invariants
 

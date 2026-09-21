@@ -101,6 +101,11 @@ accepted or silently recomputed downstream.
 All results are frozen and slotted. Repeated calls with the same authored
 objects return equal values and do not touch global state or randomness.
 
+`MechanicalEnergyResult` also carries resolved initial and final `Speed`
+values when available. This exposes an already-solved final-speed target to
+Issue #78 without duplicating a square-root calculation outside the numerical
+authority.
+
 ## Dependency and exclusions
 
 The package imports only Python standard library, the core validation result,

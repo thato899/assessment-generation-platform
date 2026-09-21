@@ -2,6 +2,8 @@
 
 Issue #77 adds authored-only technical SVG presentation; see
 [work-energy-power-rendering.md](work-energy-power-rendering.md). Question generation remains #78.
+Calculation-question packaging is documented in
+[work-energy-power-question-generation.md](work-energy-power-question-generation.md).
 
 ## Curriculum identity
 

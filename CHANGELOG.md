@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Implement Issue #78's solver-backed Work, Energy & Power calculation-question
+  generator. Add exhaustive family templates, exact solver-derived numeric
+  answers, authored-only prompts and metadata, stable provenance and IDs,
+  marking schemes, optional Issue #77 visuals, and safe refusal handling.
+
 - Implement Issue #77's safe deterministic Work, Energy & Power technical SVG
   renderer. Add explicit authored diagram kinds, allowlisted visibility,
   fixed-magnitude geometry, accessibility metadata, XML escaping, ID

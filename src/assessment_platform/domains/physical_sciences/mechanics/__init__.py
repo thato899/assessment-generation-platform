@@ -211,6 +211,21 @@ from .work_energy_power_generation import (
 from .work_energy_power_generation import (
     POLICY_VERSION as WORK_ENERGY_GENERATION_POLICY_VERSION,
 )
+from .work_energy_power_question_generator import (
+    GENERATOR_ID as WORK_ENERGY_QUESTION_GENERATOR_ID,
+)
+from .work_energy_power_question_generator import (
+    GENERATOR_VERSION as WORK_ENERGY_QUESTION_GENERATOR_VERSION,
+)
+from .work_energy_power_question_generator import (
+    NUMERIC_TOLERANCE as WORK_ENERGY_QUESTION_NUMERIC_TOLERANCE,
+)
+from .work_energy_power_question_generator import (
+    WorkEnergyCalculationQuestionGenerator,
+    WorkEnergyCalculationTemplate,
+    WorkEnergyQuestionGenerator,
+    WorkEnergyQuestionOptions,
+)
 from .work_energy_power_solver import (
     SOLVER_ID as WORK_ENERGY_SOLVER_ID,
 )
@@ -396,4 +411,11 @@ __all__ = [
     "WorkEnergyGenerationInput",
     "WorkEnergyGenerationPolicy",
     "WorkEnergyProblemFactory",
+    "WORK_ENERGY_QUESTION_GENERATOR_ID",
+    "WORK_ENERGY_QUESTION_GENERATOR_VERSION",
+    "WORK_ENERGY_QUESTION_NUMERIC_TOLERANCE",
+    "WorkEnergyCalculationQuestionGenerator",
+    "WorkEnergyCalculationTemplate",
+    "WorkEnergyQuestionGenerator",
+    "WorkEnergyQuestionOptions",
 ]
