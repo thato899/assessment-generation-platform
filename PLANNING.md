@@ -9,7 +9,18 @@ Provide a versioned API that produces validated CAPS assessments from determinis
 - **M2** Physical Sciences: Vertical Projectile Motion — scenario, solver, renderer, questions, rubric.
 - **M3** Momentum & Impulse (complete); **M4** Newton's Laws (complete);
   **M5** Work, Energy & Power (complete).
-- **M6** Mathematics Foundation; **M7** Mathematics: Functions.
+- **M6** Mathematics Foundation (planning); **M7** Mathematics: Functions.
+
+## M6 Mathematics Foundation planning
+
+M6 planning starts after M5 closeout. The scope contract, proposed dependency
+sequence, architectural boundaries, open contract questions, and explicit
+non-goals are recorded in
+[docs/planning/m6-mathematics-foundation.md](docs/planning/m6-mathematics-foundation.md).
+This planning slice adds no Mathematics runtime implementation, API route,
+question generator, or Physics refactor. The M6 milestone currently has no
+implementation issues; issue creation and implementation remain gated on
+review of the planning PR.
 
 ## M3 preparation: Momentum & Impulse
 
