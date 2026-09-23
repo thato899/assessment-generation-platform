@@ -1,12 +1,14 @@
 # Status
 
-Last updated: 2026-09-21
+Last updated: 2026-09-22
 
 ## Current milestone
 
 M4 - Newton's Laws - COMPLETE
 
 M5 - Work, Energy & Power - COMPLETE
+
+M6 - Mathematics Foundation - PLANNING
 
 M3 - Momentum & Impulse — COMPLETE
 
@@ -76,8 +78,12 @@ complete.
 - GitHub Project and branch protection were not configured because the available CLI token does not expose project administration.
 ## Next tasks
 
-- M5 closeout is complete after PR #94. Keep M6 and later mathematics work
-  deferred until separately authorized.
+- M5 closeout is complete after PR #94. M6 planning is now the only authorized
+  mathematics activity; implementation remains deferred until the planning
+  contract is reviewed and approved.
+- The green Dependabot Actions update in PR #8 was merged as maintenance at
+  `1a49c0f`. Dependabot PRs #9, #11, and #12 remain open because their CI is
+  failing; they are not part of M6.
 - Keep marking, printable documents, learner submissions, and additional subject engines deferred.
 
 ## Known problems
