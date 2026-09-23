@@ -7,11 +7,7 @@ import json
 import sys
 
 from assessment_platform.application.physical_sciences_demo import (
-    MOMENTUM_TOPIC_ID,
-    NEWTON_TOPIC_ID,
     SUPPORTED_DEMO_TOPICS,
-    VERTICAL_PROJECTILE_TOPIC_ID,
-    WORK_ENERGY_POWER_TOPIC_ID,
     PhysicalSciencesDemoRequest,
     generate_demo,
 )
