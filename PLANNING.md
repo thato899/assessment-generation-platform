@@ -20,7 +20,9 @@ non-goals are recorded in
 This planning slice adds no Mathematics runtime implementation, API route,
 question generator, or Physics refactor. The M6 milestone currently has no
 implementation issues; issue creation and implementation remain gated on
-review of the planning PR.
+review of the planning PR. The Phase A CAPS placement and M6/M7 boundary
+contract is recorded in
+[docs/domains/mathematics-scope.md](docs/domains/mathematics-scope.md).
 
 ## M3 preparation: Momentum & Impulse
 

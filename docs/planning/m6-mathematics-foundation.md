@@ -9,8 +9,9 @@ implementation.
 
 The M6 GitHub milestone `M6 - Mathematics Foundation` exists and currently has
 no issues. This plan is intended to be reviewed before implementation issues
-are created or assigned. Dependabot maintenance remains separate from M6
-feature scope.
+are created or assigned. Phase A scope evidence is recorded in
+[`docs/domains/mathematics-scope.md`](../domains/mathematics-scope.md).
+Dependabot maintenance remains separate from M6 feature scope.
 
 ## Purpose and boundary
 
